@@ -426,3 +426,10 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# --- Project-specific ignores ---
+# keep docs local only
+docs/
+
+# never commit PID files
+*.pid
