@@ -101,8 +101,5 @@
 		<None Include="$(ModTargetsFile)" Link="Properties\Mod.targets" />
 	</ItemGroup>
 
-	<ItemGroup Condition="'$(Configuration)'=='Release'">
-		<Compile Remove="Utilities\DebugLocaleScan.cs" />
-	</ItemGroup>
 
 </Project>
