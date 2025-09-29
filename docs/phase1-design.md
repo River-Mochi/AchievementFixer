@@ -1,160 +1,121 @@
 # Achievement Fixer
 
-## Goal - Phase 1
-- Keep achievements working in Cities Skylines II even when the game is started with mods.
-- Active mods (not assets) will normally disqualify a save game for achievement completion.
+## Research & Design Notes
+- Goal: keep achievements working in **Cities: Skylines II** even when the game is started with mods.
+- Normally, any **active mods** (not assets) make achievements ineligible for that session.
 
-## Options Menu
+## What the mod does (Phase 1)
+- **Re-enables the achievements backend** right after each city finishes loading, and keeps it on during a short assert window.
+- **Removes the warning banner** (“Achievements are disabled because of mods.”) via a small localization override.
+- **Uses the game’s own localization** to show friendly, spaced, punctuated achievement names in the dropdown:
+  - Reads `Achievements.TITLE[<InternalName>]` from the active `LocalizationDictionary`.
+  - No title-case heuristics, no regex splitting, and no hardcoded exception list.
+- **Advanced tools** (Options → Advanced):
+  - Unlock selected achievement
+  - Clear (reset) selected achievement
+  - Debug: Reset **All** (wipe) — for testing only
 
-
-## Phase 1
-- This mod does not automatically give you the achievement, you still need to do the natural things required, e.g., build 10 parks in a single city to get "Groundskeeper".
-- Change the in-game UI text that claims “Achievements disabled…” 
-- unlock selected achievements directly.
-- reset achievement directly to not completed status.
-- This mod skips DLC achievements for DLCs players do not own. We don't meddle with that.
+> DLC achievements remain controlled by the base game and DLC ownership.
 
 ---
-<br><br>
-## Methods
-- Minimal, reliable, and easy to read. One setting (on/off), a short “assert window” after load to guard against late flips, optional watchdog for rare reports, and clear logging.
-- When a save finishes loading, then **enable** `PlatformManager.instance.achievementsEnabled = true`.
-- For a short period (default **~10 seconds** ≈ 600 frames), then **assert once per frame** to keep the flag `true`.
-- If the flag has been `true` for **30 consecutive frames** (stable), then **end early**.
-- Optional **watchdog** can continue to enforce afterwards (internal code, off by default, can be enabled if anyone reports a problem).
+
+## Methods (current)
+- On city load complete → set `PlatformManager.instance.achievementsEnabled = true`.
+- For a short window (**~5s = 300 frames**), re-assert once per frame if the flag flips off.
+- Clear logging of actions.
+- Localization for Options UI is provided via `IDictionarySource` per locale.
+- Achievement display names are resolved via **O(1)** lookups in `LocalizationManager.activeDictionary`
+  using keys like `Achievements.TITLE[MyFirstCity]`.
 
 ---
 
 ## Project Layout (files & classes)
-
 - **Namespace:** `AchievementFixer`
 - **Files:**
-  - `Mod.cs` — main mod entry point, logs, loads settings, adds `LocaleEN`, and registers the System to run.
-  - `Settings.cs` — `EnableAchievements` toggle (default ON)
-  - `Locale/LocaleEN.cs` — English strings for Settings UI.
-  - `AchievementFixerSystem.cs` — after loading, checks again to ensure achievements are still enabled (inherits `GameSystemBase`).
+  - `Mod.cs` — entry point; logging, localization sources, system registration, banner override.
+  - `Settings.cs` — Options UI (Main & Advanced), dropdown, unlock/reset actions.
+  - `AchievementFixerSystem.cs` — keeps `achievementsEnabled` true for ~5s after load (inherits `GameSystemBase`).
+  - `Locale/*.cs` — per-language Options UI strings (achievement titles come from the game).
+  - `AchievementDisplay.cs` — resolves titles via `Achievements.TITLE[InternalName]` lookups.
+  - `Utilities/DebugLocaleScan.cs` (**DEBUG builds only**) — scanner to find locale keys/values in the active dictionary.
 
 ---
 
 ## Key types & APIs (dnSpyEX research)
 
-| Type / Member | Kind | Why we use it |
+| Type / Member | Kind | Advantages |
 |---|---|---|
-| `GameSystemBase` | Base class | to hook game lifecycle and `OnUpdate()`. |
-| `GameSystemBase.OnGameLoadingComplete(Purpose, GameMode)` | Method | Best moment to start short assert window. |
-| `GameSystemBase.OnUpdate()` | Method | Runs every frame; we enforce during the window. |
-| `Colossal.PSI.Common.PlatformManager.instance` | Singleton | Holds `achievementsEnabled`. |
-| `PlatformManager.achievementsEnabled : bool` | Field/prop | single flag that disables/enables achievements backends. |
-| `LogManager.GetLogger(...).SetShowsErrorsInUI(false)` | Logging | Traceable uses \Logs\modName.log |
-| `GameManager.instance.localizationManager.AddSource("en-US", new LocaleEN(...))` | Localization | Register English strings. |
-| `ModSetting` + `SettingsUI*` attributes | Settings UI | build checkbox toggles & Options menu without a custom UI. |
-| `AssetDatabase.global.LoadSettings(modName, setting, new Setting(mod))` | Settings | Persist user settings between sessions. |
-| `Game.UI.InGame.AchievementsUISystem` | UISystemBase | Builds the Achievements tab UI, wires bindings. |
-| `AchievementsUISystem.GetAchievementTabStatus()` | Method | Decides which warning state (Available, Hidden, ModsDisabled, OptionsDisabled) is shown. |
-| `GetterValueBinding<int>("achievements", "achievementTabStatus", ...)` | Binding | Exposes tab status to the UI. |
-| `IAchievement` / `PlatformManager.instance.EnumerateAchievements()` | API | Enumerates names, descriptions, progress, and icons. |
-| `_c.Menu.ACHIEVEMENTS_WARNING_*` keys | Localization keys | Text for warning messages (“disabled because mods…”, etc.). |
-| `Media/Game/Achievements/*.png` | Assets | Icons used in the Achievements tab. Color = achieved; `_locked` = grayscale locked state. |
-| `CityConfigurationSystem.usedMods.Count` | Field | Used by `AchievementsUISystem.GetAchievementTabStatus()` to decide ModsDisabled status. |
-| `Achievements` (static IDs) | Data | Contains all achievement IDs. |
-| `AchievementTriggerSystem` | System | Enforces progress, also ANDs `achievementsEnabled` with mod/option flags on load. |
+| `GameSystemBase` | Base class | Lifecycle hooks and `OnUpdate()` integration. |
+| `GameSystemBase.OnGameLoadingComplete(Purpose, GameMode)` | Method | Reliable moment to enable backend and start short assert window. |
+| `GameSystemBase.OnUpdate()` | Method | Per-frame enforcement during the window. |
+| `Colossal.PSI.Common.PlatformManager.instance` | Singleton | Central control for `achievementsEnabled`; achievement enumeration. |
+| `PlatformManager.achievementsEnabled : bool` | Field/prop | Master switch the game ANDs with mod/option flags. |
+| `PlatformManager.EnumerateAchievements()` / `IAchievement` | API | Access to IDs, `internalName`, progress. |
+| `Colossal.Localization.LocalizationManager` | Service | Manages locales and exposes the active `LocalizationDictionary`. |
+| `LocalizationDictionary.TryGetValue(key, out value)` | Method | Fast, allocation-light lookup for `Achievements.TITLE[...]`. |
+| `IDictionarySource` | Interface | Minimal, safe layering of custom UI strings per locale. |
+| `GameManager.instance.localizationManager.AddSource(locale, source)` | Method | Late-binding of small overrides without patching vanilla code. |
+| `Game.UI.InGame.AchievementsUISystem` | UISystemBase | Vanilla achievements panel (icons and progress). |
+| `_c.Menu.ACHIEVEMENTS_WARNING_*` keys | Localization keys | Targeted string override for the “mods disabled” banner. |
+| `Media/Game/Achievements/*.png` | Assets | Consistent icon naming: `<internalName>.png`, plus `_locked` variant. |
+| `CityConfigurationSystem.usedMods.Count` | Field | Drives vanilla “ModsDisabled” tab state. |
+| `Achievements` (static IDs) | Data | Canonical achievement identifiers (e.g., `MyFirstCity`, `AllSmiles`). |
+| `AchievementTriggerSystem` | System | Vanilla ANDs `achievementsEnabled` with option flags on load. |
 
-> **Note:** Game code includes `Colossal.PSI.Common.AchievementsHelper` (plural). Our namespace `AchievementFixer` (singular) is distinct; no conflict.
+> `AchievementsHelper` is useful for metadata but not required for titles when localization keys are available.
 
 ---
 
-## UI / Localization Hooks
+## UI / Localization Hooks (implemented)
+- **Banner override**: add a tiny `IDictionarySource` redefining `Menu.ACHIEVEMENTS_WARNING_MODS` (and siblings if desired).
+- **Achievement titles**:  
+  `localizationManager.activeDictionary.TryGetValue($"Achievements.TITLE[{internalName}]", out value)`  
+  and display `value` (already spaced, cased, and punctuated).
 
-- Warning messages in the Achievements tab are **not hard-coded strings**; they’re pulled from localization keys:
-  - `Menu.ACHIEVEMENTS_WARNING_MODS`
-  - `Menu.ACHIEVEMENTS_WARNING_OPTIONS`
-  - (plus PlayStation variants, not relevant on PC)
-
-- **Override strategy:** Provide a replacement localization source (e.g., via `MemoryLocalizationSource`) that redefines those keys. This replaces the in-game warning without patching `AchievementsUISystem` directly.
-  - Example override text: `“Achievements are enabled by Achievement Fixer.”`
-  - To hide entirely, set the override value to an empty string `""`.
-
-- **Optional hide strategy:** Add a tiny CSS asset to hide the warning element if desired. This avoids Harmony but removes the banner visually.
-
-- **Future extension:** Enumerating `IAchievement` objects lets the mod display a custom Achievements panel if needed (names, descriptions, progress, icons are all available).
+### Debug helper: `DebugLocaleScan.cs`
+- is a tool used in DEBUG builds that can log useful info:
+- Counts of `Achievements.TITLE[...]` and `Achievements.DESCRIPTION[...]` keys.
+- Arbitrary value-substring matches to discover unknown keys for future mods.
 
 ---
 
-**Performance**
-- While active: 1–2 property checks per frame for at most ~10s (or until early exit).
-- After that: zero cost (unless watchdog is enabled).
+## Performance
+- ~1–2 property checks per frame for ~5s after city load; then zero cost.
+- Title resolution is **O(1)** dictionary lookup; performed when building the dropdown.
 
-**Compatibility & Risks**
-- We only set a single engine flag; extremely low chance of conflict.
-- If another mod continually sets the flag to false after our short window, then enabling optional `watchdog` can catch it (hardcoded and off by default).
-- We do not touch saves, achievement definitions, or DLC logic.
+## Compatibility & Risks
+- Save data, achievement definitions, and DLC logic are untouched.
+- Low conflict surface: a single engine flag plus minimal localization overlays.
 
 ---
 
-Game API: PlatformManager, AchievementId, AchievementsHelper, GameManager, Game.Settings.*, Game.UI.Widgets.*, WorldSystemFilter, GameSystemBase, etc.
+## Algorithm (current)
 
-Custom code: AchievementFixerSystem, AchievementDisplay, Settings, Mod, LocaleEN, MemoryLocalizationSource.
+- `kAssertFrames = 300` (≈5s @ 60 FPS)
 
-## Algorithm
-
-Let:
-- `kAssertFrames = 600` (≈10s @ 60 FPS)
-- `kStableFramesToExit = 30`
-- `kWatchdogAfterWindow = false`
-
-```text
 OnGameLoadingComplete:
-  if !Settings.EnableAchievements -> return
-  framesLeft = kAssertFrames
-  stableTrueFrames = 0
-  ForceEnableIfNeeded("OnGameLoadingComplete")
-  log: "Assert window started..."
+framesLeft = kAssertFrames
+ForceEnableIfNeeded("OnGameLoadingComplete")
 
 OnUpdate:
-  if !Settings.EnableAchievements -> return
-  if framesLeft > 0:
-    hadToFlip = ForceEnableIfNeeded("OnUpdate")
-    if hadToFlip: stableTrueFrames = 0
-    else: stableTrueFrames = min(stableTrueFrames + 1, kStableFramesToExit)
-    if stableTrueFrames >= kStableFramesToExit:
-      log: "Early-exit: stable TRUE for 30 frames"
-      framesLeft = 0
-      return
-    framesLeft--
-    if framesLeft % 60 == 0: log.debug heartbeat
-  else if kWatchdogAfterWindow:
-    ForceEnableIfNeeded("Watchdog")
+if framesLeft > 0:
+ForceEnableIfNeeded("OnUpdate")
+framesLeft--
 
-ForceEnableIfNeeded(source):
-  if PlatformManager.instance == null:
-    log.debug($"{source}: PlatformManager null; skip")
-    return false
-  if !PlatformManager.instance.achievementsEnabled:
-    log.warn($"{source}: Detected FALSE; forcing TRUE")
-    PlatformManager.instance.achievementsEnabled = true
-    return true
-  return false
+`ForceEnableIfNeeded(source)`:
+
+if PlatformManager.instance != null and !achievementsEnabled:
+set achievementsEnabled = true
+log("forced TRUE")
 
 
-Addendum — dnSpy findings (for Phase 2)
+---
 
-AchievementsUISystem.GetAchievementTabStatus() logic:
+## APIs to remember (for future mods)
+- `LocalizationManager.activeDictionary.entries` — enumerate all keys/values in the active locale.
+- `LocalizationDictionary.TryGetValue(key, out value)` — fast lookup for `Achievements.TITLE[<InternalName>]`.
+- `GameManager.instance.localizationManager.AddSource(localeId, IDictionarySource)` — layer small overrides safely.
+- `PlatformManager.instance.EnumerateAchievements()` — access `IAchievement` items (IDs, `internalName`, progress).
+- `PlatformManager.instance.achievementsEnabled` — single switch that enables/disables platform achievements.
 
-0 = Available
-1 = Hidden
-2 = ModsDisabled (if usedMods.Count > 0)
-3 = OptionsDisabled (if achievementsEnabled == false)
 
-Icons:
-Path: Cities2_Data/Content/Game/UI/Media/Game/Achievements/
-Naming: <internalName>.png = color, <internalName>_locked.png = grayscale.
-
-Warnings:
-_c.Menu.ACHIEVEMENTS_WARNING_MODS, _c.Menu.ACHIEVEMENTS_WARNING_OPTIONS, _c.Menu.ACHIEVEMENTS_WARNING_DEBUGMENU.
-Safe to override these locale keys instead of patching.
-
-Achievements are global, not per-save.
-PlatformManager.instance.EnumerateAchievements() provides the list; progress and unlock state are tracked by the platform layer globally.
-
-Future Phase 2:
-AchievementTriggerSystem.OnGameLoaded currently ANDs achievementsEnabled with game option flags. If we ever decide to truly bypass restrictions (not just hide the warning), that’s the code path to study/patch.
