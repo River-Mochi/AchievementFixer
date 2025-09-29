@@ -22,16 +22,16 @@ namespace AchievementFixer
 
     public class Settings : ModSetting
     {
-        // ---- Tabs / Groups ----
+        // ---- Tabs ----
         public const string MainTab = "Main";
         public const string AdvancedTab = "Advanced";
 
-        // Main tab groups
+        // ---- Main Tab Groups ----
         public const string MainInfoGroup = "Info";
         public const string ButtonGroup = "Links";
         public const string NotesGroup = "Notes";
 
-        // Advanced tab groups
+        // ---- Advanced Tab Groups ----
         public const string AdvRowActions = "Actions";
         public const string AdvRowDebug = "Debug";
 
@@ -39,14 +39,14 @@ namespace AchievementFixer
 
         public Settings(IMod mod) : base(mod) { }
 
-        // Main: Name / Version
+        // ---- Main Meta ----
         [SettingsUISection(MainTab, MainInfoGroup)]
         public string NameDisplay => Mod.Name;
 
         [SettingsUISection(MainTab, MainInfoGroup)]
         public string VersionDisplay => Mod.VersionShort;
 
-        // Main: Wiki button
+        // Main Wiki button
         [SettingsUIButtonGroup(ButtonGroup)]
         [SettingsUIButton]
         [SettingsUISection(MainTab, ButtonGroup)]
@@ -60,7 +60,7 @@ namespace AchievementFixer
             }
         }
 
-        // Main tab: Notes (multiline; content by Locale)
+        // Main Tab: Notes (multiline; content by Locale)
         [SettingsUIMultilineText]
         [SettingsUISection(MainTab, NotesGroup)]
         public string MainNotes => string.Empty;
