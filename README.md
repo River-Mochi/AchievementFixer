@@ -1,22 +1,49 @@
-# Achievement Fixer
+﻿# Achievement Fixer
 
-## Goal
-- Keep achievements working in Cities Skylines II even when the game is started with mods.
-  - Active mods (not assets) will normally disqualify a save game for acheivement completion.
-- Complete the tasks to get the [achievement](https://cs2.paradoxwikis.com/Achievements), this enables the chance to get them.
-- City switching: checks each time a city finishes loading, so this mod works even when switching saves.
-- Ingame warning fix: this mod will stop the warning display of "Achievements are disabled because of mods."
-- Language switching: works even if you switch languages by reading the appropriate game localization dictionary.
+Keep achievements working in **Cities: Skylines II** even when you play with mods.  
+We keep the game from disabling the backend.
 
-### Parameters:
-- Just install the mod, EnableAchievements is ON by default, nothing extra needs to be done.
-- Do the natural things required, e.g., build 10 parks in a single city to get "Groundskeeper".
-- Safe to remove anytime as it does not touch saves.
+## What it does
+- **Enables achievements** even if mods are loaded.
+- Active mods (not assets) will normally disqualify any acheivement completion.
+- City switching: this mod works even when switching saves.
+- **Fixes the warning banner** (“Achievements are disabled because of mods.”) by sending a message to localization.
+- **Shows friendly achievement names** using the game’s own localization dictionary.
+- **Language switching**: works even if you switch languages by reading the game's locale dictionary.
+
+
+## How to use
+1. Install mod from Skyve or Paradox Mods.
+   - No configuration needed; we enable achievements by default.
+2. Do the tasks (e.g., build 10 parks to get *Groundskeeper*).  
+3. Safe to remove anytime; this mod doesn’t touch your saves.
+
+## Advanced tab (optional)
+- **Select achievement** → **Unlock selected**: immediately marks it completed.
+- **Clear selected**: resets a single achievement (back to not completed).
+- **Debug: RESET ALL**: wipes all achievement progress (useful for testing).  
+  If you click this by accident, you can unlock the ones you want again.
+
+## Languages
+- UI supports 10 languages: **EN, FR, DE, ES, IT, JA, KO, PT-BR, ZH-HANS, VI**.  
+- Drop-down Achievement names come from the game, so they match whatever language you use in the game (except for VI which does not currently have an ingame dictionary).
+- This mod currently supports 10 languages; the future plan is to add locale support for all the game languages.
+
+## Notes
 - Six additional achievements shown on Steam can not be acquired until Bridges & Ports DLC is released.
-- **Bonus options on the Advanced tab.**
+- If an achievement doesn’t pop right away, a game restart sometimes helps (CS2 quirk).
+- CS2 WiKi page all about **[achievements](https://cs2.paradoxwikis.com/Achievements)**.
 
+## Compatibility
+- Designed to be minimal and conflict-free: we only manage the platform flag and localization.
+- Safe to remove anytime; does not touch saves.
+- Should work with other mods, but avoid using other achievement mods at the same time.
 
-### Credits
-- Inspired by Wayzware's early version of [Achievement Enabler](https://github.com/Wayzware/AchievementEnabler) (no longer works).
-- StarQ for technical support
+## Thanks
+- Inspired by Wayzware's early [Achievement Enabler](https://github.com/Wayzware/AchievementEnabler) (no longer works).
+- Thanks to **StarQ** and the CS2 modding community for pointers and testing.
 
+## Links
+- 📘 [Achievements Wiki](https://cs2.paradoxwikis.com/Achievements)
+- 🧩 [Paradox Mods](https://mods.paradoxplaza.com/games/cities_skylines_2?orderBy=desc&sortBy=updated&tags=Code%20Mod&time=quarter)
+- 💻 [GitHub](https://github.com/River-Mochi/AchievementFixer)

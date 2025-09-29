@@ -4,22 +4,38 @@
 	<!--Name of the mod to display to players-->
 	<DisplayName Value="Achievement Fixer" />
 	<!--Short description of the mod-->
-	<ShortDescription Value="Allows players to get Achievements naturally even if you have mods installed." />
+	<ShortDescription Value="Earn achievements naturally even with mods enabled. Keeps the backend on, Enjoy :)" />
 	<!--Long description of the mod. Single line or multi line. Supports minimal markdown subset-->
-	<!--LongDescription Value="Achievement Fixer activates in game achievements system even if the game is started with mods installed. Normally CS2 disables all achievements if it detects any mods are installed." /-->
 	<LongDescription>
-Achievement Fixer activates in game achievements system even if the game is started with mods installed. Normally CS2 disables all achievements if it detects any mods are installed.
-How it works:
-- just install it and play the game normally while you rack up achievements.
+Achievement Fixer keeps the CS2 achievements active even when you have mods.
 
-Advanced tab: has several features if you want to do more.
-- Unlock achievement: select the achievement you want and unlock it which will mark it as completed
-- Reset achievement: clear or reset the selected achievement to mark it as **not completed**
-- if you make a mistake, just use  [Unlock] or [Reset] as needed.
+**How it works**
+- Automatically re-enables achievements after a city loads.
+- Stops the in-game warning ("Achievements are disabled because of mods").
+- Uses the game’s own localization to show friendly achievement names.
+- Just having the mod installed allows you to earn achievements natually if you want the challenge.
+- If you want faster, see the Advanced tab.
 
-Debug options:
-- Reset All Achievements button clears out all achievements so they are all marked as "not complete".
-This is good for testing and debugging. If you use this by accident, you can always restore some achievements using [Unlock].
+**Advanced tab**
+- [Unlock Selected] marks a chosen achievement as completed.
+- [Clear Selected]  resets one achievement (back to not completed).
+- [Debug: Reset All] wipes out all achievements (useful for testing). If you click this by accident, just use [Unlock Selected] to restore them.
+
+Supports 10 languages:
+- English, Français (French), Deutsch (German), Español (Spanish), Italiano (Italian), 日本語 (Japanese)
+- 한국어 (Korean), Tiếng Việt (Vietnamese), Português (Brasil) (Brazilian Portuguese), 简体中文 (Simplified Chinese).
+- Future updates may add more languages.
+
+**Notes**
+- Some achievements shown on Steam are not available until DLC's are released (e.g., 6 from Bridges & Ports).
+- Safe to remove at any time; does not touch saves.
+- This mod does not use Reflection or Harmony, so it's safe/compatible, and less likely to break with every game update.
+
+**Credits**
+- made by RiverMochi
+- inspired by Wayze's old Achievement Enabler (defunct)
+- Thanks to StarQ and the modding community for technical help and testing.
+
 
 	</LongDescription>
 	<!--Thumbnail-->
@@ -40,8 +56,6 @@ This is good for testing and debugging. If you use this by accident, you can alw
 	<RequiredDLC Value="" />
 	<!--Change log for new version. Single line or multi line. Supports minimal markdown subset-->
 <ChangeLog Value="" />
-<!--<ChangeLog>
-</ChangeLog>-->
 	<!--External link, can be set multiple times. supported types are "discord", "github", "youtube", "twitch", "x", "paypal", "patreon", "buymeacoffee", "kofi", "crowdin", "gitlab", "gofundme"-->
 	<ExternalLink Type="github" Url="https://github.com/River-Mochi/AchievementFixer" />
 </Publish>
