@@ -25,7 +25,7 @@ namespace AchievementFixer
         // Add common locale variants
         internal static readonly string[] s_LocaleIds =
         {
-            "en-US","fr-FR","de-DE","es-ES","it-IT","ja-JP","ko-KR","vi-VN","zh-HANS",
+            "en-US","fr-FR","de-DE","es-ES","it-IT","ja-JP","ko-KR","vi-VN","pt-BR","zh-HANS",
         };
 
         public void OnLoad(UpdateSystem updateSystem)
@@ -49,6 +49,7 @@ namespace AchievementFixer
             AddLocale("ja-JP", new LocaleJA(settings));
             AddLocale("ko-KR", new LocaleKO(settings));
             AddLocale("vi-VN", new LocaleVI(settings));
+            AddLocale("pt-BR", new LocalePT_BR(settings));
             AddLocale("zh-HANS", new LocaleZH_CN(settings));
 
 
@@ -65,12 +66,24 @@ namespace AchievementFixer
             updateSystem.UpdateAfter<AchievementFixerSystem, AchievementTriggerSystem>(SystemUpdatePhase.MainLoop);
 
             var lm = GameManager.instance?.localizationManager;
-            if (lm != null) log.Info($"[Locale] Active: {lm.activeLocaleId}");
+            if (lm != null)
+            {
+                log.Info($"[Locale] Active: {lm.activeLocaleId}");  // log active locale
+                lm.onActiveDictionaryChanged += OnLocaleChanged;    // subscribe
+                log.Info("[Locale] Subscribed to onActiveDictionaryChanged.");  // to fix dropdown list refresh
+            }
         }
 
         public void OnDispose()
         {
             log.Info(nameof(OnDispose));
+
+            var lm = GameManager.instance?.localizationManager;
+            if (lm != null)
+            {
+                lm.onActiveDictionaryChanged -= OnLocaleChanged;    // unsubscribe
+            }
+
             if (Settings != null)
             {
                 Settings.UnregisterInOptionsUI();
@@ -86,7 +99,7 @@ namespace AchievementFixer
         }
 
         /// <summary>
-        /// Inject tiny localization map so game's banner key resolves to our text
+        /// Inject tiny locale map so game's banner key resolves to our text
         /// Map menu and Achievements panel no longer show "achievements disabled"
         /// </summary>
         private static void TryInstallWarningOverrideSource()
@@ -110,6 +123,28 @@ namespace AchievementFixer
             Mod.log.Info("Installed override for 'Achievements disabled because of mods.'");
         }
 
+        // Rebuild Options UI when active language changes so dropdown
+        // is re-populated from new dictionary
+        private void OnLocaleChanged()
+        {
+            try
+            {
+                if (Settings == null) return; // nothing to do
+
+                // keep what was selected
+                var keep = Settings?.SelectedAchievement;
+
+                Settings.UnregisterInOptionsUI();
+                Settings.RegisterInOptionsUI();
+
+                Settings.SelectedAchievement = keep; // restore
+                log.Info($"[Locale] Options UI rebuilt after locale change.");
+            }
+            catch (System.Exception ex)
+            {
+                log.Warn($"[Locale] Rebuild after locale change failed: {ex.GetType().Name}: {ex.Message}");
+            }
+        }
     }
     /// <summary> In-memory localization source </summary>
     // Helper - override banner localization key map

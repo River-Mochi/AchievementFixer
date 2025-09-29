@@ -20,16 +20,16 @@ namespace AchievementFixer
                 { m_Setting.GetSettingsLocaleID(), Mod.Name },
 
                 // Tabs
-                { m_Setting.GetOptionTabLocaleID(Settings.MainTab),     "主页"  },
-                { m_Setting.GetOptionTabLocaleID(Settings.AdvancedTab), "高级"  },
+                { m_Setting.GetOptionTabLocaleID(Settings.MainTab),     "主要" },
+                { m_Setting.GetOptionTabLocaleID(Settings.AdvancedTab), "高级" },
 
                 // Groups (Main tab)
-                { m_Setting.GetOptionGroupLocaleID(Settings.MainInfoGroup), "信息" },
-                { m_Setting.GetOptionGroupLocaleID(Settings.ButtonGroup),   "链接" },
-                { m_Setting.GetOptionGroupLocaleID(Settings.NotesGroup),    "说明" },
+                { m_Setting.GetOptionGroupLocaleID(Settings.MainInfoGroup), "信息"   },
+                { m_Setting.GetOptionGroupLocaleID(Settings.ButtonGroup),   "链接"   },
+                { m_Setting.GetOptionGroupLocaleID(Settings.NotesGroup),    "备注"   },
 
                 // Groups (Advanced tab)
-                { m_Setting.GetOptionGroupLocaleID(Settings.AdvRowActions), "操作" },
+                { m_Setting.GetOptionGroupLocaleID(Settings.AdvRowActions), "操作"   },
                 { m_Setting.GetOptionGroupLocaleID(Settings.AdvRowDebug),   "DEBUG" },
 
                 // Main >> Info
@@ -40,33 +40,46 @@ namespace AchievementFixer
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.VersionDisplay)),  "当前模组版本。" },
 
                 // Main >> Links
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.OpenAchievementsWikiButton)), "成就 Wiki" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.OpenAchievementsWikiButton)), "成就百科" },
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.OpenAchievementsWikiButton)),
-                  "在浏览器中打开成就 Wiki。" },
+                  "在浏览器中打开成就百科。" },
 
                 // Main >> Notes
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.MainNotes)), "已启用成就；按正常方式完成任务即可自然解锁。\n玩得开心！:)" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.MainNotes)), "注意：有时在满足条件后，需重启游戏成就才会显示。" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.MainNotes)),
+                    "说明：\n" +
+                    "• 现在已启用成就——只需按正常方式完成所需任务即可获得。\n" +
+                    "• 祝玩得开心！:)\n\n" +
+                    "• Steam 会列出 6 个成就，需等到 “Bridges & Ports” DLC 发售后才可用。" },
+
+                { m_Setting.GetOptionDescLocaleID(nameof(Settings.MainNotes)),
+                    "注意：有时在满足条件后，成就可能需要重启游戏才会显示。" },
 
                 // --- Advanced tab ---
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.SelectedAchievement)), "选择成就" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.SelectedAchievement)), "选择一个要操作的成就。" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.SelectedAchievement)),   "选择成就" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Settings.SelectedAchievement)),    "选择要操作的成就。" },
 
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.UnlockSelectedAchievement)), "解锁所选" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.UnlockSelectedAchievement)), "**解锁并完成**所选成就。" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Settings.UnlockSelectedAchievement)),  "**解锁并完成**所选成就。" },
 
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ClearSelectedAchievement)), "清除所选" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.ClearSelectedAchievement)), "将所选成就标记为**未完成**。" },
-                { m_Setting.GetOptionWarningLocaleID(nameof(Settings.ClearSelectedAchievement)), "清除/重置此成就。\n\n继续？" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ClearSelectedAchievement)),  "清除所选" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Settings.ClearSelectedAchievement)),   "将所选成就标记为**未完成**。" },
+                { m_Setting.GetOptionWarningLocaleID(nameof(Settings.ClearSelectedAchievement)), "清除/重置此成就。\n\n是否继续？" },
 
                 // Advanced >> advisory text
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.AdvancedAdvisory)), "本模组已默认启用成就，无需使用“高级”选项卡中的按钮。\n如果想更快，请使用 [解锁所选] 按钮。" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.AdvancedAdvisory)), "使用 [重置全部] 时请小心。如果误触，可通过 [解锁所选] 取回成就。" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.AdvancedAdvisory)),
+                  "• 本模组已（默认）启用成就，无需使用“高级”选项卡中的按钮。\n" +
+                  "• 如果想更快生效，可尝试使用【解锁所选】。" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Settings.AdvancedAdvisory)),
+                    "使用【RESET ALL】请**谨慎**。若误操作，可通过【解锁所选】恢复已完成的成就。" },
 
-                // Advanced >> DEBUG (Clear All)
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ResetAllAchievements)), "重置所有成就" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.ResetAllAchievements)), "**警告**：清除/重置所有成就（用于调试/测试）。\n如果误操作，可用 [解锁所选] 取回成就。" },
-                { m_Setting.GetOptionWarningLocaleID(nameof(Settings.ResetAllAchievements)), "将所有成就重置为**未完成**的初始状态。继续？" },
+                // Advanced >> DEBUG
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ResetAllAchievements)),  "调试：全部重置" }, // Button label
+                { m_Setting.GetOptionDescLocaleID(nameof(Settings.ResetAllAchievements)),
+                    "**警告**：将重置所有成就。适用于调试/测试。\n" +
+                    "若误操作，可通过【解锁所选】恢复。" },
+
+                // Confirmation modal Yes/No
+                { m_Setting.GetOptionWarningLocaleID(nameof(Settings.ResetAllAchievements)), "警告：把所有成就重置为**未完成**状态。是否继续？" },
             };
         }
 

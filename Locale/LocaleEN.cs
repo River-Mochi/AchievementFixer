@@ -45,10 +45,11 @@ namespace AchievementFixer
                   "Open the achievements wiki in your browser." },
 
                 // Main >> Notes
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.MainNotes)), "Achievements are enabled now - just do the required tasks to naturally complete achievements.\n" +
-                "Enjoy! :)\n" +
-                "Advanced tab has additional options.\n\n" +
-                "There are 6 achievements in Steam that are not available until the Bridges & Ports DLC is released" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.MainNotes)),
+                    "Notes:\n" +
+                    "• Achievements are enabled now - just do the required tasks to naturally complete achievements.\n" +
+                    "• Enjoy! :)\n\n" +
+                    "• Steam lists 6 achievements that are not available until the Bridges & Ports DLC is released." },
 
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.MainNotes)),
                     "Note: sometimes after completing required tasks for an achievement, it might not appear until reboot of game." },
@@ -66,20 +67,19 @@ namespace AchievementFixer
 
                 // Advanced >> advisory text
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.AdvancedAdvisory)),
-                  "This mod already enables achievements (default)\n" +
-                  "without using any buttons in the Advanced tab.\n" +
-                  "If you want something faster, then try the [Unlock Selected] button." },
+                  "• This mod already enables achievements (default) without using any buttons in Advanced tab.\n" +
+                  "• If you want it faster, try the [Unlock Selected] button." },
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.AdvancedAdvisory)),
-                    "BE CAREFUL using the [Clear ALL] button. If you accidentally use it, you can recover completed achievements with the [Unlock Selected] button." },
+                    "**BE CAREFUL** using the [RESET ALL] button. If you accidentally use it, you can recover completed achievements with the [Unlock Selected] button." },
 
-                // Advanced >> DEBUG (Clear All)
+                // Advanced >> DEBUG
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ResetAllAchievements)),  "Debug: RESET ALL" }, //Button label
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.ResetAllAchievements)),
                     "**WARNING**: clears/resets ALL achievements. Useful to debug or for testers.\n" +
                     "If you accidentally use this, you can get achievements back by using the [Unlock Selected] button." },
 
                 // Confirmation modal Yes/No
-                { m_Setting.GetOptionWarningLocaleID(nameof(Settings.ResetAllAchievements)), "Warning Warning: RESET/CLEAR all achievements to a NOT complete, original status. Continue?" },
+                { m_Setting.GetOptionWarningLocaleID(nameof(Settings.ResetAllAchievements)), "Warning Warning: RESET/CLEAR all achievements to a NOT complete status. Continue?" },
             };
         }
 

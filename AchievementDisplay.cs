@@ -4,7 +4,7 @@ using Game.SceneFlow;        // GameManager
 namespace AchievementFixer
 {
     /// <summary>
-    /// Gets achievement display names via game's localization dictionary
+    /// Get achievement display names via game's localization dictionary
     /// If a key is missing, return the raw internal name.
     /// </summary>
     internal static class AchievementDisplay

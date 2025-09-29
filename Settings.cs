@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Colossal.IO.AssetDatabase;  // [FileLocation]
-using Colossal.PSI.Common;        // PlatformManager, AchievementId, AchievementsHelper
+using Colossal.PSI.Common;        // PlatformManager, AchievementId
 using Game.Modding;
 using Game.Settings;
 using Game.UI.Widgets;            // DropdownItem<T>
@@ -181,24 +181,19 @@ namespace AchievementFixer
             var pm = PlatformManager.instance;
             if (pm == null) return Array.Empty<DropdownItem<string>>();
 
-            // Get metadata (internal names)
-            var meta = AchievementsHelper.InitializeAchievements();
             var items = new List<DropdownItem<string>>();
 
             foreach (var a in pm.EnumerateAchievements())
             {
-                var internalName =
-                    (meta != null && meta.TryGetValue(a.id, out var attr) && !string.IsNullOrEmpty(attr.internalName))
-                        ? attr.internalName
-                        : a.id.ToString();
+                // Source of “MyFirstCity”, etc.
+                var internalName = a.internalName ?? a.id.ToString();
 
                 items.Add(new DropdownItem<string>
                 {
                     value = internalName,
-                    displayName = AchievementDisplay.Get(internalName)
+                    displayName = AchievementDisplay.Get(internalName)  // friendly name
                 });
             }
-
             return items.OrderBy(i => i.displayName.id, StringComparer.OrdinalIgnoreCase).ToArray();
         }
 
@@ -210,23 +205,19 @@ namespace AchievementFixer
 
             foreach (var a in pm.EnumerateAchievements())
             {
-                if (string.Equals(a.id.ToString(), selectedValue, StringComparison.OrdinalIgnoreCase))
+                // Primary: match by internalName (dropdown stores in value)
+                if (!string.IsNullOrEmpty(a.internalName) &&
+                    string.Equals(a.internalName, selectedValue, StringComparison.OrdinalIgnoreCase))
                 {
                     id = a.id;
                     return true;
                 }
-            }
 
-            var meta = AchievementsHelper.InitializeAchievements();
-            if (meta != null)
-            {
-                foreach (var kv in meta)
+                // Fallback: allow selecting by a.id.ToString() just in case
+                if (string.Equals(a.id.ToString(), selectedValue, StringComparison.OrdinalIgnoreCase))
                 {
-                    if (string.Equals(kv.Value.internalName, selectedValue, StringComparison.OrdinalIgnoreCase))
-                    {
-                        id = kv.Key;
-                        return true;
-                    }
+                    id = a.id;
+                    return true;
                 }
             }
             return false;
