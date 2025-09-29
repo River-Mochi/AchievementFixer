@@ -1,66 +1,26 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Policy;
-using System.Text.RegularExpressions;
+using Colossal.Localization;  // LocalizationManager
+using Game.SceneFlow;        // GameManager
 
 namespace AchievementFixer
 {
     /// <summary>
-    /// Formatting helper only. No game/UI references.
-    /// Converts internal name/ID => returns a nice display title.
+    /// Gets achievement display names via game's localization dictionary
+    /// If a key is missing, return the raw internal name.
     /// </summary>
     internal static class AchievementDisplay
     {
-        // Hard-fixes a few problematic titles; everything else gets simple split
-        private static readonly Dictionary<string, string> s_Overrides =
-            new(StringComparer.OrdinalIgnoreCase)
-            {
-                // problem titles
-                ["ALittleBitofTLC"] = "A Little Bit of TLC",
-                ["CallingtheShots"] = "Calling the Shots",
-                ["HappytobeofService"] = "Happy to be of Service",
-                ["OneofEverything"] = "One of Everything",
-                ["OutforaSpin"] = "Out for a Spin",
-                ["TopoftheClass"] = "Top of the Class",
-                ["WelcomeOneandAll"] = "Welcome One and All",
-                ["NowTheyreAllAshTrees"] = "Now They’re All Ash Trees",
-            };
-
-        // splitter: inserts spaces between CamelCase and digits.
-        private static readonly Regex s_SimpleSplit =
-            new(@"(?<!^)(?=[A-Z0-9])", RegexOptions.Compiled);
-
-        private static readonly HashSet<string> s_MidLower =
-            new(StringComparer.OrdinalIgnoreCase) { "of", "the", "to", "and", "in", "on", "for", "a", "an", "be", "or", "with" };
-
-        // Formatting only
-        public static string Get(string internalNameOrId)
+        public static string Get(string internalName)
         {
-            if (string.IsNullOrWhiteSpace(internalNameOrId)) return internalNameOrId ?? "";
+            if (string.IsNullOrWhiteSpace(internalName))
+                return string.Empty;
 
-            //  If we have the name, use it.
-            if (s_Overrides.TryGetValue(internalNameOrId, out var ov)) return ov;
+            var lm = GameManager.instance?.localizationManager as LocalizationManager;
+            var dict = lm?.activeDictionary;
+            if (dict != null && dict.TryGetValue($"Achievements.TITLE[{internalName}]", out var value) && !string.IsNullOrWhiteSpace(value))
+                return value;  // localized, spaced, correct casing, punctuation
 
-            // Otherwise, simple CamelCase split
-            var parts = s_SimpleSplit.Split(internalNameOrId);
-
-            // Title-case each word, except keep short words lowercased when in the middle
-            for (int i = 0; i < parts.Length; i++)
-            {
-                var p = parts[i];
-
-                // keep acronyms (ALLCAPS) as-is
-                bool isAcronym = p.Any(char.IsLetter) && p.ToUpperInvariant() == p;
-                if (isAcronym) continue;
-
-                if (i > 0 && i < parts.Length - 1 && s_MidLower.Contains(p))
-                    parts[i] = p.ToLowerInvariant();
-                else
-                    parts[i] = char.ToUpper(p[0]) + (p.Length > 1 ? p.Substring(1).ToLowerInvariant() : "");
-            }
-
-            return string.Join(" ", parts);
+            // Not found in dictionary → show raw ID to see misses during testing
+            return internalName;
         }
     }
 }

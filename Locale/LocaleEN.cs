@@ -73,12 +73,13 @@ namespace AchievementFixer
                     "BE CAREFUL using the [Clear ALL] button. If you accidentally use it, you can recover completed achievements with the [Unlock Selected] button." },
 
                 // Advanced >> DEBUG (Clear All)
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ResetAllAchievements)),  "RESET ALL ACHIEVEMENTS" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ResetAllAchievements)),  "Debug: RESET ALL" }, //Button label
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.ResetAllAchievements)),
                     "**WARNING**: clears/resets ALL achievements. Useful to debug or for testers.\n" +
-                    "If you accidentally use this button, you can get achievements back by using the [Unlock Selected] button." },
+                    "If you accidentally use this, you can get achievements back by using the [Unlock Selected] button." },
 
-                { m_Setting.GetOptionWarningLocaleID(nameof(Settings.ResetAllAchievements)), "RESET / CLEAR all achievements to the NOT complete, original status. Continue?" },
+                // Confirmation modal Yes/No
+                { m_Setting.GetOptionWarningLocaleID(nameof(Settings.ResetAllAchievements)), "Warning Warning: RESET/CLEAR all achievements to a NOT complete, original status. Continue?" },
             };
         }
 
