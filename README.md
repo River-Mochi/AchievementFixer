@@ -27,7 +27,7 @@ We keep the game from disabling the backend.
 ## Languages
 - UI supports 10 languages: **EN, FR, DE, ES, IT, JA, KO, PT-BR, ZH-HANS, VI**.  
 - Drop-down Achievement names come from the game, so they match whatever language you use in the game (except for VI which does not have an ingame dictionary).
-- This mod currently supports 10 languages; the future plan is to add locale support for all the game languages.
+- Future plan is to add locale support for all the game languages.
 
 ## Notes
 - Six additional achievements shown on Steam can not be acquired until Bridges & Ports DLC is released.
