@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Reflection;
 using Colossal;                        // IDictionarySource
 using Colossal.IO.AssetDatabase;       // AssetDatabase
 using Colossal.Logging;                // ILog, LogManager
@@ -17,14 +16,9 @@ namespace AchievementFixer
 
         public static Settings? Settings { get; private set; }
 
-        private static readonly Assembly s_Asm = Assembly.GetExecutingAssembly();
-        public static readonly string Name =
-            s_Asm.GetCustomAttribute<AssemblyTitleAttribute>()?.Title ?? "Achievement Fixer";
-
-        private static readonly string s_InfoRaw =
-            s_Asm.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion ?? "1.0.0";
-
-        public static readonly string VersionShort = s_InfoRaw.Split(' ', '+')[0];
+        // Single source for metadata name/version
+        public const string Name = "Achievement Fixer";
+        public const string VersionShort = "1.0.0";
 
         private static bool s_BannerLogged;
 
