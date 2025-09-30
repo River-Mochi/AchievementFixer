@@ -21,18 +21,6 @@
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
 
-	<ItemGroup>
-		<!-- Do not include doc folder in build; If anything tried to mark docs as Content, undo it -->
-		<Content Remove="docs\**\*.*" />
-
-		<!-- Keep docs as None, and never copy or pack -->
-		<None Update="docs\**\*.*">
-			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
-			<Pack>false</Pack>
-		</None>
-	</ItemGroup>
-
-
 	<PropertyGroup Condition="'$(Configuration)'=='Debug'">
 		<IncludeSourceRevisionInInformationalVersion>true</IncludeSourceRevisionInInformationalVersion>
 		<DefineConstants>TRACE;DEBUG</DefineConstants>
@@ -96,10 +84,44 @@
 		</Reference>
 	</ItemGroup>
 
+	<!-- Link CS2 Mod toolchain under Properties/ for convenience to read -->
 	<ItemGroup>
 		<None Include="$(ModPropsFile)" Link="Properties\Mod.props" />
 		<None Include="$(ModTargetsFile)" Link="Properties\Mod.targets" />
 	</ItemGroup>
 
+  <!-- DOCS: keep visible in Solution Explorer, exclude from build/output/pack (all configurations) -->
+  <ItemGroup>
+    <!-- Ensure nothing in docs/ becomes Compile or Content -->
+    <Compile Remove="docs\**\*.*" />
+    <Content Remove="docs\**\*.*" />
+
+    <!-- Re-add as None so files stay visible; never copy/pack -->
+    <None Include="docs\**\*.*">
+      <Visible>true</Visible>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <Pack>false</Pack>
+    </None>
+  </ItemGroup>
+
+  <!-- Utilities: compile in Debug; in Release keep visible but exclude from build/output/pack -->
+  <!-- RELEASE -->
+  <ItemGroup Condition="'$(Configuration)'=='Release'">
+    <!-- Stop SDK default glob (**/*.cs) from compiling Utilities -->
+    <Compile Remove="Utilities\**\*.cs" />
+    <!-- Nothing in Utilities is treated as Content in Release -->
+    <Content Remove="Utilities\**\*.*" />
+    <!-- Keep visible; never copy/pack -->
+    <None Include="Utilities\**\*.*">
+      <Visible>true</Visible>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <Pack>false</Pack>
+    </None>
+  </ItemGroup>
+
+  <!-- DEBUG -->
+  <ItemGroup Condition="'$(Configuration)'=='Debug'">
+    <Compile Include="Utilities\**\*.cs" />
+  </ItemGroup>
 
 </Project>

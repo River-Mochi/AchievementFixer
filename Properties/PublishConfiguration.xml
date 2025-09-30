@@ -38,8 +38,11 @@ Feedback / Bug Report: https://discord.gg/HTav7ARPs2
 
 **Credits**
 * RiverMochi - mod author
-* inspired by Wayze's old Achievement Enabler (defunct)
-* Thanks to StarQ and the modding community for technical help and testing.
+* inspired by Wayzeware's old Achievement Enabler (defunct)
+* StarQ for all technical help.
+* rcav8tr for method to find game localization keys.
+* and the CS2 modding community for pointers and testing.
+
 	</LongDescription>
 	<!--Thumbnail-->
 	<Thumbnail Value="Properties/Thumbnail.png" />

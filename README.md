@@ -21,31 +21,34 @@ We keep the game from disabling the backend.
 3. Safe to remove anytime; this mod doesn’t touch your saves.
 
 ## Advanced tab (optional)
-- **Select achievement** → **Unlock selected**: immediately marks it completed.
-- **Clear selected**: resets a single achievement (back to not completed).
-- **Debug: RESET ALL**: wipes all achievement progress (useful for testing).  
+- **Select achievement** →
+  - `[Unlock selected]` immediately marks it completed.
+  - `[Clear selected]`  resets a single achievement (back to not completed).
+- `[Debug: RESET ALL]` wipes all achievement progress (useful for testing).  
   If you click this by accident, you can unlock the ones you want again.
 
-## Languages
-- UI supports 10 languages: **EN, FR, DE, ES, IT, JA, KO, PT-BR, ZH-HANS, VI**.  
+## Language support
+- 9 languages: **EN, FR, DE, ES, IT, JA, KO, PT-BR, ZH-HANS  
 - Drop-down Achievement names come from the game, so they match whatever language you use in the game (except for VI which does not currently have an ingame dictionary).
-- The future plan is to add locale support for all the game languages.
+- Future plan to add locale support for all game languages. WIP: Tiếng Việt (Vietnamese)
 
 ## Notes
 - Six additional achievements shown on Steam can not be acquired until Bridges & Ports DLC is released.
 - If an achievement doesn’t pop right away, a game restart sometimes helps (CS2 quirk).
-- CS2 WiKi page all about **[achievements](https://cs2.paradoxwikis.com/Achievements)**.
 
 ## Compatibility
 - Designed to be minimal and conflict-free: we only manage the platform flag and localization.
+
 - Safe to remove anytime; does not touch saves.
-- Should work with other mods, but avoid using/installing other achievement mods at the same time.
+- Should work with other mods, but avoid using/installing any other achievement mods at the same time.
 
 ## Thanks
-- Inspired by Wayzware's early [Achievement Enabler](https://github.com/Wayzware/AchievementEnabler) (no longer works).
-- Thanks to **StarQ** and the CS2 modding community for pointers and testing.
+- Inspired by **Wayzware's** early [Achievement Enabler](https://github.com/Wayzware/AchievementEnabler) (defunct).
+- **rcav8tr** for code snippets to find localization keys.
+- **StarQ** for technical help.
+- and the CS2 modding community for pointers and testing.
 
 ## Links
-- 📘 [Achievements Wiki](https://cs2.paradoxwikis.com/Achievements)
+- 📘 [CS2 Achievements Wiki](https://cs2.paradoxwikis.com/Achievements)
 - 🧩 [Paradox Mods](https://mods.paradoxplaza.com/games/cities_skylines_2?orderBy=desc&sortBy=updated&tags=Code%20Mod&time=quarter)
 - 💻 [GitHub](https://github.com/River-Mochi/AchievementFixer)
