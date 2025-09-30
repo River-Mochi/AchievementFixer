@@ -27,21 +27,26 @@ Keeps the CS2 achievements active even when you have mods.
 * 한국어 (Korean), Português (Brasil) (Brazilian Portuguese), 简体中文 (Simplified Chinese).
 * Future updates may add more languages. WIP: Tiếng Việt (Vietnamese)
 
-### Notes
+## Notes
 * Safe to remove at any time; does not touch saves.
 * Some achievements shown on Steam are not available until DLC's are released (e.g., 6 from Bridges & Ports).
 * This mod does not use Reflection or Harmony, so it's safe/compatible, and less likely to break with every game update.
 
+## Support
+Find me on **Cities: Skylines Modding** Discord.
+Feedback / Bug Report: https://discord.gg/HTav7ARPs2
+
 **Credits**
-* made by RiverMochi
+* RiverMochi - mod author
 * inspired by Wayze's old Achievement Enabler (defunct)
 * Thanks to StarQ and the modding community for technical help and testing.
-
-</LongDescription>
+	</LongDescription>
 	<!--Thumbnail-->
 	<Thumbnail Value="Properties/Thumbnail.png" />
 	<!--Screenshot, can be set multiple times-->
-	<Screenshot Value="" />
+	<Screenshot Value="Properties/10-AF-AdvancedTab.jpg" />
+	<Screenshot Value="Properties/20-AF-AdvancedTab-FR.jpg" />
+	<Screenshot Value="Properties/30-AF-AdvancedTab-ZH_CN.jpg" />
 	<!--Tag, can be set multiple times-->
 	<Tag Value="Code Mod" />
 	<!--Link to the forum post where the mod can be discussed-->
@@ -57,5 +62,7 @@ Keeps the CS2 achievements active even when you have mods.
 	<!--Change log for new version. Single line or multi line. Supports minimal markdown subset-->
 <ChangeLog Value="" />
 	<!--External link, can be set multiple times. supported types are "discord", "github", "youtube", "twitch", "x", "paypal", "patreon", "buymeacoffee", "kofi", "crowdin", "gitlab", "gofundme"-->
+	<ExternalLink Type="discord" Url="https://discord.gg/HTav7ARPs2" />
 	<ExternalLink Type="github" Url="https://github.com/River-Mochi/AchievementFixer" />
+
 </Publish>
