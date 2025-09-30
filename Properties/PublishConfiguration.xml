@@ -6,35 +6,36 @@
 	<!--Short description of the mod-->
 	<ShortDescription Value="Earn achievements naturally even with mods enabled. Keeps the backend on, Enjoy :)" />
 	<!--Long description of the mod. Single line or multi line. Supports minimal markdown subset-->
-	<LongDescription>
-Achievement Fixer keeps the CS2 achievements active even when you have mods.
+	<LongDescription># Achievement Fixer
+Keeps the CS2 achievements active even when you have mods.
 
-**How it works**
-- Automatically re-enables achievements after a city loads.
-- Stops the in-game warning ("Achievements are disabled because of mods").
-- Uses the game’s own localization to show friendly achievement names.
-- Just having the mod installed allows you to earn achievements natually if you want the challenge.
-- If you want faster, see the Advanced tab.
+##How it works
+* Automatically re-enables achievements after a city loads.
+* Stops the in-game warning ("Achievements are disabled because of mods").
+* Just having the mod installed allows you to earn achievements natually if you want the challenge.
+* If you want faster, see the Advanced tab.
 
-**Advanced tab**
-- [Unlock Selected] marks a chosen achievement as completed.
-- [Clear Selected]  resets one achievement (back to not completed).
-- [Debug: Reset All] wipes out all achievements (useful for testing). If you click this by accident, just use [Unlock Selected] to restore them.
+## Advanced tab
+* [Unlock Selected] marks a chosen achievement as completed.
+* [Clear Selected]  resets one achievement (back to not completed).
+* [Debug: Reset All] wipes out all achievements (useful for testing). If you click this by accident, just use [Unlock Selected] to restore them.
+* Note: you do not need to use these buttons or any of the mod's extra features. Just have the mod installed and achievements will work normally.
 
-Supports 10 languages:
-- English, Français (French), Deutsch (German), Español (Spanish), Italiano (Italian), 日本語 (Japanese)
-- 한국어 (Korean), Tiếng Việt (Vietnamese), Português (Brasil) (Brazilian Portuguese), 简体中文 (Simplified Chinese).
-- Future updates may add more languages.
+## Supports 10 languages:
+* English, Français (French), Deutsch (German), Español (Spanish), Italiano (Italian), 日本語 (Japanese)
+* 한국어 (Korean), Tiếng Việt (Vietnamese), Português (Brasil) (Brazilian Portuguese), 简体中文 (Simplified Chinese).
+* Uses the game’s own localization to show achievement names in the player's default language.
+* Future updates may add more languages.
 
 **Notes**
-- Some achievements shown on Steam are not available until DLC's are released (e.g., 6 from Bridges & Ports).
-- Safe to remove at any time; does not touch saves.
-- This mod does not use Reflection or Harmony, so it's safe/compatible, and less likely to break with every game update.
+* Some achievements shown on Steam are not available until DLC's are released (e.g., 6 from Bridges & Ports).
+* Safe to remove at any time; does not touch saves.
+* This mod does not use Reflection or Harmony, so it's safe/compatible, and less likely to break with every game update.
 
 **Credits**
-- made by RiverMochi
-- inspired by Wayze's old Achievement Enabler (defunct)
-- Thanks to StarQ and the modding community for technical help and testing.
+* made by RiverMochi
+* inspired by Wayze's old Achievement Enabler (defunct)
+* Thanks to StarQ and the modding community for technical help and testing.
 
 
 	</LongDescription>
