@@ -20,19 +20,17 @@ This keeps the game from disabling the achievements backend.
 2. Do the tasks (e.g., build 10 parks to get *Groundskeeper*).  
 3. Safe to remove anytime; this mod doesn’t touch your saves.
 
-## Advanced tab (optional)
-- **Select achievement** →
-  - `[UNLOCK SELECTED]` immediately marks it completed.
-  - `[CLEAR SELECTED]`  resets a single achievement (back to not completed).
-- `[Debug: RESET ALL]` wipes all achievement progress (useful for testing).  
-  If you click this by accident, you can use the Unlock button to get them back.
-
-
 ## Supports 9+ languages
 * English, Français (French), Deutsch (German), Español (Spanish), Italiano (Italian), 日本語 (Japanese)
 * 한국어 (Korean), Português (Brasil) (Brazilian Portuguese), 简体中文 (Simplified Chinese).
 * Drop-down achievement names come from the game, so they match whatever game language you use (VI which does not currently have an in-game dictionary).
 * Future updates may add more languages. WIP: Tiếng Việt (Vietnamese)
+
+## Advanced tab (optional)
+- **Select achievement** →
+  - `[Unlock Selected]` immediately marks it completed.
+  - `[Clear Selected]`  resets a single achievement (back to not completed).
+- `[DEBUG: Reset All]` wipes all achievement progress (useful for testing).  If you click this by accident, you can use the Unlock button to get them back.
 
 ## Notes
 - Some achievements shown on Steam are not available until DLCs are released (e.g., 6 from Bridges & Ports).
