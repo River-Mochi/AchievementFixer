@@ -69,6 +69,7 @@ namespace AchievementFixer
             if (lm != null)
             {
                 log.Info($"[Locale] Active: {lm.activeLocaleId}");  // log active locale
+                lm.onActiveDictionaryChanged -= OnLocaleChanged;    // de-dupe in case already subscribed
                 lm.onActiveDictionaryChanged += OnLocaleChanged;    // subscribe
                 log.Info("[Locale] Subscribed to onActiveDictionaryChanged.");  // to fix dropdown list refresh
             }
