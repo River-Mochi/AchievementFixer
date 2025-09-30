@@ -67,8 +67,7 @@ namespace AchievementFixer
 
                 // Advanced >> advisory text
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.AdvancedAdvisory)),
-                  "• 本模组已（默认）启用成就，无需使用“高级”选项卡中的按钮。\n" +
-                  "• 如果想更快生效，可尝试使用【解锁所选】。" },
+                  "• 本模组已（默认）启用成就，无需使用“高级”选项卡中的按钮。\n" },
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.AdvancedAdvisory)),
                     "使用【调试： 全部重置】请**谨慎**。若误操作，可通过【解锁所选】恢复已完成的成就。" },
 

@@ -67,8 +67,7 @@ namespace AchievementFixer
 
                 // Advanced >> advisory text
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.AdvancedAdvisory)),
-                  "• Mod này đã bật thành tựu (mặc định) mà không cần dùng các nút trong tab Nâng cao.\n" +
-                  "• Nếu muốn nhanh hơn, hãy thử nút [Mở khóa mục đã chọn]." },
+                  "• Mod này đã bật thành tựu (mặc định) mà không cần dùng các nút trong tab Nâng cao.\n" },
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.AdvancedAdvisory)),
                     "**CẨN THẬN** khi dùng nút [Gỡ lỗi:  ĐẶT LẠI TẤT CẢ]. Nếu bấm nhầm, bạn có thể khôi phục bằng [Mở khóa mục đã chọn]." },
 

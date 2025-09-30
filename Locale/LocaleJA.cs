@@ -67,8 +67,7 @@ namespace AchievementFixer
 
                 // Advanced >> advisory text
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.AdvancedAdvisory)),
-                  "• この Mod は（既定で）実績を有効化します。［詳細］タブのボタンを使用する必要はありません。\n" +
-                  "• 早く反映したい場合は［選択した実績を解除］を試してください。" },
+                  "• この Mod は（既定で）実績を有効化します。［詳細］タブのボタンを使用する必要はありません。\n" },
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.AdvancedAdvisory)),
                     "［デバッグ： すべてリセット］の使用には**注意**してください。誤って実行した場合は、［選択した実績を解除］で回復できます。" },
 

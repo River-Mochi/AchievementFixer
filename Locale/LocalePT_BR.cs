@@ -67,8 +67,7 @@ namespace AchievementFixer
 
                 // Advanced >> advisory text
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.AdvancedAdvisory)),
-                  "• Este mod já ativa as conquistas (padrão) sem usar botões na guia Avançado.\n" +
-                  "• Se quiser mais rápido, experimente o botão [Desbloquear selecionado]." },
+                  "• Este mod já ativa as conquistas (padrão) sem usar botões na guia Avançado.\n" },
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.AdvancedAdvisory)),
                     "**CUIDADO** ao usar o botão [Depuração:  REDEFINIR TUDO]. Se você usá-lo por engano, pode recuperar conquistas com [Desbloquear selecionado]." },
 

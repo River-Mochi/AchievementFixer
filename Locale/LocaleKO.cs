@@ -67,8 +67,7 @@ namespace AchievementFixer
 
                 // Advanced >> advisory text
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.AdvancedAdvisory)),
-                  "• 이 모드는 이미 (기본값으로) 업적을 활성화합니다. 고급 탭의 버튼을 사용할 필요가 없습니다.\n" +
-                  "• 더 빠르게 반영하려면 [선택 항목 해제] 버튼을 사용해 보세요." },
+                  "• 이 모드는 이미 (기본값으로) 업적을 활성화합니다. 고급 탭의 버튼을 사용할 필요가 없습니다.\n" },
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.AdvancedAdvisory)),
                     "[디버그:  전체 초기화] 버튼 사용 시 **주의**하세요. 실수로 누른 경우 [선택 항목 해제]로 복구할 수 있습니다." },
 
