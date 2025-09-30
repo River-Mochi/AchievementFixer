@@ -9,7 +9,7 @@ We keep the game from disabling the backend.
 - City switching: this mod works even when switching saves.
 - **Fixes the warning banner** (“Achievements are disabled because of mods.”) by sending a message to localization.
 - **Shows friendly achievement names** using the game’s own localization dictionary.
-- **Language switching**: works even if you switch languages by reading the game's locale dictionary.
+- **Language switching**: works even if you switch languages (re-reads the game's locale dictionary).
 
 
 ## How to use
