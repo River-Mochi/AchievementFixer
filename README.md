@@ -20,6 +20,10 @@ This keeps the game from disabling the achievements backend.
 2. Do the tasks (e.g., build 10 parks to get *Groundskeeper*).  
 3. Safe to remove anytime; this mod doesn’t touch your saves.
 
+## Notes
+- Some achievements shown on Steam are not available until DLCs are released (e.g., 6 from Bridges & Ports).
+- If an achievement doesn’t pop right away, a game restart sometimes helps (CS2 quirk).
+
 ## Supports 9+ languages
 * English, Français (French), Deutsch (German), Español (Spanish), Italiano (Italian), 日本語 (Japanese)
 * 한국어 (Korean), Português (Brasil) (Brazilian Portuguese), 简体中文 (Simplified Chinese).
@@ -31,10 +35,6 @@ This keeps the game from disabling the achievements backend.
   - `[Unlock Selected]` immediately marks it completed.
   - `[Clear Selected]`  resets a single achievement (back to not completed).
 - `[DEBUG: Reset All]` wipes all achievement progress (useful for testing).  If you click this by accident, you can use the Unlock button to get them back.
-
-## Notes
-- Some achievements shown on Steam are not available until DLCs are released (e.g., 6 from Bridges & Ports).
-- If an achievement doesn’t pop right away, a game restart sometimes helps (CS2 quirk).
 
 ## Compatibility
 - Safe to remove anytime; does not touch saves.
