@@ -23,7 +23,7 @@ namespace AchievementFixer
         private static bool s_BannerLogged;
 
         // Add common locale variants
-        internal static readonly string[] s_LocaleIds =
+        private static readonly string[] s_LocaleIds =
         {
             "en-US","fr-FR","de-DE","es-ES","it-IT","ja-JP","ko-KR","pt-BR","zh-HANS","vi-VN",
         };
@@ -130,15 +130,16 @@ namespace AchievementFixer
         {
             try
             {
-                if (Settings == null) return; // nothing to do
+                var settings = Settings;
+                if (settings == null) return;
 
-                // keep what was selected
-                var keep = Settings?.SelectedAchievement;
+                // Non-null value for restore
+                var keep = settings.SelectedAchievement ?? string.Empty;
 
-                Settings.UnregisterInOptionsUI();
-                Settings.RegisterInOptionsUI();
+                settings.UnregisterInOptionsUI();
+                settings.RegisterInOptionsUI();
 
-                Settings.SelectedAchievement = keep; // restore
+                settings.SelectedAchievement = keep; // non-null now
                 Log.Info($"[Locale] Options UI rebuilt; restored selection: '{keep}'.");
             }
             catch (System.Exception ex)
@@ -146,6 +147,7 @@ namespace AchievementFixer
                 Log.Warn($"[Locale] Rebuild after locale change failed: {ex.GetType().Name}: {ex.Message}");
             }
         }
+
     }
     /// <summary> In-memory localization source </summary>
     // Helper - override banner localization key map

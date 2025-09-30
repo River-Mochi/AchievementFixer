@@ -70,7 +70,7 @@ namespace AchievementFixer
                   "• この Mod は（既定で）実績を有効化します。［詳細］タブのボタンを使用する必要はありません。\n" +
                   "• 早く反映したい場合は［選択した実績を解除］を試してください。" },
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.AdvancedAdvisory)),
-                    "［RESET ALL］の使用には**注意**してください。誤って実行した場合は、［選択した実績を解除］で回復できます。" },
+                    "［デバッグ： すべてリセット］の使用には**注意**してください。誤って実行した場合は、［選択した実績を解除］で回復できます。" },
 
                 // Advanced >> DEBUG
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ResetAllAchievements)),  "デバッグ： すべてリセット" }, // Button label

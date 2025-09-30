@@ -70,7 +70,7 @@ namespace AchievementFixer
                   "• Questa mod abilita già gli obiettivi (predefinito) senza usare i pulsanti nella scheda Avanzate.\n" +
                   "• Se vuoi forzare più rapidamente, prova il pulsante [Sblocca selezionato]." },
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.AdvancedAdvisory)),
-                    "**FAI ATTENZIONE** con il pulsante [RESET ALL]. Se lo premi per errore, puoi ripristinare gli obiettivi con [Sblocca selezionato]." },
+                    "**FAI ATTENZIONE** con il pulsante [DEBUG:  RESET TUTTO]. Se lo premi per errore, puoi ripristinare gli obiettivi con [Sblocca selezionato]." },
 
                 // Advanced >> DEBUG
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ResetAllAchievements)),  "DEBUG:  RESET TUTTO" }, // Button label

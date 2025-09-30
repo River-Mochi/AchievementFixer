@@ -70,7 +70,7 @@ namespace AchievementFixer
                   "• Mod này đã bật thành tựu (mặc định) mà không cần dùng các nút trong tab Nâng cao.\n" +
                   "• Nếu muốn nhanh hơn, hãy thử nút [Mở khóa mục đã chọn]." },
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.AdvancedAdvisory)),
-                    "**CẨN THẬN** khi dùng nút [RESET ALL]. Nếu bấm nhầm, bạn có thể khôi phục bằng [Mở khóa mục đã chọn]." },
+                    "**CẨN THẬN** khi dùng nút [Gỡ lỗi:  ĐẶT LẠI TẤT CẢ]. Nếu bấm nhầm, bạn có thể khôi phục bằng [Mở khóa mục đã chọn]." },
 
                 // Advanced >> DEBUG
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ResetAllAchievements)),  "Gỡ lỗi:  ĐẶT LẠI TẤT CẢ" }, // Button label

@@ -144,7 +144,7 @@ namespace AchievementFixer
         [SettingsUISection(AdvancedTab, AdvRowActions)]
         public string AdvancedAdvisory => string.Empty;
 
-        // Advanced: DEBUG section (Reset All)
+        // Advanced: DEBUG section (RESET All)
         [SettingsUIButton]
         [SettingsUIConfirmation]    // Yes/No Modal
         [SettingsUIButtonGroup(AdvRowDebug)]

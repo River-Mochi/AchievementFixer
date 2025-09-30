@@ -70,7 +70,7 @@ namespace AchievementFixer
                   "• Ce mod active déjà les succès (par défaut) sans utiliser les boutons de l’onglet Avancé.\n" +
                   "• Pour aller plus vite, essayez le bouton [Débloquer la sélection]." },
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.AdvancedAdvisory)),
-                    "**ATTENTION** lors de l’utilisation du bouton [RESET ALL]. En cas d’erreur, vous pouvez récupérer des succès via [Débloquer la sélection]." },
+                    "**ATTENTION** lors de l’utilisation du bouton [Débogage : TOUT RÉINITIALISER]. En cas d’erreur, vous pouvez récupérer des succès via [Débloquer la sélection]." },
 
                 // Advanced >> DEBUG
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ResetAllAchievements)),  "Débogage : TOUT RÉINITIALISER" }, // Button label

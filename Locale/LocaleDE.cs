@@ -70,7 +70,7 @@ namespace AchievementFixer
                   "• Dieses Mod aktiviert Erfolge bereits (Standard), ohne dass du die Schaltflächen im Reiter „Erweitert“ verwenden musst.\n" +
                   "• Wenn du es schneller willst, probiere die Schaltfläche [Ausgewählten freischalten]." },
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.AdvancedAdvisory)),
-                    "**VORSICHT** bei der Schaltfläche [RESET ALL]. Falls du sie versehentlich verwendest, kannst du Erfolge mit [Ausgewählten freischalten] wiederherstellen." },
+                    "**VORSICHT** bei der Schaltfläche [DEBUG:  ALLES ZURÜCKSETZEN]. Falls du sie versehentlich verwendest, kannst du Erfolge mit [Ausgewählten freischalten] wiederherstellen." },
 
                 // Advanced >> DEBUG
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ResetAllAchievements)),  "DEBUG:  ALLES ZURÜCKSETZEN" }, // Button label

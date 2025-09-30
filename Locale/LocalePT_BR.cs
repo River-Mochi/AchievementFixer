@@ -70,7 +70,7 @@ namespace AchievementFixer
                   "• Este mod já ativa as conquistas (padrão) sem usar botões na guia Avançado.\n" +
                   "• Se quiser mais rápido, experimente o botão [Desbloquear selecionado]." },
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.AdvancedAdvisory)),
-                    "**CUIDADO** ao usar o botão [RESET ALL]. Se você usá-lo por engano, pode recuperar conquistas com [Desbloquear selecionado]." },
+                    "**CUIDADO** ao usar o botão [Depuração:  REDEFINIR TUDO]. Se você usá-lo por engano, pode recuperar conquistas com [Desbloquear selecionado]." },
 
                 // Advanced >> DEBUG
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ResetAllAchievements)),  "Depuração:  REDEFINIR TUDO" }, // Button label

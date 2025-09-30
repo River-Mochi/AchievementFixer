@@ -63,10 +63,8 @@ dotnet_naming_rule.const_fields_k_prefix.symbols = const_fields
 dotnet_naming_rule.const_fields_k_prefix.style = k_prefix
 dotnet_naming_rule.const_fields_k_prefix.severity = suggestion
 
-# Static readonly: kName
-dotnet_naming_rule.static_readonly_fields_k_prefix.symbols = static_readonly_fields
-dotnet_naming_rule.static_readonly_fields_k_prefix.style = k_prefix
-dotnet_naming_rule.static_readonly_fields_k_prefix.severity = suggestion
+# Static readonly:
+
 
 # Silence IDE1006 complaining about kPrefix on constants
 dotnet_diagnostic.IDE1006.severity = none

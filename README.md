@@ -22,8 +22,8 @@ We keep the game from disabling the backend.
 
 ## Advanced tab (optional)
 - **Select achievement** →
-  - `[Unlock selected]` immediately marks it completed.
-  - `[Clear selected]`  resets a single achievement (back to not completed).
+  - `[UNLOCK SELECTED]` immediately marks it completed.
+  - `[CLEAR SELECTED]`  resets a single achievement (back to not completed).
 - `[Debug: RESET ALL]` wipes all achievement progress (useful for testing).  
   If you click this by accident, you can unlock the ones you want again.
 

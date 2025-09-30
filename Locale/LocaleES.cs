@@ -70,7 +70,7 @@ namespace AchievementFixer
                   "• Este mod ya habilita los logros (por defecto) sin usar botones en la pestaña Avanzado.\n" +
                   "• Si quieres que sea más rápido, prueba el botón [Desbloquear seleccionado]." },
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.AdvancedAdvisory)),
-                    "**CUIDADO** al usar el botón [RESET ALL]. Si lo usas por error, puedes recuperar logros con [Desbloquear seleccionado]." },
+                    "**CUIDADO** al usar el botón [Depuración:  REINICIAR TODO]. Si lo usas por error, puedes recuperar logros con [Desbloquear seleccionado]." },
 
                 // Advanced >> DEBUG
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ResetAllAchievements)),  "Depuración:  REINICIAR TODO" }, // Button label
