@@ -184,9 +184,11 @@ namespace AchievementFixer
             var ids = pm.EnumerateAchievements()
                         .Select(a => a.internalName ?? a.id.ToString());
 
-            var ordered = ids.OrderBy(id => AchievementDisplay.Get(id), StringComparer.OrdinalIgnoreCase);
+            // Order by the display name players actually see
+            var ordered = ids.OrderBy(id => AchievementDisplay.Get(id),
+                                      StringComparer.CurrentCultureIgnoreCase);
 
-            return ordered
+            return ordered  // Build dropdown list
                 .Select(id => new DropdownItem<string> { value = id, displayName = AchievementDisplay.Get(id) })
                 .ToArray();
         }

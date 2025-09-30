@@ -14,8 +14,8 @@ namespace AchievementFixer
 
         private int m_FramesLeft;
 
-        // Assert window: after each load, for a short time, keep  achievementsEnabled = true.
-        private const int kAssertFrames = 300;      // 300 frames = (~5s at 60 fps)
+        // After a load, briefly ensure achievementsEnabled = true
+        private const int kAssertFrames = 300;    // 300 frames = (~5s at 60 fps)
 
         protected override void OnCreate()
         {

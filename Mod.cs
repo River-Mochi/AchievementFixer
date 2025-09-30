@@ -94,8 +94,12 @@ namespace AchievementFixer
         private static void AddLocale(string localeId, IDictionarySource source)
         {
             var lm = GameManager.instance?.localizationManager;
-            if (lm != null) lm.AddSource(localeId, source);
-            else Log.Warn($"LocalizationManager null; cannot add locale '{localeId}'.");
+            if (lm != null)
+            {
+                Log.Warn($"LocalizationManager null; cannot add locale '{localeId}'.");
+                return;
+            }
+            lm.AddSource(localeId, source);
         }
 
         /// <summary>
@@ -106,8 +110,8 @@ namespace AchievementFixer
             var lm = GameManager.instance?.localizationManager;
             if (lm == null) { Log.Warn("No LocalizationManager; cannot add warning override."); return; }
 
-            const string key = "Menu.ACHIEVEMENTS_WARNING_MODS";
-            const string text = "Achievements Enabled by Achievement Fixer."; // Custom line inserted or "" to fully hide
+            const string key = "Menu.ACHIEVEMENTS_WARNING_MODS";    //locale key to override
+            const string text = "Achievements Enabled by Achievement Fixer."; // or "" to fully hide
 
             var entries = new Dictionary<string, string> { [key] = text };
 
@@ -134,7 +138,7 @@ namespace AchievementFixer
                 settings.RegisterInOptionsUI();
 
                 settings.SelectedAchievement = keep; // non-null now
-                Log.Info($"[Locale] Options UI rebuilt; restored selection: '{keep}'.");
+                Log.Info($"[Locale] Options UI rebuilt");
             }
             catch (System.Exception ex)
             {
