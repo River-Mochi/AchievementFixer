@@ -52,7 +52,6 @@ namespace AchievementFixer
             AddLocale("pt-BR", new LocalePT_BR(settings));
             AddLocale("zh-HANS", new LocaleZH_CN(settings));
 
-
             // Load any saved settings
             AssetDatabase.global.LoadSettings("AchievementFixer", settings, new Settings(this));
 
@@ -100,28 +99,23 @@ namespace AchievementFixer
         }
 
         /// <summary>
-        /// Use tiny locale map so game's banner key resolves to our text
-        /// Suppress in-game "achievements disabled" banner in both Map menu and Achievements panel
+        /// Suppress in-game "achievements disabled" banner
         /// </summary>
         private static void TryInstallWarningOverrideSource()
         {
             var lm = GameManager.instance?.localizationManager;
-            if (lm == null) { Mod.Log.Warn("No LocalizationManager; cannot add warning override."); return; }
+            if (lm == null) { Log.Warn("No LocalizationManager; cannot add warning override."); return; }
 
-
-            const string key = "Menu.ACHIEVEMENTS_WARNING_MODS";              // key for string
-            const string text = "Achievements Enabled by Achievement Fixer."; // or "" to fully hide
+            const string key = "Menu.ACHIEVEMENTS_WARNING_MODS";
+            const string text = "Achievements Enabled by Achievement Fixer."; // Custom line inserted or "" to fully hide
 
             var entries = new Dictionary<string, string> { [key] = text };
 
-            var active = lm.activeLocaleId;
-            if (!string.IsNullOrEmpty(active))
-                lm.AddSource(active, new MemoryLocalizationSource(entries));    // call AddSource AFTER game sources so 'last source wins'
-
-            // Override to other supported locales when there is a mid-session language change
+            // Add to every supported locale (last source wins; covers mid-session language changes)
             foreach (var localeId in s_LocaleIds)
                 lm.AddSource(localeId, new MemoryLocalizationSource(entries));
-            Mod.Log.Info("Installed override for 'Achievements disabled because of mods.'");
+
+            Log.Info("Installed override for 'Achievements disabled because of mods.'");
         }
 
         // Rebuild Options UI when active language changes so dropdown

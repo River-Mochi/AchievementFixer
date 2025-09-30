@@ -52,7 +52,7 @@ namespace AchievementFixer
                     "• Steam lists 6 achievements that are not available until the Bridges & Ports DLC is released." },
 
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.MainNotes)),
-                    "Note: sometimes after completing required tasks for an achievement, it might not appear the game is restarted." },
+                    "Note: sometimes after completing required tasks for an achievement, it might not appear until the game is restarted." },
 
                 // --- Advanced tab ---
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.SelectedAchievement)),   "Select achievement" },

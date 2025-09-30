@@ -181,14 +181,11 @@ namespace AchievementFixer
             var pm = PlatformManager.instance;
             if (pm == null) return Array.Empty<DropdownItem<string>>();
 
-            // Get internalName or fallback to id string
             var ids = pm.EnumerateAchievements()
                         .Select(a => a.internalName ?? a.id.ToString());
 
-            // Order by the visible, localized title (what players see)
             var ordered = ids.OrderBy(id => AchievementDisplay.Get(id), StringComparer.OrdinalIgnoreCase);
 
-            // Build the dropdown items
             return ordered
                 .Select(id => new DropdownItem<string> { value = id, displayName = AchievementDisplay.Get(id) })
                 .ToArray();
