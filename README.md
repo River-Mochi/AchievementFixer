@@ -25,7 +25,7 @@ This keeps the game from disabling the achievements backend.
   - `[UNLOCK SELECTED]` immediately marks it completed.
   - `[CLEAR SELECTED]`  resets a single achievement (back to not completed).
 - `[Debug: RESET ALL]` wipes all achievement progress (useful for testing).  
-  If you click this by accident, you can unlock the ones you want again.
+  If you click this by accident, you can use the Unlock button to get them back.
 
 
 ## Supports 9+ languages
