@@ -1,11 +1,11 @@
 ﻿# Achievement Fixer
 
-Keep achievements working in **Cities: Skylines II** even when you play with mods.  
-We keep the game from disabling the backend.
+Keep achievements working in **Cities: Skylines II** even when playing with mods.  
+This keeps the game from disabling the achievements backend.
 
 ## What it does
 - **Enables achievements** even if mods are loaded.
-  - Active mods (not assets) will normally disqualify any acheivement completion.
+  - Active mods (not assets) will normally disqualify any achievement completion.
 - **City switching:** this mod works even when switching saves.
 - **Fixes the warning banner** “Achievements are disabled because of mods.”
   - by sending a message to localization.
@@ -31,11 +31,11 @@ We keep the game from disabling the backend.
 ## Supports 9+ languages
 * English, Français (French), Deutsch (German), Español (Spanish), Italiano (Italian), 日本語 (Japanese)
 * 한국어 (Korean), Português (Brasil) (Brazilian Portuguese), 简体中文 (Simplified Chinese).
-* Drop-down achievement names come from the game, so they match whatever game language you use (VI which does not currently have an ingame dictionary).
+* Drop-down achievement names come from the game, so they match whatever game language you use (VI which does not currently have an in-game dictionary).
 * Future updates may add more languages. WIP: Tiếng Việt (Vietnamese)
 
 ## Notes
-- Some achievements shown on Steam are not available until DLC's are released (e.g., 6 from Bridges & Ports).
+- Some achievements shown on Steam are not available until DLCs are released (e.g., 6 from Bridges & Ports).
 - If an achievement doesn’t pop right away, a game restart sometimes helps (CS2 quirk).
 
 ## Compatibility

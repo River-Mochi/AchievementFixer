@@ -4,7 +4,7 @@
 	<!--Name of the mod to display to players-->
 	<DisplayName Value="Achievement Fixer" />
 	<!--Short description of the mod-->
-	<ShortDescription Value="Earn achievements naturally even with mods enabled. Keeps the backend on, Enjoy :)" />
+	<ShortDescription Value="Earn achievements naturally even with mods enabled. Keeps the backend on. Enjoy :)" />
 	<!--Long description of the mod. Single line or multi line. Supports minimal markdown subset-->
 	<LongDescription># Achievement Fixer
 Keeps the CS2 achievements active even when you have mods.
