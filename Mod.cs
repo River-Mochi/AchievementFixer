@@ -94,7 +94,7 @@ namespace AchievementFixer
         private static void AddLocale(string localeId, IDictionarySource source)
         {
             var lm = GameManager.instance?.localizationManager;
-            if (lm != null)
+            if (lm == null)
             {
                 Log.Warn($"LocalizationManager null; cannot add locale '{localeId}'.");
                 return;
