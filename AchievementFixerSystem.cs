@@ -21,7 +21,7 @@ namespace AchievementFixer
         {
             base.OnCreate();
             m_FramesLeft = 0;
-            Mod.log.Info("AchievementFixerSystem created");
+            Mod.Log.Info("AchievementFixerSystem created");
         }
 
         protected override void OnGameLoadingComplete(Purpose purpose, GameMode mode)
@@ -33,7 +33,7 @@ namespace AchievementFixer
 
             ForceEnableIfNeeded("OnGameLoadingComplete");
 #if DEBUG
-            Mod.log.Info($"Assert window started: {kAssertFrames} frames.");
+            Mod.Log.Info($"Assert window started: {kAssertFrames} frames.");
 #endif
         }
 
@@ -49,7 +49,7 @@ namespace AchievementFixer
 
 #if DEBUG
     if (m_FramesLeft % 60 == 0)
-        Mod.log.Info($"Asserting… {m_FramesLeft} frames left");
+        Mod.Log.Info($"Asserting… {m_FramesLeft} frames left");
 #endif
         }
 
@@ -59,13 +59,13 @@ namespace AchievementFixer
             var pm = PlatformManager.instance;
             if (pm == null)
             {
-                Mod.log.Info($"{source}: PlatformManager.instance == null; skip");
+                Mod.Log.Info($"{source}: PlatformManager.instance == null; skip");
                 return false;
             }
 
             if (!pm.achievementsEnabled)
             {
-                Mod.log.Info($"{source}: ATTENTION: detected game flipped achievementsEnabled == FALSE. Forcing TRUE.");
+                Mod.Log.Info($"{source}: ATTENTION: detected game flipped achievementsEnabled == FALSE. Forcing TRUE.");
                 pm.achievementsEnabled = true;
                 return true;
             }

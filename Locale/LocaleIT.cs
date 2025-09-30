@@ -73,7 +73,7 @@ namespace AchievementFixer
                     "**FAI ATTENZIONE** con il pulsante [RESET ALL]. Se lo premi per errore, puoi ripristinare gli obiettivi con [Sblocca selezionato]." },
 
                 // Advanced >> DEBUG
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ResetAllAchievements)),  "Debug: RESET TUTTO" }, // Button label
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ResetAllAchievements)),  "DEBUG:  RESET TUTTO" }, // Button label
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.ResetAllAchievements)),
                     "**ATTENZIONE**: azzera TUTTI gli obiettivi. Utile per test/debug.\n" +
                     "Se lo esegui per errore, puoi recuperarli con [Sblocca selezionato]." },

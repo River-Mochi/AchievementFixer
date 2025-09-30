@@ -73,7 +73,7 @@ namespace AchievementFixer
                     "**CUIDADO** ao usar o botão [RESET ALL]. Se você usá-lo por engano, pode recuperar conquistas com [Desbloquear selecionado]." },
 
                 // Advanced >> DEBUG
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ResetAllAchievements)),  "Depuração: REDEFINIR TUDO" }, // Button label
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ResetAllAchievements)),  "Depuração:  REDEFINIR TUDO" }, // Button label
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.ResetAllAchievements)),
                     "**AVISO**: redefine TODAS as conquistas. Útil para depuração/testes.\n" +
                     "Se usar por engano, você pode restaurá-las com [Desbloquear selecionado]." },

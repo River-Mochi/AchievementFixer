@@ -73,7 +73,7 @@ namespace AchievementFixer
                     "［RESET ALL］の使用には**注意**してください。誤って実行した場合は、［選択した実績を解除］で回復できます。" },
 
                 // Advanced >> DEBUG
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ResetAllAchievements)),  "デバッグ：すべてリセット" }, // Button label
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ResetAllAchievements)),  "デバッグ： すべてリセット" }, // Button label
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.ResetAllAchievements)),
                     "**警告**：すべての実績をリセットします。デバッグ／テスト用途向け。\n" +
                     "誤って実行した場合は、［選択した実績を解除］で実績を取り戻せます。" },

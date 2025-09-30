@@ -73,7 +73,7 @@ namespace AchievementFixer
                     "**CẨN THẬN** khi dùng nút [RESET ALL]. Nếu bấm nhầm, bạn có thể khôi phục bằng [Mở khóa mục đã chọn]." },
 
                 // Advanced >> DEBUG
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ResetAllAchievements)),  "Gỡ lỗi: ĐẶT LẠI TẤT CẢ" }, // Button label
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ResetAllAchievements)),  "Gỡ lỗi:  ĐẶT LẠI TẤT CẢ" }, // Button label
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.ResetAllAchievements)),
                     "**CẢNH BÁO**: đặt lại TẤT CẢ các thành tựu. Hữu ích cho kiểm thử/gỡ lỗi.\n" +
                     "Nếu bấm nhầm, có thể khôi phục bằng [Mở khóa mục đã chọn]." },

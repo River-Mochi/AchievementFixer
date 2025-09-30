@@ -73,7 +73,7 @@ namespace AchievementFixer
                     "使用【RESET ALL】请**谨慎**。若误操作，可通过【解锁所选】恢复已完成的成就。" },
 
                 // Advanced >> DEBUG
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ResetAllAchievements)),  "调试：全部重置" }, // Button label
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ResetAllAchievements)),  "调试： 全部重置" }, // Button label
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.ResetAllAchievements)),
                     "**警告**：将重置所有成就。适用于调试/测试。\n" +
                     "若误操作，可通过【解锁所选】恢复。" },

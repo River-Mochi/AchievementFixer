@@ -11,7 +11,7 @@ namespace AchievementFixer
 {
     public sealed class Mod : IMod
     {
-        public static readonly ILog log =
+        public static readonly ILog Log =
             LogManager.GetLogger("AchievementFixer").SetShowsErrorsInUI(false);
 
         public static Settings? Settings { get; private set; }
@@ -30,10 +30,10 @@ namespace AchievementFixer
 
         public void OnLoad(UpdateSystem updateSystem)
         {
-            log.Info(nameof(OnLoad));
+            Log.Info(nameof(OnLoad));
             if (!s_BannerLogged)
             {
-                log.Info($"{Name} {VersionShort}");
+                Log.Info($"{Name} {VersionShort}");
                 s_BannerLogged = true;
             }
 
@@ -68,16 +68,16 @@ namespace AchievementFixer
             var lm = GameManager.instance?.localizationManager;
             if (lm != null)
             {
-                log.Info($"[Locale] Active: {lm.activeLocaleId}");  // log active locale
+                Log.Info($"[Locale] Active: {lm.activeLocaleId}");  // Log active locale
                 lm.onActiveDictionaryChanged -= OnLocaleChanged;    // de-dupe in case already subscribed
                 lm.onActiveDictionaryChanged += OnLocaleChanged;    // subscribe
-                log.Info("[Locale] Subscribed to onActiveDictionaryChanged.");  // to fix dropdown list refresh
+                Log.Info("[Locale] Subscribed to onActiveDictionaryChanged.");  // to fix dropdown list refresh
             }
         }
 
         public void OnDispose()
         {
-            log.Info(nameof(OnDispose));
+            Log.Info(nameof(OnDispose));
 
             var lm = GameManager.instance?.localizationManager;
             if (lm != null)
@@ -96,17 +96,17 @@ namespace AchievementFixer
         {
             var lm = GameManager.instance?.localizationManager;
             if (lm != null) lm.AddSource(localeId, source);
-            else log.Warn($"LocalizationManager null; cannot add locale '{localeId}'.");
+            else Log.Warn($"LocalizationManager null; cannot add locale '{localeId}'.");
         }
 
         /// <summary>
         /// Use tiny locale map so game's banner key resolves to our text
-        /// Map menu and Achievements panel no longer show "achievements disabled" message
+        /// Suppress in-game "achievements disabled" banner in both Map menu and Achievements panel
         /// </summary>
         private static void TryInstallWarningOverrideSource()
         {
             var lm = GameManager.instance?.localizationManager;
-            if (lm == null) { Mod.log.Warn("No LocalizationManager; cannot add warning override."); return; }
+            if (lm == null) { Mod.Log.Warn("No LocalizationManager; cannot add warning override."); return; }
 
 
             const string key = "Menu.ACHIEVEMENTS_WARNING_MODS";              // key for string
@@ -121,7 +121,7 @@ namespace AchievementFixer
             // Override to other supported locales when there is a mid-session language change
             foreach (var localeId in s_LocaleIds)
                 lm.AddSource(localeId, new MemoryLocalizationSource(entries));
-            Mod.log.Info("Installed override for 'Achievements disabled because of mods.'");
+            Mod.Log.Info("Installed override for 'Achievements disabled because of mods.'");
         }
 
         // Rebuild Options UI when active language changes so dropdown
@@ -139,11 +139,11 @@ namespace AchievementFixer
                 Settings.RegisterInOptionsUI();
 
                 Settings.SelectedAchievement = keep; // restore
-                log.Info($"[Locale] Options UI rebuilt; restored selection: '{keep}'.");
+                Log.Info($"[Locale] Options UI rebuilt; restored selection: '{keep}'.");
             }
             catch (System.Exception ex)
             {
-                log.Warn($"[Locale] Rebuild after locale change failed: {ex.GetType().Name}: {ex.Message}");
+                Log.Warn($"[Locale] Rebuild after locale change failed: {ex.GetType().Name}: {ex.Message}");
             }
         }
     }

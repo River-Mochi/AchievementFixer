@@ -11,7 +11,7 @@ Keeps the CS2 achievements active even when you have mods.
 
 ## How it works
 * Automatically re-enables achievements after a city loads.
-* Just install the mod and start earning achievements naturally.
+* Just install the mod, start earning achievements naturally.
 * Stops the in-game warning ("Achievements are disabled because of mods").
 * Uses the game’s built-in localization to show readable names.
 
@@ -20,7 +20,7 @@ Keeps the CS2 achievements active even when you have mods.
 ## Advanced tab
 * [Unlock Selected] marks a chosen achievement as completed.
 * [Clear Selected]  resets one achievement (back to not completed).
-* [Debug: Reset All] wipes out all achievements (useful for testing). If you click this by accident, just use [Unlock Selected] to restore them.
+* [DEBUG: RESET All] wipes out all achievements (useful for testing). If you click this by accident, just use [Unlock Selected] to restore them.
 
 ## Supports 9+ languages
 * English, Français (French), Deutsch (German), Español (Spanish), Italiano (Italian), 日本語 (Japanese)
@@ -62,7 +62,11 @@ Feedback / Bug Report: **Cities: Skylines Modding** Discord: https://discord.gg/
 	<!--Required DLC, can be set multiple times. Supported values are "Landmark Buildings", "San Fransisco Set", "Beach Properties", "Urban Promenades", "Modern Architecture"-->
 	<RequiredDLC Value="" />
 	<!--Change log for new version. Single line or multi line. Supports minimal markdown subset-->
-<ChangeLog Value="" />
+	<ChangeLog Value="**1.0.0** — Initial release.
+* Enables achievements with mods; adds Unlock/Clear/Reset tools;
+* multi-language UI
+* hides the in-game 'achievements disabled' banner." />
+
 	<!--External link, can be set multiple times. supported types are "discord", "github", "youtube", "twitch", "x", "paypal", "patreon", "buymeacoffee", "kofi", "crowdin", "gitlab", "gofundme"-->
 	<ExternalLink Type="discord" Url="https://discord.gg/HTav7ARPs2" />
 	<ExternalLink Type="github" Url="https://github.com/River-Mochi/AchievementFixer" />

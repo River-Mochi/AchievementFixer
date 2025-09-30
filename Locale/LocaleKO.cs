@@ -73,7 +73,7 @@ namespace AchievementFixer
                     "[RESET ALL] 버튼 사용 시 **주의**하세요. 실수로 누른 경우 [선택 항목 해제]로 복구할 수 있습니다." },
 
                 // Advanced >> DEBUG
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ResetAllAchievements)),  "디버그: 전체 초기화" }, // Button label
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ResetAllAchievements)),  "디버그:  전체 초기화" }, // Button label
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.ResetAllAchievements)),
                     "**경고**: 모든 업적을 초기화합니다. 디버그/테스트용으로만 사용하세요.\n" +
                     "실수로 초기화한 경우 [선택 항목 해제]로 복구할 수 있습니다." },

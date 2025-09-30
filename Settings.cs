@@ -56,7 +56,7 @@ namespace AchievementFixer
             {
                 if (!value) return;
                 try { Application.OpenURL(UrlAchievementsWiki); }
-                catch (Exception ex) { Mod.log.Warn($"Failed to open wiki: {ex.Message}"); }
+                catch (Exception ex) { Mod.Log.Warn($"Failed to open wiki: {ex.Message}"); }
             }
         }
 
@@ -83,23 +83,23 @@ namespace AchievementFixer
                 {
                     if (!TryGetAchievementId(SelectedAchievement, out var id))
                     {
-                        Mod.log.Warn($"UnlockSelectedAchievement: could not resolve '{SelectedAchievement}'.");
+                        Mod.Log.Warn($"UnlockSelectedAchievement: could not resolve '{SelectedAchievement}'.");
                         return;
                     }
 
                     var pm = PlatformManager.instance;
                     if (pm == null)
                     {
-                        Mod.log.Warn("UnlockSelectedAchievement: PlatformManager.instance is null.");
+                        Mod.Log.Warn("UnlockSelectedAchievement: PlatformManager.instance is null.");
                         return;
                     }
 
                     pm.UnlockAchievement(id);
-                    Mod.log.Info($"Requested UNLOCK of achievement: {SelectedAchievement} ({id}).");
+                    Mod.Log.Info($"Requested UNLOCK of achievement: {SelectedAchievement} ({id}).");
                 }
                 catch (Exception ex)
                 {
-                    Mod.log.Warn($"UnlockSelectedAchievement failed: {ex.GetType().Name}: {ex.Message}");
+                    Mod.Log.Warn($"UnlockSelectedAchievement failed: {ex.GetType().Name}: {ex.Message}");
                 }
             }
         }
@@ -118,23 +118,23 @@ namespace AchievementFixer
                 {
                     if (!TryGetAchievementId(SelectedAchievement, out var id))
                     {
-                        Mod.log.Warn($"ClearSelectedAchievement: could not resolve '{SelectedAchievement}'.");
+                        Mod.Log.Warn($"ClearSelectedAchievement: could not resolve '{SelectedAchievement}'.");
                         return;
                     }
 
                     var pm = PlatformManager.instance;
                     if (pm == null)
                     {
-                        Mod.log.Warn("ClearSelectedAchievement: PlatformManager.instance is null.");
+                        Mod.Log.Warn("ClearSelectedAchievement: PlatformManager.instance is null.");
                         return;
                     }
 
                     pm.ClearAchievement(id);
-                    Mod.log.Info($"Requested CLEAR (reset) of single achievement: {SelectedAchievement} ({id}).");
+                    Mod.Log.Info($"Requested CLEAR (reset) of single achievement: {SelectedAchievement} ({id}).");
                 }
                 catch (Exception ex)
                 {
-                    Mod.log.Warn($"ClearSelectedAchievement failed: {ex.GetType().Name}: {ex.Message}");
+                    Mod.Log.Warn($"ClearSelectedAchievement failed: {ex.GetType().Name}: {ex.Message}");
                 }
             }
         }
@@ -159,16 +159,16 @@ namespace AchievementFixer
                     var pm = PlatformManager.instance;
                     if (pm == null)
                     {
-                        Mod.log.Warn("ResetAllAchievements: PlatformManager.instance is null.");
+                        Mod.Log.Warn("ResetAllAchievements: PlatformManager.instance is null.");
                         return;
                     }
 
                     pm.ResetAchievements();
-                    Mod.log.Info("Requested Reset of ALL platform achievements.");
+                    Mod.Log.Info("Requested Reset of ALL platform achievements.");
                 }
                 catch (Exception ex)
                 {
-                    Mod.log.Warn($"ResetAllAchievements failed: {ex.GetType().Name}: {ex.Message}");
+                    Mod.Log.Warn($"ResetAllAchievements failed: {ex.GetType().Name}: {ex.Message}");
                 }
             }
         }
@@ -181,20 +181,17 @@ namespace AchievementFixer
             var pm = PlatformManager.instance;
             if (pm == null) return Array.Empty<DropdownItem<string>>();
 
-            var items = new List<DropdownItem<string>>();
+            // Get stable ids first (internalName or fallback to id string)
+            var ids = pm.EnumerateAchievements()
+                        .Select(a => a.internalName ?? a.id.ToString());
 
-            foreach (var a in pm.EnumerateAchievements())
-            {
-                // Source of “MyFirstCity”, etc.
-                var internalName = a.internalName ?? a.id.ToString();
+            // Order by the visible, localized title (what players see)
+            var ordered = ids.OrderBy(id => AchievementDisplay.Get(id), StringComparer.OrdinalIgnoreCase);
 
-                items.Add(new DropdownItem<string>
-                {
-                    value = internalName,
-                    displayName = AchievementDisplay.Get(internalName)  // friendly name
-                });
-            }
-            return items.OrderBy(i => i.displayName.id, StringComparer.OrdinalIgnoreCase).ToArray();
+            // Build the dropdown items
+            return ordered
+                .Select(id => new DropdownItem<string> { value = id, displayName = AchievementDisplay.Get(id) })
+                .ToArray();
         }
 
         private static bool TryGetAchievementId(string selectedValue, out AchievementId id)

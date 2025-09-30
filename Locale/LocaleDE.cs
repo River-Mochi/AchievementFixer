@@ -73,7 +73,7 @@ namespace AchievementFixer
                     "**VORSICHT** bei der Schaltfläche [RESET ALL]. Falls du sie versehentlich verwendest, kannst du Erfolge mit [Ausgewählten freischalten] wiederherstellen." },
 
                 // Advanced >> DEBUG
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ResetAllAchievements)),  "Debug: ALLES ZURÜCKSETZEN" }, // Button label
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ResetAllAchievements)),  "DEBUG:  ALLES ZURÜCKSETZEN" }, // Button label
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.ResetAllAchievements)),
                     "**WARNUNG**: setzt ALLE Erfolge zurück. Nützlich zum Testen/Debuggen.\n" +
                     "Falls du das versehentlich nutzt, kannst du Erfolge mit [Ausgewählten freischalten] wiederherstellen." },
