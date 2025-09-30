@@ -194,7 +194,7 @@ namespace AchievementFixer
                     displayName = AchievementDisplay.Get(internalName)  // friendly name
                 });
             }
-            return items.OrderBy(i => i.displayName, StringComparer.OrdinalIgnoreCase).ToArray();
+            return items.OrderBy(i => i.displayName.id, StringComparer.OrdinalIgnoreCase).ToArray();
         }
 
         private static bool TryGetAchievementId(string selectedValue, out AchievementId id)
