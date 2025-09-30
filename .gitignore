@@ -427,10 +427,14 @@ FodyWeavers.xsd
 *.msm
 *.msp
 
+# --- Unity build artifacts ---
+Library/
+Temp/
+Logs/
+MemoryCaptures/
+*.pid           # includes Library/ilpp.pid
+
+
 # --- Project-specific ignores ---
 # keep docs local only
 docs/
-
-# never commit PID files
-*.pid
-Library/

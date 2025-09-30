@@ -17,5 +17,3 @@
 # Binaries
 *.png binary
 *.jpg binary
-
-.gitignore merge=ours
