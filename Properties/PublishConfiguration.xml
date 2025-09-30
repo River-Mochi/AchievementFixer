@@ -11,7 +11,7 @@ Keeps the CS2 achievements active even when you have mods.
 
 ## How it works
 * Automatically re-enables achievements after a city loads.
-* Just install the mod, start earning achievements naturally.
+* Just install the mod and start earning achievements naturally.
 * Stops the in-game warning ("Achievements are disabled because of mods").
 * Uses the game’s built-in localization to show readable names.
 
@@ -22,19 +22,18 @@ Keeps the CS2 achievements active even when you have mods.
 * [Clear Selected]  resets one achievement (back to not completed).
 * [Debug: Reset All] wipes out all achievements (useful for testing). If you click this by accident, just use [Unlock Selected] to restore them.
 
-## Supports 10 languages
+## Supports 9+ languages
 * English, Français (French), Deutsch (German), Español (Spanish), Italiano (Italian), 日本語 (Japanese)
 * 한국어 (Korean), Português (Brasil) (Brazilian Portuguese), 简体中文 (Simplified Chinese).
 * Future updates may add more languages. WIP: Tiếng Việt (Vietnamese)
 
 ## Notes
 * Safe to remove at any time; does not touch saves.
-* Some achievements shown on Steam are not available until DLC's are released (e.g., 6 from Bridges & Ports).
+* Some achievements shown on Steam are not available until DLCs are released (e.g., 6 from Bridges & Ports).
 * This mod does not use Reflection or Harmony, so it's safe/compatible, and less likely to break with every game update.
 
 ## Support
-Find me on **Cities: Skylines Modding** Discord.
-Feedback / Bug Report: https://discord.gg/HTav7ARPs2
+Feedback / Bug Report: **Cities: Skylines Modding** Discord: https://discord.gg/HTav7ARPs2
 
 **Credits**
 * RiverMochi - mod author

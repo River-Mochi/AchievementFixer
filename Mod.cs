@@ -53,7 +53,7 @@ namespace AchievementFixer
             AddLocale("zh-HANS", new LocaleZH_CN(settings));
 
 
-            // Load any saved settings (none currently)
+            // Load any saved settings
             AssetDatabase.global.LoadSettings("AchievementFixer", settings, new Settings(this));
 
             // Options UI
