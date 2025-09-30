@@ -11,7 +11,7 @@ Keeps the CS2 achievements active even when you have mods.
 
 ## How it works
 * Automatically re-enables achievements after a city loads.
-* Just install the mod, start earning achievements natually.
+* Just install the mod, start earning achievements naturally.
 * Stops the in-game warning ("Achievements are disabled because of mods").
 * Uses the game’s built-in localization to show readable names.
 

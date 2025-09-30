@@ -125,7 +125,7 @@ namespace AchievementFixer
         }
 
         // Rebuild Options UI when active language changes so dropdown
-        // is re-populated from new dictionary
+        // is re-populated from the new dictionary
         private void OnLocaleChanged()
         {
             try
@@ -139,7 +139,7 @@ namespace AchievementFixer
                 Settings.RegisterInOptionsUI();
 
                 Settings.SelectedAchievement = keep; // restore
-                log.Info($"[Locale] Options UI rebuilt after locale change.");
+                log.Info($"[Locale] Options UI rebuilt; restored selection: '{keep}'.");
             }
             catch (System.Exception ex)
             {
