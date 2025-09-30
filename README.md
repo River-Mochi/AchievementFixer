@@ -48,6 +48,7 @@ This keeps the game from disabling the achievements backend.
 - Inspired by **Wayzware's** early [Achievement Enabler](https://github.com/Wayzware/AchievementEnabler) (defunct).
 - **rcav8tr** for code snippets to find localization keys.
 - **StarQ** for technical help.
+- Necko1996 for testing
 - and the CS2 modding community for pointers and testing.
 
 ## Links
