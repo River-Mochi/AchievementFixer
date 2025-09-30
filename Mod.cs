@@ -25,7 +25,7 @@ namespace AchievementFixer
         // Add common locale variants
         internal static readonly string[] s_LocaleIds =
         {
-            "en-US","fr-FR","de-DE","es-ES","it-IT","ja-JP","ko-KR","vi-VN","pt-BR","zh-HANS",
+            "en-US","fr-FR","de-DE","es-ES","it-IT","ja-JP","ko-KR","pt-BR","zh-HANS","vi-VN",
         };
 
         public void OnLoad(UpdateSystem updateSystem)
@@ -100,8 +100,8 @@ namespace AchievementFixer
         }
 
         /// <summary>
-        /// Inject tiny locale map so game's banner key resolves to our text
-        /// Map menu and Achievements panel no longer show "achievements disabled"
+        /// Use tiny locale map so game's banner key resolves to our text
+        /// Map menu and Achievements panel no longer show "achievements disabled" message
         /// </summary>
         private static void TryInstallWarningOverrideSource()
         {
