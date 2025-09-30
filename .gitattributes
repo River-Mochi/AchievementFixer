@@ -8,6 +8,7 @@
 *.cs       text eol=crlf
 # optional: LF renders nicer on GitHub
 *.md       text eol=lf
+*.json text eol=lf
 
 # Scripts
 *.sh       text eol=lf
@@ -17,3 +18,5 @@
 # Binaries
 *.png binary
 *.jpg binary
+*.svg binary
+*.ico binary
