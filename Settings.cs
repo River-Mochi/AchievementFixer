@@ -181,7 +181,7 @@ namespace AchievementFixer
             var pm = PlatformManager.instance;
             if (pm == null) return Array.Empty<DropdownItem<string>>();
 
-            // Get stable ids first (internalName or fallback to id string)
+            // Get internalName or fallback to id string
             var ids = pm.EnumerateAchievements()
                         .Select(a => a.internalName ?? a.id.ToString());
 
