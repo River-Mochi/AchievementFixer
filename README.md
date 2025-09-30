@@ -5,15 +5,17 @@ We keep the game from disabling the backend.
 
 ## What it does
 - **Enables achievements** even if mods are loaded.
-- Active mods (not assets) will normally disqualify any acheivement completion.
-- City switching: this mod works even when switching saves.
-- **Fixes the warning banner** (“Achievements are disabled because of mods.”) by sending a message to localization.
+  - Active mods (not assets) will normally disqualify any acheivement completion.
+- **City switching:** this mod works even when switching saves.
+- **Fixes the warning banner** “Achievements are disabled because of mods.”
+  - by sending a message to localization.
 - **Shows friendly achievement names** using the game’s own localization dictionary.
-- **Language switching**: works even if you switch languages (re-reads the game's locale dictionary).
+- **Language switching**: works even if you switch languages
+  - re-reads the game's locale dictionary.
 
 
 ## How to use
-1. Install mod from Skyve or Paradox Mods.
+1. Install the mod from Skyve or Paradox Mods.
    - No configuration needed; we enable achievements by default.
 2. Do the tasks (e.g., build 10 parks to get *Groundskeeper*).  
 3. Safe to remove anytime; this mod doesn’t touch your saves.
@@ -27,7 +29,7 @@ We keep the game from disabling the backend.
 ## Languages
 - UI supports 10 languages: **EN, FR, DE, ES, IT, JA, KO, PT-BR, ZH-HANS, VI**.  
 - Drop-down Achievement names come from the game, so they match whatever language you use in the game (except for VI which does not currently have an ingame dictionary).
-- This mod currently supports 10 languages; the future plan is to add locale support for all the game languages.
+- The future plan is to add locale support for all the game languages.
 
 ## Notes
 - Six additional achievements shown on Steam can not be acquired until Bridges & Ports DLC is released.
@@ -37,7 +39,7 @@ We keep the game from disabling the backend.
 ## Compatibility
 - Designed to be minimal and conflict-free: we only manage the platform flag and localization.
 - Safe to remove anytime; does not touch saves.
-- Should work with other mods, but avoid using other achievement mods at the same time.
+- Should work with other mods, but avoid using/installing other achievement mods at the same time.
 
 ## Thanks
 - Inspired by Wayzware's early [Achievement Enabler](https://github.com/Wayzware/AchievementEnabler) (no longer works).
