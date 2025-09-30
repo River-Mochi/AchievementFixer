@@ -433,3 +433,4 @@ docs/
 
 # never commit PID files
 *.pid
+Library/
