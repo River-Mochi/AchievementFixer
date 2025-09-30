@@ -111,7 +111,7 @@ namespace AchievementFixer
             if (lm == null) { Log.Warn("No LocalizationManager; cannot add warning override."); return; }
 
             const string key = "Menu.ACHIEVEMENTS_WARNING_MODS";    //locale key to override
-            const string text = "Achievements Enabled by Achievement Fixer."; // or "" to fully hide
+            const string text = "Achievements enabled by Achievement Fixer."; // or "" to fully hide
 
             var entries = new Dictionary<string, string> { [key] = text };
 
