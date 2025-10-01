@@ -110,21 +110,26 @@ namespace AchievementFixer
         private static void TryInstallWarningOverrideSource()
         {
             var lm = GameManager.instance?.localizationManager;
-            if (lm == null) { Log.Warn("No LocalizationManager; cannot add warning override."); return; }
+            if (lm == null)
+            {
+                Log.Warn("No LocalizationManager; cannot add warning override.");
+                return;
+            }
 
             const string key = "Menu.ACHIEVEMENTS_WARNING_MODS";    // Locale key to override
-            const string text = "Achievements enabled by Achievement Fixer."; // Custom text or use "" to hide
 
-            var entries = new Dictionary<string, string> { [key] = text };
-
-            // Add to every supported locale (last source wins; covers mid-session language changes)
+            // Add to every supported locale (last source wins)
             foreach (var localeId in s_LocaleIds)
+            {
+                var text = LocaleBannerText.For(localeId);  // per-locale string
+                var entries = new Dictionary<string, string> { [key] = text };
                 lm.AddSource(localeId, new LocaleOverrideSource(entries));
+            }
 
             Log.Info("Installed override for 'Achievements disabled because of mods.'");
         }
 
-        // Rebuild Options UI when active language changes so dropdown
+        // Rebuild Options UI when active language changes so dropdown list
         // is re-populated from the new dictionary
         private void OnLocaleChanged()
         {

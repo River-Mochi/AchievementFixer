@@ -1,3 +1,5 @@
+// AchievementLocaleHelpers.cs
+
 using System.Collections.Generic;   // Dictionary
 using Colossal;                     // IDictionarySource
 using Colossal.Localization;        // LocalizationManager
@@ -44,4 +46,26 @@ namespace AchievementFixer
         public void Unload() { }
     }
 
+    internal static class LocaleBannerText
+    {
+        private static readonly Dictionary<string, string> s_Text = new()
+        {
+            ["en-US"] = "Achievements enabled by Achievement Fixer.",
+            ["de-DE"] = "Erfolge aktiviert durch Achievement Fixer.",
+            ["es-ES"] = "Logros activados por Achievement Fixer.",
+            ["fr-FR"] = "Succès activés par Achievement Fixer.",
+            ["it-IT"] = "Obiettivi attivati da Achievement Fixer.",
+            ["ja-JP"] = "実績は Achievement Fixer によって有効化されています。",
+            ["ko-KR"] = "업적이 Achievement Fixer에 의해 활성화되었습니다.",
+            ["pt-BR"] = "Conquistas ativadas por Achievement Fixer.",
+            ["vi-VN"] = "Thành tựu được bật bởi Achievement Fixer.",
+            ["zh-HANS"] = "成就已由 Achievement Fixer 启用。",
+            ["zh-HANT"] = "成就已由 Achievement Fixer 啟用。",
+        };
+
+        public static string For(string localeId) =>
+            s_Text.TryGetValue(localeId, out var text) ? text : s_Text["en-US"];
+    }
+
 }
+
