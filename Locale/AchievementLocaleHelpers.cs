@@ -1,7 +1,7 @@
-using System.Collections.Generic;
-using Colossal;
-using Colossal.Localization;  // LocalizationManager
-using Game.SceneFlow;        // GameManager
+using System.Collections.Generic;   // Dictionary
+using Colossal;                     // IDictionarySource
+using Colossal.Localization;        // LocalizationManager
+using Game.SceneFlow;               // GameManager
 
 namespace AchievementFixer
 {

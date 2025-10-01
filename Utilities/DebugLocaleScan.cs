@@ -9,6 +9,8 @@ namespace AchievementFixer
     /*
      * DebugLocaleScan (DEBUG-only)
      * ---------------------------
+     * Might Spin-off into a separate Utility Mod to help other modders.
+     *
      * What it does:
      *   - Analyzes the game's ACTIVE localization dictionary for the current language
      *     (GameManager.instance.localizationManager.activeDictionary).

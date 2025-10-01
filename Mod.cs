@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using System.Collections.Generic;      // Dictionary<string,string>
 using Colossal;                        // IDictionarySource
 using Colossal.IO.AssetDatabase;       // AssetDatabase
 using Colossal.Logging;                // ILog, LogManager

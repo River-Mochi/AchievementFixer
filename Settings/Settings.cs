@@ -1,11 +1,12 @@
-using System;
-using System.Linq;
+// Achievement Fixer
+using System;                     // Exception handling (try/catch)
+using System.Linq;                // LINQ (Select, OrderBy, ToArray)
 using Colossal.IO.AssetDatabase;  // [FileLocation]
 using Colossal.PSI.Common;        // PlatformManager, AchievementId
-using Game.Modding;
-using Game.Settings;
+using Game.Modding;               // IMod, ModSetting
+using Game.Settings;              // SettingsUI
 using Game.UI.Widgets;            // DropdownItem<T>
-using UnityEngine;
+using UnityEngine;                // Application.OpenURL
 
 namespace AchievementFixer
 {
