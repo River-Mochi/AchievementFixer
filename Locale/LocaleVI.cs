@@ -29,56 +29,57 @@ namespace AchievementFixer
                 { m_Setting.GetOptionGroupLocaleID(Settings.NotesGroup),    "Ghi chú"   },
 
                 // Groups (Advanced tab)
-                { m_Setting.GetOptionGroupLocaleID(Settings.AdvRowActions), "Hành động" },
-                { m_Setting.GetOptionGroupLocaleID(Settings.AdvRowDebug),   "DEBUG"     },
+                { m_Setting.GetOptionGroupLocaleID(Settings.AdvRowActions), "Thao tác" },
+                { m_Setting.GetOptionGroupLocaleID(Settings.AdvRowDebug),   "DEBUG"    },
 
                 // Main >> Info
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.NameDisplay)),    "Mod"        },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.NameDisplay)),    "Mod" },
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.NameDisplay)),     "Tên hiển thị của mod này." },
 
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.VersionDisplay)), "Phiên bản"  },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.VersionDisplay)), "Phiên bản" },
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.VersionDisplay)),  "Phiên bản hiện tại của mod." },
 
                 // Main >> Links
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.OpenAchievementsWikiButton)), "Wiki thành tựu" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.OpenAchievementsWikiButton)),
-                  "Mở wiki thành tựu trong trình duyệt của bạn." },
+                { m_Setting.GetOptionDescLocaleID(nameof(Settings.OpenAchievementsWikiButton)),  "Mở wiki thành tựu trong trình duyệt." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.OpenDiscordButton)),          "Discord" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Settings.OpenDiscordButton)),           "Mở Discord modding CS2 trong trình duyệt." },
 
                 // Main >> Notes
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.MainNotes)),
                     "Ghi chú:\n" +
-                    "• Thành tựu hiện đang được bật — chỉ cần hoàn thành các nhiệm vụ yêu cầu để đạt được tự nhiên.\n" +
-                    "• Chúc bạn vui vẻ! :)\n\n" +
-                    "• Steam hiển thị 6 thành tựu sẽ chỉ khả dụng khi DLC “Bridges & Ports” phát hành." },
+                    "• Thành tựu đã được bật — chỉ cần làm đủ yêu cầu để mở khóa tự nhiên.\n\n" +
+                    "Chúc chơi vui! :)\n\n" +
+                    "• Một số thành tựu chỉ có khi DLC phát hành (ví dụ: Bridges & Ports)." },
 
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.MainNotes)),
-                    "Lưu ý: đôi khi sau khi hoàn thành yêu cầu, thành tựu có thể không hiện cho đến khi khởi động lại game." },
+                    "Lưu ý: đôi khi hoàn thành đủ yêu cầu rồi, thành tựu chỉ hiện sau khi khởi động lại game." },
 
                 // --- Advanced tab ---
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.SelectedAchievement)),   "Chọn thành tựu" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.SelectedAchievement)),    "Chọn một thành tựu để thao tác." },
+                { m_Setting.GetOptionDescLocaleID(nameof(Settings.SelectedAchievement)),    "Chọn thành tựu để thao tác." },
 
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.UnlockSelectedAchievement)), "Mở khóa mục đã chọn" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.UnlockSelectedAchievement)),  "**Mở khóa & hoàn thành** thành tựu đã chọn." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.UnlockSelectedAchievement)), "MỞ KHÓA ĐANG CHỌN" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Settings.UnlockSelectedAchievement)),  "Đánh dấu thành tựu đã chọn là **đã mở khóa & hoàn thành**." },
 
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ClearSelectedAchievement)),  "Xóa mục đã chọn" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.ClearSelectedAchievement)),   "Đánh dấu thành tựu đã chọn là **chưa hoàn thành**." },
-                { m_Setting.GetOptionWarningLocaleID(nameof(Settings.ClearSelectedAchievement)), "XÓA / ĐẶT LẠI thành tựu này.\n\nTiếp tục?" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ClearSelectedAchievement)),  "ĐẶT LẠI ĐANG CHỌN" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Settings.ClearSelectedAchievement)),   "Đặt thành tựu đã chọn về trạng thái **chưa hoàn thành**." },
+                { m_Setting.GetOptionWarningLocaleID(nameof(Settings.ClearSelectedAchievement)),"ĐẶT LẠI thành tựu này.\n\nTiếp tục?" },
 
                 // Advanced >> advisory text
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.AdvancedAdvisory)),
-                  "• Mod này đã bật thành tựu (mặc định) mà không cần dùng các nút trong tab Nâng cao.\n" },
+                  "• Mod này đã bật thành tựu sẵn (mặc định) — không cần dùng nút ở thẻ Nâng cao.\n" },
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.AdvancedAdvisory)),
-                    "**CẨN THẬN** khi dùng nút [Gỡ lỗi:  ĐẶT LẠI TẤT CẢ]. Nếu bấm nhầm, bạn có thể khôi phục bằng [Mở khóa mục đã chọn]." },
+                    "**CẨN THẬN** với [DEBUG: ĐẶT LẠI TẤT CẢ]. Lỡ bấm thì có thể khôi phục bằng [MỞ KHÓA ĐANG CHỌN]." },
 
                 // Advanced >> DEBUG
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ResetAllAchievements)),  "Gỡ lỗi:  ĐẶT LẠI TẤT CẢ" }, // Button label
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ResetAllAchievements)),  "DEBUG: ĐẶT LẠI TẤT CẢ" }, // Button label
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.ResetAllAchievements)),
-                    "**CẢNH BÁO**: đặt lại TẤT CẢ các thành tựu. Hữu ích cho kiểm thử/gỡ lỗi.\n" +
-                    "Nếu bấm nhầm, có thể khôi phục bằng [Mở khóa mục đã chọn]." },
+                    "**CẢNH BÁO**: đặt lại **TẤT CẢ** thành tựu. Hữu ích cho việc thử nghiệm.\n" +
+                    "Nếu lỡ tay, dùng [MỞ KHÓA ĐANG CHỌN] để khôi phục." },
 
                 // Confirmation modal Yes/No
-                { m_Setting.GetOptionWarningLocaleID(nameof(Settings.ResetAllAchievements)), "Cảnh báo: ĐẶT LẠI/XÓA tất cả thành tựu về trạng thái **chưa hoàn thành**. Tiếp tục?" },
+                { m_Setting.GetOptionWarningLocaleID(nameof(Settings.ResetAllAchievements)), "Cảnh báo: ĐẶT LẠI tất cả thành tựu về **chưa hoàn thành**. Tiếp tục?" },
             };
         }
 

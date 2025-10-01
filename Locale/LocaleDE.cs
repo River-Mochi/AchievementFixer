@@ -33,53 +33,53 @@ namespace AchievementFixer
                 { m_Setting.GetOptionGroupLocaleID(Settings.AdvRowDebug),   "DEBUG"    },
 
                 // Main >> Info
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.NameDisplay)),    "Mod"       },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.NameDisplay)),    "Mod" },
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.NameDisplay)),     "Anzeigename dieses Mods." },
 
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.VersionDisplay)), "Version"   },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.VersionDisplay)), "Version" },
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.VersionDisplay)),  "Aktuelle Mod-Version." },
 
                 // Main >> Links
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.OpenAchievementsWikiButton)), "Achievements-Wiki" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.OpenAchievementsWikiButton)),
-                  "Öffnet das Achievements-Wiki im Browser." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.OpenAchievementsWikiButton)), "Erfolge-Wiki" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Settings.OpenAchievementsWikiButton)),  "Öffnet das Erfolge-Wiki im Browser." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.OpenDiscordButton)),          "Discord" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Settings.OpenDiscordButton)),           "Öffnet den CS2-Modding-Discord im Browser." },
 
                 // Main >> Notes
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.MainNotes)),
-                    "Notizen:\n" +
-                    "• Erfolge sind jetzt aktiviert – erledige einfach die erforderlichen Aufgaben, um sie natürlich freizuschalten.\n" +
-                    "• Viel Spaß! :)\n\n" +
-                    "• Steam listet 6 Erfolge auf, die erst mit dem DLC „Bridges & Ports“ verfügbar sind." },
+                    "Hinweise:\n" +
+                    "• Erfolge sind jetzt aktiviert – erledige einfach die Aufgaben, um sie ganz normal freizuschalten.\n\n" +
+                    "Viel Spaß! :)\n\n" +
+                    "• Manche Erfolge sind erst verfügbar, wenn DLCs veröffentlicht wurden (z. B. Bridges & Ports)." },
 
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.MainNotes)),
-                    "Hinweis: Manchmal erscheint ein Erfolg erst nach einem Neustart des Spiels, obwohl die Voraussetzungen erfüllt sind." },
+                    "Hinweis: Manchmal erscheint ein Erfolg erst nach einem Neustart des Spiels." },
 
                 // --- Advanced tab ---
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.SelectedAchievement)),   "Erfolg auswählen" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.SelectedAchievement)),    "Wähle einen Erfolg, auf den du eine Aktion anwenden möchtest." },
+                { m_Setting.GetOptionDescLocaleID(nameof(Settings.SelectedAchievement)),    "Wähle einen Erfolg für die Aktion." },
 
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.UnlockSelectedAchievement)), "Ausgewählten freischalten" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.UnlockSelectedAchievement)),  "**Schaltet frei & schließt ab** den ausgewählten Erfolg." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.UnlockSelectedAchievement)), "AUSGEWÄHLTEN FREISCHALTEN" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Settings.UnlockSelectedAchievement)),  "Markiert den ausgewählten Erfolg als **freigeschaltet & abgeschlossen**." },
 
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ClearSelectedAchievement)),  "Ausgewählten zurücksetzen" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.ClearSelectedAchievement)),   "Markiert den ausgewählten Erfolg als **nicht abgeschlossen**." },
-                { m_Setting.GetOptionWarningLocaleID(nameof(Settings.ClearSelectedAchievement)), "DIESEN Erfolg LÖSCHEN/ZURÜCKSETZEN.\n\nFortfahren?" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ClearSelectedAchievement)),  "AUSGEWÄHLTEN ZURÜCKSETZEN" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Settings.ClearSelectedAchievement)),   "Setzt den ausgewählten Erfolg auf **nicht abgeschlossen**." },
+                { m_Setting.GetOptionWarningLocaleID(nameof(Settings.ClearSelectedAchievement)),"Diesen Erfolg ZURÜCKSETZEN.\n\nFortfahren?" },
 
                 // Advanced >> advisory text
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.AdvancedAdvisory)),
-                  "• Dieses Mod aktiviert Erfolge bereits (Standard), ohne dass du die Schaltflächen im Reiter „Erweitert“ verwenden musst.\n" +
-                  "• Wenn du es schneller willst, probiere die Schaltfläche [Ausgewählten freischalten]." },
+                  "• Diese Mod aktiviert Erfolge bereits standardmäßig – ohne die Schaltflächen im Tab „Erweitert“.\n" },
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.AdvancedAdvisory)),
-                    "**VORSICHT** bei der Schaltfläche [DEBUG:  ALLES ZURÜCKSETZEN]. Falls du sie versehentlich verwendest, kannst du Erfolge mit [Ausgewählten freischalten] wiederherstellen." },
+                    "**VORSICHT** bei [DEBUG: ALLE ZURÜCKSETZEN]. Wenn du ihn versehentlich drückst, kannst du Erfolge mit [AUSGEWÄHLTEN FREISCHALTEN] wiederherstellen." },
 
                 // Advanced >> DEBUG
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ResetAllAchievements)),  "DEBUG:  ALLES ZURÜCKSETZEN" }, // Button label
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ResetAllAchievements)),  "DEBUG: ALLE ZURÜCKSETZEN" }, // Button label
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.ResetAllAchievements)),
-                    "**WARNUNG**: setzt ALLE Erfolge zurück. Nützlich zum Testen/Debuggen.\n" +
-                    "Falls du das versehentlich nutzt, kannst du Erfolge mit [Ausgewählten freischalten] wiederherstellen." },
+                    "**WARNUNG**: setzt **ALLE** Erfolge zurück. Nützlich für Tests.\n" +
+                    "Wenn du das aus Versehen machst, kannst du sie mit [AUSGEWÄHLTEN FREISCHALTEN] zurückholen." },
 
                 // Confirmation modal Yes/No
-                { m_Setting.GetOptionWarningLocaleID(nameof(Settings.ResetAllAchievements)), "Warnung: ALLE Erfolge auf **nicht abgeschlossen** zurücksetzen. Fortfahren?" },
+                { m_Setting.GetOptionWarningLocaleID(nameof(Settings.ResetAllAchievements)), "Achtung: ALLE Erfolge auf **nicht abgeschlossen** setzen. Fortfahren?" },
             };
         }
 

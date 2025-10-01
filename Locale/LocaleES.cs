@@ -24,61 +24,62 @@ namespace AchievementFixer
                 { m_Setting.GetOptionTabLocaleID(Settings.AdvancedTab), "Avanzado"  },
 
                 // Groups (Main tab)
-                { m_Setting.GetOptionGroupLocaleID(Settings.MainInfoGroup), "Información" },
-                { m_Setting.GetOptionGroupLocaleID(Settings.ButtonGroup),   "Enlaces"     },
-                { m_Setting.GetOptionGroupLocaleID(Settings.NotesGroup),    "Notas"       },
+                { m_Setting.GetOptionGroupLocaleID(Settings.MainInfoGroup), "Info"    },
+                { m_Setting.GetOptionGroupLocaleID(Settings.ButtonGroup),   "Enlaces" },
+                { m_Setting.GetOptionGroupLocaleID(Settings.NotesGroup),    "Notas"   },
 
                 // Groups (Advanced tab)
                 { m_Setting.GetOptionGroupLocaleID(Settings.AdvRowActions), "Acciones" },
                 { m_Setting.GetOptionGroupLocaleID(Settings.AdvRowDebug),   "DEBUG"    },
 
                 // Main >> Info
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.NameDisplay)),    "Mod"      },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.NameDisplay)),     "Nombre visible de este mod." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.NameDisplay)),    "Mod" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Settings.NameDisplay)),     "Nombre para mostrar de este mod." },
 
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.VersionDisplay)), "Versión"  },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.VersionDisplay)), "Versión" },
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.VersionDisplay)),  "Versión actual del mod." },
 
                 // Main >> Links
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.OpenAchievementsWikiButton)), "Wiki de logros" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.OpenAchievementsWikiButton)),
-                  "Abrir el wiki de logros en tu navegador." },
+                { m_Setting.GetOptionDescLocaleID(nameof(Settings.OpenAchievementsWikiButton)),  "Abrir el wiki de logros en el navegador." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.OpenDiscordButton)),          "Discord" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Settings.OpenDiscordButton)),           "Abrir el Discord de modding de CS2 en el navegador." },
 
                 // Main >> Notes
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.MainNotes)),
                     "Notas:\n" +
-                    "• Los logros están habilitados: solo realiza las tareas requeridas para completarlos de forma natural.\n" +
-                    "• ¡Disfruta! :)\n\n" +
-                    "• Steam muestra 6 logros que no estarán disponibles hasta que se lance el DLC \"Bridges & Ports\"." },
+                    "• Los logros están activos: cumple los requisitos para completarlos de forma natural.\n\n" +
+                    "¡Que lo disfrutes! :)\n\n" +
+                    "• Algunos logros no estarán disponibles hasta que salgan DLC (p. ej., Bridges & Ports)." },
 
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.MainNotes)),
-                    "Nota: a veces, tras completar los requisitos, el logro puede no aparecer hasta reiniciar el juego." },
+                    "Nota: a veces, tras cumplir los requisitos, un logro no aparece hasta reiniciar el juego." },
 
                 // --- Advanced tab ---
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.SelectedAchievement)),   "Seleccionar logro" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.SelectedAchievement)),    "Elige un logro sobre el que operar." },
+                { m_Setting.GetOptionDescLocaleID(nameof(Settings.SelectedAchievement)),    "Elige un logro sobre el que actuar." },
 
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.UnlockSelectedAchievement)), "Desbloquear seleccionado" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.UnlockSelectedAchievement)),  "**Desbloquea y completa** el logro seleccionado." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.UnlockSelectedAchievement)), "DESBLOQUEAR SELECCIONADO" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Settings.UnlockSelectedAchievement)),  "Marca el logro seleccionado como **desbloqueado y completado**." },
 
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ClearSelectedAchievement)),  "Restablecer seleccionado" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ClearSelectedAchievement)),  "BORRAR SELECCIONADO" },
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.ClearSelectedAchievement)),   "Marca el logro seleccionado como **no completado**." },
-                { m_Setting.GetOptionWarningLocaleID(nameof(Settings.ClearSelectedAchievement)), "BORRAR / RESTABLECER este logro.\n\n¿Continuar?" },
+                { m_Setting.GetOptionWarningLocaleID(nameof(Settings.ClearSelectedAchievement)), "BORRAR/REINICIAR este logro.\n\n¿Continuar?" },
 
                 // Advanced >> advisory text
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.AdvancedAdvisory)),
-                  "• Este mod ya habilita los logros (por defecto) sin usar botones en la pestaña Avanzado.\n" },
+                  "• Este mod ya activa los logros por defecto, sin usar los botones del tab Avanzado.\n" },
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.AdvancedAdvisory)),
-                    "**CUIDADO** al usar el botón [Depuración:  REINICIAR TODO]. Si lo usas por error, puedes recuperar logros con [Desbloquear seleccionado]." },
+                    "**CUIDADO** con [DEBUG: REINICIAR TODO]. Si lo pulsas por error, puedes recuperar logros con [DESBLOQUEAR SELECCIONADO]." },
 
                 // Advanced >> DEBUG
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ResetAllAchievements)),  "Depuración:  REINICIAR TODO" }, // Button label
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ResetAllAchievements)),  "DEBUG: REINICIAR TODO" }, // Button label
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.ResetAllAchievements)),
-                    "**ADVERTENCIA**: restablece TODOS los logros. Útil para depurar o probar.\n" +
-                    "Si lo usas por accidente, puedes recuperar logros con [Desbloquear seleccionado]." },
+                    "**ADVERTENCIA**: reinicia **TODOS** los logros. Útil para pruebas.\n" +
+                    "Si lo haces por error, puedes recuperarlos con [DESBLOQUEAR SELECCIONADO]." },
 
                 // Confirmation modal Yes/No
-                { m_Setting.GetOptionWarningLocaleID(nameof(Settings.ResetAllAchievements)), "Advertencia: RESTABLECER/LIMPIAR todos los logros a **no completado**. ¿Continuar?" },
+                { m_Setting.GetOptionWarningLocaleID(nameof(Settings.ResetAllAchievements)), "Advertencia: REINICIAR/BORRAR todos los logros a **no completado**. ¿Continuar?" },
             };
         }
 

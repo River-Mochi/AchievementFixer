@@ -3,6 +3,10 @@
 Keep achievements working in **Cities: Skylines II** even when playing with mods.  
 This keeps the game from disabling the achievements backend.
 
+Español: Mantiene los logros de CS2 activos aunque uses mods.
+
+中文（简体）：即使安装了模组，也能让 CS2 的成就保持激活。
+
 ## What it does
 - **Enables achievements** even if mods are loaded.
   - Active mods (not assets) will normally disqualify any achievement completion.

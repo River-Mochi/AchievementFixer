@@ -25,60 +25,61 @@ namespace AchievementFixer
 
                 // Groups (Main tab)
                 { m_Setting.GetOptionGroupLocaleID(Settings.MainInfoGroup), "Informações" },
-                { m_Setting.GetOptionGroupLocaleID(Settings.ButtonGroup),   "Links"        },
-                { m_Setting.GetOptionGroupLocaleID(Settings.NotesGroup),    "Notas"        },
+                { m_Setting.GetOptionGroupLocaleID(Settings.ButtonGroup),   "Links"       },
+                { m_Setting.GetOptionGroupLocaleID(Settings.NotesGroup),    "Notas"       },
 
                 // Groups (Advanced tab)
                 { m_Setting.GetOptionGroupLocaleID(Settings.AdvRowActions), "Ações"  },
                 { m_Setting.GetOptionGroupLocaleID(Settings.AdvRowDebug),   "DEBUG"  },
 
                 // Main >> Info
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.NameDisplay)),    "Mod"      },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.NameDisplay)),     "Nome exibido deste mod." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.NameDisplay)),    "Mod" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Settings.NameDisplay)),     "Nome de exibição deste mod." },
 
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.VersionDisplay)), "Versão"   },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.VersionDisplay)), "Versão" },
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.VersionDisplay)),  "Versão atual do mod." },
 
                 // Main >> Links
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.OpenAchievementsWikiButton)), "Wiki de conquistas" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.OpenAchievementsWikiButton)),
-                  "Abre o wiki de conquistas no seu navegador." },
+                { m_Setting.GetOptionDescLocaleID(nameof(Settings.OpenAchievementsWikiButton)),  "Abrir o wiki de conquistas no navegador." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.OpenDiscordButton)),          "Discord" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Settings.OpenDiscordButton)),           "Abrir o Discord de modding de CS2 no navegador." },
 
                 // Main >> Notes
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.MainNotes)),
                     "Notas:\n" +
-                    "• As conquistas estão ativadas — basta cumprir as tarefas necessárias para obtê-las naturalmente.\n" +
-                    "• Divirta-se! :)\n\n" +
-                    "• A Steam lista 6 conquistas que só ficarão disponíveis quando o DLC “Bridges & Ports” for lançado." },
+                    "• As conquistas já estão ativas — basta cumprir os requisitos para desbloquear naturalmente.\n\n" +
+                    "Divirta-se! :)\n\n" +
+                    "• Algumas conquistas só ficam disponíveis quando os DLCs forem lançados (ex.: Bridges & Ports)." },
 
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.MainNotes)),
-                    "Observação: às vezes, depois de concluir os requisitos, a conquista só aparece após reiniciar o jogo." },
+                    "Obs.: às vezes, mesmo após cumprir os requisitos, a conquista só aparece depois de reiniciar o jogo." },
 
                 // --- Advanced tab ---
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.SelectedAchievement)),   "Selecionar conquista" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.SelectedAchievement)),    "Escolha uma conquista para operar." },
+                { m_Setting.GetOptionDescLocaleID(nameof(Settings.SelectedAchievement)),    "Escolha a conquista para operar." },
 
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.UnlockSelectedAchievement)), "Desbloquear selecionado" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.UnlockSelectedAchievement)),  "**Desbloqueia e conclui** a conquista selecionada." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.UnlockSelectedAchievement)), "DESBLOQUEAR SELECIONADA" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Settings.UnlockSelectedAchievement)),  "Marca a conquista selecionada como **desbloqueada e concluída**." },
 
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ClearSelectedAchievement)),  "Limpar selecionado" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ClearSelectedAchievement)),  "REDEFINIR SELECIONADA" },
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.ClearSelectedAchievement)),   "Marca a conquista selecionada como **não concluída**." },
-                { m_Setting.GetOptionWarningLocaleID(nameof(Settings.ClearSelectedAchievement)), "LIMPAR / REDEFINIR esta conquista.\n\nContinuar?" },
+                { m_Setting.GetOptionWarningLocaleID(nameof(Settings.ClearSelectedAchievement)),"REDEFINIR esta conquista.\n\nContinuar?" },
 
                 // Advanced >> advisory text
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.AdvancedAdvisory)),
-                  "• Este mod já ativa as conquistas (padrão) sem usar botões na guia Avançado.\n" },
+                  "• Este mod já ativa as conquistas por padrão — sem usar os botões da guia Avançado.\n" },
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.AdvancedAdvisory)),
-                    "**CUIDADO** ao usar o botão [Depuração:  REDEFINIR TUDO]. Se você usá-lo por engano, pode recuperar conquistas com [Desbloquear selecionado]." },
+                    "**CUIDADO** com [DEBUG: REDEFINIR TUDO]. Se usar por engano, você pode recuperar com [DESBLOQUEAR SELECIONADA]." },
 
                 // Advanced >> DEBUG
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ResetAllAchievements)),  "Depuração:  REDEFINIR TUDO" }, // Button label
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ResetAllAchievements)),  "DEBUG: REDEFINIR TUDO" }, // Button label
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.ResetAllAchievements)),
-                    "**AVISO**: redefine TODAS as conquistas. Útil para depuração/testes.\n" +
-                    "Se usar por engano, você pode restaurá-las com [Desbloquear selecionado]." },
+                    "**AVISO**: redefine **TODAS** as conquistas. Útil para testes.\n" +
+                    "Se fizer por engano, recupere com [DESBLOQUEAR SELECIONADA]." },
 
                 // Confirmation modal Yes/No
-                { m_Setting.GetOptionWarningLocaleID(nameof(Settings.ResetAllAchievements)), "Aviso: REDEFINIR/LIMPAR todas as conquistas para o estado **não concluído**. Continuar?" },
+                { m_Setting.GetOptionWarningLocaleID(nameof(Settings.ResetAllAchievements)), "Aviso: REDEFINIR todas as conquistas para **não concluídas**. Continuar?" },
             };
         }
 

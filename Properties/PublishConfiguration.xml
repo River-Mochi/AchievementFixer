@@ -16,7 +16,7 @@ Keeps the CS2 achievements active even when you have mods.
 * Uses the game’s built-in localization to show readable names.
 
 ## Notes
-* Some achievements shown on Steam are not available until DLCs are released (e.g., 6 from Bridges and Ports).
+* Some achievements shown on Steam are not available until DLCs are released (e.g., 6 from Bridges and Ports DLC).
 * Safe to remove at any time; does not touch saves.
 * This mod does not use Reflection or Harmony to be safe and compatible, less likely to break with game updates.
 * Avoid using any other Achievement mods at the same time.
