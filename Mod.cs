@@ -1,8 +1,10 @@
-using System.Collections.Generic;      // Dictionary<string,string> for local override
+// Mod.cs
+
+using System.Collections.Generic;      // Dictionary<string,string> for locale override
 using Colossal;                        // IDictionarySource
 using Colossal.IO.AssetDatabase;       // AssetDatabase
 using Colossal.Logging;                // ILog, LogManager
-using Game;                            // UpdateSystem
+using Game;                            // UpdateSystem, SystemUpdatePhase
 using Game.Achievements;               // AchievementTriggerSystem
 using Game.Modding;                    // IMod
 using Game.SceneFlow;                  // GameManager
@@ -21,16 +23,17 @@ namespace AchievementFixer
         public const string VersionShort = "1.0.0";
 
         private static bool s_BannerLogged;
+        private static bool s_Reapplying;
 
-        // Add common locale variants
+        // Supported locales (also used to install banner overrides)
         private static readonly string[] s_LocaleIds =
         {
-            "en-US","fr-FR","de-DE","es-ES","it-IT","ja-JP","ko-KR","ko","pt-BR","zh-HANS","zh-HANT","vi-VN",
+            "en-US","fr-FR","de-DE","es-ES","it-IT","ja-JP","ko-KR","pt-BR","zh-HANS","zh-HANT","vi-VN",
         };
 
         public void OnLoad(UpdateSystem updateSystem)
         {
-            // Log meta banner once only
+            // Meta banner once only
             Log.Info(nameof(OnLoad));
             if (!s_BannerLogged)
             {
@@ -38,10 +41,11 @@ namespace AchievementFixer
                 s_BannerLogged = true;
             }
 
+            // Settings object
             var settings = new Settings(this);
             Settings = settings;
 
-            // Locales (register BEFORE Options UI)
+            // Register locales BEFORE Options UI
             AddLocale("en-US", new LocaleEN(settings));
             AddLocale("fr-FR", new LocaleFR(settings));
             AddLocale("de-DE", new LocaleDE(settings));
@@ -54,25 +58,24 @@ namespace AchievementFixer
             AddLocale("zh-HANS", new LocaleZH_CN(settings));
             AddLocale("zh-HANT", new LocaleZH_HANT(settings));
 
-            // Load any saved settings
+            // Load saved settings + Options UI
             AssetDatabase.global.LoadSettings("AchievementFixer", settings, new Settings(this));
-
-            // Options UI
             settings.RegisterInOptionsUI();
 
-            // Hide Achievement warning about mods
+            // Install banner override for all locales (last source wins)
             TryInstallWarningOverrideSource();
 
-            // Keep enabled: run after achievement trigger system
+            // Fixer needs to run after achievement trigger system
             updateSystem.UpdateAfter<AchievementFixerSystem, AchievementTriggerSystem>(SystemUpdatePhase.MainLoop);
 
+            // Subscribe to language changes
             var lm = GameManager.instance?.localizationManager;
             if (lm != null)
             {
-                Log.Info($"[Locale] Active: {lm.activeLocaleId}");  // Log active locale
+                Log.Info($"[Locale] Active: {lm.activeLocaleId}");
                 lm.onActiveDictionaryChanged -= OnLocaleChanged;    // de-dupe in case already subscribed
-                lm.onActiveDictionaryChanged += OnLocaleChanged;    // subscribe
-                Log.Info("[Locale] Subscribed to onActiveDictionaryChanged.");  // to fix dropdown list refresh
+                lm.onActiveDictionaryChanged += OnLocaleChanged;    // subscribe to fix mid-session changes
+                Log.Info("[Locale] Subscribed to onActiveDictionaryChanged.");
             }
         }
 
@@ -105,7 +108,7 @@ namespace AchievementFixer
         }
 
         /// <summary>
-        /// Suppress in-game "achievements disabled" banner
+        /// Install per-locale override for the built-in “achievements disabled because of mods” banner.
         /// </summary>
         private static void TryInstallWarningOverrideSource()
         {
@@ -116,40 +119,54 @@ namespace AchievementFixer
                 return;
             }
 
-            const string key = "Menu.ACHIEVEMENTS_WARNING_MODS";    // Locale key to override
+            const string key = "Menu.ACHIEVEMENTS_WARNING_MODS";    // game key to override
 
-            // Add to every supported locale (last source wins)
+            // Add to every supported locale (covers mid-session changes; last source wins)
             foreach (var localeId in s_LocaleIds)
             {
-                var text = LocaleBannerText.For(localeId);  // per-locale string
+                var text = LocaleBannerText.For(localeId);
                 var entries = new Dictionary<string, string> { [key] = text };
                 lm.AddSource(localeId, new LocaleOverrideSource(entries));
             }
 
-            Log.Info("Installed override for 'Achievements disabled because of mods.'");
+            Log.Info("OnLoad: Installed override for 'Achievements disabled...' (all locales).");
         }
 
-        // Rebuild Options UI when active language changes so dropdown list
-        // is re-populated from the new dictionary
+        /// <summary>
+        /// When active locale changes mid-session, re-assert banner override + rebuild Options UI.
+        /// </summary>
         private void OnLocaleChanged()
         {
+            var lm = GameManager.instance?.localizationManager;
+            var active = lm?.activeLocaleId ?? "(unknown)";
+            Log.Info($"[Locale] Dictionary change (active locale = {active})");
+
+            if (s_Reapplying) return; // avoid re-entrancy storms
+            s_Reapplying = true;
             try
             {
+                // Re-assert custom banner in the active locale; last one wins
+                if (lm != null && active != "(unknown)")
+                {
+                    const string key = "Menu.ACHIEVEMENTS_WARNING_MODS";
+                    var text = LocaleBannerText.For(active);
+                    lm.AddSource(active, new LocaleOverrideSource(new Dictionary<string, string> { [key] = text }));
+                }
+
+                // Rebuild Options UI
                 var settings = Settings;
-                if (settings == null) return;
-
-                // Non-null value for restore
-                var keep = settings.SelectedAchievement ?? string.Empty;
-
-                settings.UnregisterInOptionsUI();
-                settings.RegisterInOptionsUI();
-
-                settings.SelectedAchievement = keep; // non-null now
-                Log.Info($"[Locale] Options UI rebuilt");
+                if (settings != null)
+                {
+                    var keep = settings.SelectedAchievement ?? string.Empty;
+                    settings.UnregisterInOptionsUI();
+                    settings.RegisterInOptionsUI();
+                    settings.SelectedAchievement = keep;
+                    Log.Info($"[Locale] Options UI rebuilt (active = {active})");
+                }
             }
-            catch (System.Exception ex)
+            finally
             {
-                Log.Warn($"[Locale] Rebuild after locale change failed: {ex.GetType().Name}: {ex.Message}");
+                s_Reapplying = false;
             }
         }
     }

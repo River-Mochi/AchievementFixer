@@ -20,21 +20,19 @@ namespace AchievementFixer
 
             var lm = GameManager.instance?.localizationManager as LocalizationManager;
             var dict = lm?.activeDictionary;
-            var key = $"Achievements.TITLE[{internalName}]";
+            if (dict == null)
+                return internalName;  //  no dictionary yet, show raw ID
 
-            if (dict != null &&
-                dict.TryGetValue(key, out var localized) &&
-                !string.IsNullOrWhiteSpace(localized))
-            {
+            var key = $"Achievements.TITLE[{internalName}]";
+            if (dict.TryGetValue(key, out var localized) && !string.IsNullOrWhiteSpace(localized))
                 return localized;  // friendly title (spaced, correct casing, punctuation)
-            }
 
             return internalName;  // Fallback: show raw ID to see misses during testing
         }
     }
 
-    /// <summary>Tiny dictionary-backed source for overriding specific locale keys.</summary>
-    // Helper - override warning banner localization key map (last source wins)
+    /// <summary> Tiny 1-line dictionary-backed source for overriding specific locale keys.</summary>
+    // Helper - override warning banner key map (for localization, last source added wins)
     internal sealed class LocaleOverrideSource : IDictionarySource
     {
         private readonly Dictionary<string, string> m_Entries;
@@ -46,6 +44,9 @@ namespace AchievementFixer
         public void Unload() { }
     }
 
+    /// <summary>
+    /// Per-locale banner text for the "achievements disabled" toast override.
+    /// </summary>
     internal static class LocaleBannerText
     {
         private static readonly Dictionary<string, string> s_Text = new()
