@@ -35,6 +35,8 @@ namespace AchievementFixer
         public const string AdvRowActions = "Actions";
         public const string AdvRowDebug = "Debug";
 
+        // ---- Constants ----
+        private const string UrlDiscord = "https://discord.gg/HTav7ARPs2";
         private const string UrlAchievementsWiki = "https://cs2.paradoxwikis.com/Achievements";
 
         public Settings(IMod mod) : base(mod) { }
@@ -46,7 +48,21 @@ namespace AchievementFixer
         [SettingsUISection(MainTab, MainInfoGroup)]
         public string VersionDisplay => Mod.VersionShort;
 
-        // Main Wiki button
+        // Main - Discord button
+        [SettingsUIButtonGroup(ButtonGroup)]
+        [SettingsUIButton]
+        [SettingsUISection(MainTab, ButtonGroup)]
+        public bool OpenDiscordButton
+        {
+            set
+            {
+                if (!value) return;
+                try { Application.OpenURL(UrlDiscord); }
+                catch (Exception ex) { Mod.Log.Warn($"Failed to open Discord: {ex.Message}"); }
+            }
+        }
+
+        // Main - Wiki button
         [SettingsUIButtonGroup(ButtonGroup)]
         [SettingsUIButton]
         [SettingsUISection(MainTab, ButtonGroup)]
