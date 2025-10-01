@@ -25,7 +25,7 @@ namespace AchievementFixer
         // Add common locale variants
         private static readonly string[] s_LocaleIds =
         {
-            "en-US","fr-FR","de-DE","es-ES","it-IT","ja-JP","ko-KR","pt-BR","zh-HANS","zh-HANT","vi-VN",
+            "en-US","fr-FR","de-DE","es-ES","it-IT","ja-JP","ko-KR","ko","pt-BR","zh-HANS","zh-HANT","vi-VN",
         };
 
         public void OnLoad(UpdateSystem updateSystem)
