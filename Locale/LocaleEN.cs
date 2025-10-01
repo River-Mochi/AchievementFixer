@@ -48,8 +48,7 @@ namespace AchievementFixer
                 // Main >> Notes
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.MainNotes)),
                     "Notes:\n" +
-                    "• Achievements are enabled now - just do the required tasks to naturally complete achievements.\n" +
-                    "• Enjoy! :)\n\n" +
+                    "• Achievements are enabled now - just do the required tasks to naturally complete achievements. Enjoy! :)\n\n" +
                     "• Steam lists 6 achievements that are not available until the Bridges & Ports DLC is released." },
 
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.MainNotes)),
