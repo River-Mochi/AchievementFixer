@@ -97,7 +97,7 @@ namespace AchievementFixer
             var lm = GameManager.instance?.localizationManager;
             if (lm == null)
             {
-                Log.Warn($"LocalizationManager null; cannot add locale '{localeId}'(skipped).");
+                Log.Warn($"LocalizationManager null; cannot add locale '{localeId}' (skipped).");
                 return;
             }
             lm.AddSource(localeId, source);
