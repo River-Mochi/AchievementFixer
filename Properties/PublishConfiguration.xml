@@ -53,7 +53,7 @@ Keeps the achievements active even when you have mods.
 	<!--Link to the forum post where the mod can be discussed-->
 	<ForumLink Value="" />
 	<!--Version of the mod-->
-	<ModVersion Value="1.0.0" />
+	<ModVersion Value="1.0.1" />
 	<!--Recommended version of the base game to use the mod-->
 	<GameVersion Value="1.3.*" />
 	<!--Dependency for the mod, can be set multiple times-->
@@ -61,11 +61,9 @@ Keeps the achievements active even when you have mods.
 	<!--Required DLC, can be set multiple times. Supported values are "Landmark Buildings", "San Fransisco Set", "Beach Properties", "Urban Promenades", "Modern Architecture"-->
 	<RequiredDLC Value="" />
 	<!--Change log for new version. Single line or multi line. Supports minimal markdown subset-->
-	<ChangeLog>**1.0.0** — Initial release.
-* Enables achievements with mods
-* UI language support: English, Français (French), Deutsch (German), Español (Spanish), Italiano (Italian), 日本語 (Japanese), 한국어 (Korean), Português (Brasil) (Brazilian Portuguese), 简体中文 (Simplified Chinese).
-* Hides the in-game 'achievements disabled' banner.
-* Adds Unlock/Clear/Reset tools.</ChangeLog>
+	<ChangeLog>* Fixes: Korean warning banner now replaced correctly.
+* Adds: 繁體中文 (Traditional Chinese) zh-HANT localization.
+* Chore: Logging simplified/clarified</ChangeLog>
 	<!--External link, can be set multiple times. supported types are "discord", "github", "youtube", "twitch", "x", "paypal", "patreon", "buymeacoffee", "kofi", "crowdin", "gitlab", "gofundme"-->
 	<ExternalLink Type="discord" Url="https://discord.gg/HTav7ARPs2" />
 	<ExternalLink Type="github" Url="https://github.com/River-Mochi/AchievementFixer" />
