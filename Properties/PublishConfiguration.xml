@@ -43,9 +43,9 @@ Feedback / Bug Report: **Cities: Skylines Modding** Discord: https://discord.gg/
 	<!--Thumbnail-->
 	<Thumbnail Value="Properties/Thumbnail.png" />
 	<!--Screenshot, can be set multiple times-->
-	<Screenshot Value="Properties/10-AF-AdvancedTab.jpg" />
-	<Screenshot Value="Properties/20-AF-AdvancedTab-FR.jpg" />
-	<Screenshot Value="Properties/30-AF-AdvancedTab-ZH_CN.jpg" />
+	<Screenshot Value="Properties/10-AF-Main-EN.jpg" />
+	<Screenshot Value="Properties/20-AF-Main-FR.jpg" />
+	<Screenshot Value="Properties/30-AF-Main-ZH_CN.jpg" />
 	<!--Tag, can be set multiple times-->
 	<Tag Value="Code Mod" />
 	<!--Link to the forum post where the mod can be discussed-->
