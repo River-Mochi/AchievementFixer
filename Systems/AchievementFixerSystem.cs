@@ -8,7 +8,7 @@ namespace AchievementFixer
     /// <summary>
     /// Keeps achievements enabled after each load with a short assert window.
     /// </summary>
-    [WorldSystemFilter(WorldSystemFilterFlags.ClientSimulation)]    //only run this system in the actual gameplay
+    [WorldSystemFilter(WorldSystemFilterFlags.ClientSimulation)]    // Run this system in the actual gameplay
     public partial class AchievementFixerSystem : GameSystemBase
     {
 
@@ -67,6 +67,7 @@ namespace AchievementFixer
             {
                 Mod.Log.Info($"{source}: ATTENTION: detected game flipped achievementsEnabled == FALSE. Forcing TRUE.");
                 pm.achievementsEnabled = true;
+                Mod.Log.Info($"{source}: achievementsEnabled is now TRUE.");
                 return true;
             }
 

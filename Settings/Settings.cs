@@ -1,4 +1,7 @@
 // Achievement Fixer
+// https://github.com/River-Mochi/AchievementFixer
+// RiverMochi 2025
+
 using System;                     // Exception handling (try/catch)
 using System.Linq;                // LINQ (Select, OrderBy, ToArray)
 using Colossal.IO.AssetDatabase;  // [FileLocation]

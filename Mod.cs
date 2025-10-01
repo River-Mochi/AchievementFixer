@@ -1,4 +1,4 @@
-using System.Collections.Generic;      // Dictionary<string,string>
+using System.Collections.Generic;      // Dictionary<string,string> for local override
 using Colossal;                        // IDictionarySource
 using Colossal.IO.AssetDatabase;       // AssetDatabase
 using Colossal.Logging;                // ILog, LogManager
@@ -59,7 +59,7 @@ namespace AchievementFixer
             // Options UI
             settings.RegisterInOptionsUI();
 
-            // Hide Achievement warning @ mods strings
+            // Hide Achievement warning about mods
             TryInstallWarningOverrideSource();
 
             // Keep enabled: run after achievement trigger system

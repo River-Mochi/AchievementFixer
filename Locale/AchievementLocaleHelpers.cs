@@ -8,6 +8,7 @@ namespace AchievementFixer
     /// <summary>
     /// Returns a localized achievement title; falls back to internalName.
     /// </summary>
+    // Helper - used for the Dropdown list
     internal static class AchievementDisplay
     {
         public static string Get(string internalName)
@@ -31,7 +32,7 @@ namespace AchievementFixer
     }
 
     /// <summary>Tiny dictionary-backed source for overriding specific locale keys.</summary>
-    // Helper - override banner localization key map
+    // Helper - override warning banner localization key map (last source wins)
     internal sealed class LocaleOverrideSource : IDictionarySource
     {
         private readonly Dictionary<string, string> m_Entries;
