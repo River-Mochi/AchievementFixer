@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Colossal;
+using Colossal.IO.AssetDatabase.Internal;
 
 namespace AchievementFixer
 {
@@ -50,10 +51,8 @@ namespace AchievementFixer
                     "Notes :\n" +
                     "• Les succès sont activés : réalisez simplement les objectifs pour les obtenir naturellement.\n\n" +
                     "Amusez-vous bien ! :)\n\n" +
-                    "• Certains succès ne sont disponibles qu’avec des DLC (ex. Bridges & Ports)." },
-
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.MainNotes)),
-                    "Remarque : parfois, un succès n’apparaît qu’après avoir redémarré le jeu." },
+                    "• Certains succès ne sont disponibles qu’avec des DLC (ex. Bridges & Ports).\n" +
+                    "• Parfois, un succès n’apparaît qu’après avoir redémarré le jeu." },
 
                 // --- Advanced tab ---
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.SelectedAchievement)),   "Sélectionner un succès" },

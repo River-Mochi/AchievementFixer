@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Colossal;
+using Colossal.IO.AssetDatabase.Internal;
 
 namespace AchievementFixer
 {
@@ -50,10 +51,8 @@ namespace AchievementFixer
                     "Notas:\n" +
                     "• Los logros están activos: cumple los requisitos para completarlos de forma natural.\n\n" +
                     "¡Que lo disfrutes! :)\n\n" +
-                    "• Algunos logros no estarán disponibles hasta que salgan DLC (p. ej., Bridges & Ports)." },
-
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.MainNotes)),
-                    "Nota: a veces, tras cumplir los requisitos, un logro no aparece hasta reiniciar el juego." },
+                    "• Algunos logros no estarán disponibles hasta que salgan DLC (p. ej., Bridges & Ports).\n" +
+                    "• A veces, tras cumplir los requisitos, un logro no aparece hasta reiniciar el juego." },
 
                 // --- Advanced tab ---
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.SelectedAchievement)),   "Seleccionar logro" },

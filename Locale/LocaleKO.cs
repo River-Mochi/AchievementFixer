@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Colossal;
+using Colossal.IO.AssetDatabase.Internal;
 
 namespace AchievementFixer
 {
@@ -50,10 +51,8 @@ namespace AchievementFixer
                     "노트:\n" +
                     "• 업적은 이미 활성화됨 — 필요한 작업을 하면 자연스럽게 달성됩니다.\n\n" +
                     "즐거운 시간 되세요! :)\n\n" +
-                    "• 일부 업적은 DLC 출시 후에만 이용 가능합니다(예: Bridges & Ports)." },
-
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.MainNotes)),
-                    "참고: 조건을 완료해도 게임을 재시작해야 업적이 표시될 때가 있습니다." },
+                    "• 일부 업적은 DLC 출시 후에만 이용 가능합니다(예: Bridges & Ports).\n" +
+                    "• 조건을 다 채워도 업적이 게임 재시작 후에야 뜰 때가 있어요." },
 
                 // --- Advanced tab ---
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.SelectedAchievement)),   "업적 선택" },

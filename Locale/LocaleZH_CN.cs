@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Colossal;
+using Colossal.IO.AssetDatabase.Internal;
 
 namespace AchievementFixer
 {
@@ -50,10 +51,8 @@ namespace AchievementFixer
                     "说明：\n" +
                     "• 成就已启用——按要求完成即可自然解锁。\n\n" +
                     "玩得开心！ :)\n\n" +
-                    "• 部分成就需等到DLC发布后才可用（如 Bridges & Ports）。" },
-
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.MainNotes)),
-                    "提示：有时满足条件后，需要重启游戏成就才会显示。" },
+                    "• 部分成就需等到DLC发布后才可用（如 Bridges & Ports）。\n" +
+                    "• 有时即使已满足条件，成就也要在重启游戏后才会出现。" },
 
                 // --- Advanced tab ---
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.SelectedAchievement)),   "选择成就" },

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Colossal;
+using Colossal.IO.AssetDatabase.Internal;
 
 namespace AchievementFixer
 {
@@ -50,10 +51,8 @@ namespace AchievementFixer
                     "Ghi chú:\n" +
                     "• Thành tựu đã được bật — chỉ cần làm đủ yêu cầu để mở khóa tự nhiên.\n\n" +
                     "Chúc chơi vui! :)\n\n" +
-                    "• Một số thành tựu chỉ có khi DLC phát hành (ví dụ: Bridges & Ports)." },
-
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.MainNotes)),
-                    "Lưu ý: đôi khi hoàn thành đủ yêu cầu rồi, thành tựu chỉ hiện sau khi khởi động lại game." },
+                    "• Một số thành tựu chỉ có khi DLC phát hành (ví dụ: Bridges & Ports).\n" +
+                    "• Đôi khi hoàn thành đủ yêu cầu rồi, thành tựu chỉ hiện sau khi khởi động lại game." },
 
                 // --- Advanced tab ---
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.SelectedAchievement)),   "Chọn thành tựu" },

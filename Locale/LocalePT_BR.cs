@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Colossal;
+using Colossal.IO.AssetDatabase.Internal;
 
 namespace AchievementFixer
 {
@@ -50,10 +51,8 @@ namespace AchievementFixer
                     "Notas:\n" +
                     "• As conquistas já estão ativas — basta cumprir os requisitos para desbloquear naturalmente.\n\n" +
                     "Divirta-se! :)\n\n" +
-                    "• Algumas conquistas só ficam disponíveis quando os DLCs forem lançados (ex.: Bridges & Ports)." },
-
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.MainNotes)),
-                    "Obs.: às vezes, mesmo após cumprir os requisitos, a conquista só aparece depois de reiniciar o jogo." },
+                    "• Algumas conquistas só ficam disponíveis quando os DLCs forem lançados (ex.: Bridges & Ports).\n" +
+                    "• Às vezes, mesmo após cumprir os requisitos, a conquista só aparece depois de reiniciar o jogo." },
 
                 // --- Advanced tab ---
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.SelectedAchievement)),   "Selecionar conquista" },
