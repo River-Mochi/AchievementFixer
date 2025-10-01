@@ -50,8 +50,7 @@ namespace AchievementFixer
                     "Note:\n" +
                     "• Gli obiettivi sono attivi: completa i requisiti per sbloccarli in modo naturale.\n\n" +
                     "Divertiti! :)\n\n" +
-                    "• Alcuni obiettivi non sono disponibili finché non escono i DLC (es. Bridges & Ports).\n" +
-                    "• A volte, dopo aver soddisfatto i requisiti, un obiettivo compare solo dopo il riavvio del gioco." },
+                    "• Alcuni obiettivi non sono disponibili finché non escono i DLC (es. Bridges & Ports)." },
 
                 // --- Advanced tab ---
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.SelectedAchievement)),   "Seleziona obiettivo" },

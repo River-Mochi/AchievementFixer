@@ -50,8 +50,7 @@ namespace AchievementFixer
                     "Hinweise:\n" +
                     "• Erfolge sind jetzt aktiviert – erledige einfach die Aufgaben, um sie ganz normal freizuschalten.\n\n" +
                     "Viel Spaß! :)\n\n" +
-                    "• Manche Erfolge sind erst verfügbar, wenn DLCs veröffentlicht wurden (z. B. Bridges & Ports).\n" +
-                    "• Manchmal erscheint eine Errungenschaft erst nach einem Neustart des Spiels, selbst wenn die Anforderungen erfüllt wurden." },
+                    "• Manche Erfolge sind erst verfügbar, wenn DLCs veröffentlicht wurden (z. B. Bridges & Ports).\n" },
 
                 // --- Advanced tab ---
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.SelectedAchievement)),   "Erfolg auswählen" },

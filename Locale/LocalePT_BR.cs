@@ -51,8 +51,7 @@ namespace AchievementFixer
                     "Notas:\n" +
                     "• As conquistas já estão ativas — basta cumprir os requisitos para desbloquear naturalmente.\n\n" +
                     "Divirta-se! :)\n\n" +
-                    "• Algumas conquistas só ficam disponíveis quando os DLCs forem lançados (ex.: Bridges & Ports).\n" +
-                    "• Às vezes, mesmo após cumprir os requisitos, a conquista só aparece depois de reiniciar o jogo." },
+                    "• Algumas conquistas só ficam disponíveis quando os DLCs forem lançados (ex.: Bridges & Ports)." },
 
                 // --- Advanced tab ---
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.SelectedAchievement)),   "Selecionar conquista" },

@@ -51,8 +51,7 @@ namespace AchievementFixer
                     "노트:\n" +
                     "• 업적은 이미 활성화됨 — 필요한 작업을 하면 자연스럽게 달성됩니다.\n\n" +
                     "즐거운 시간 되세요! :)\n\n" +
-                    "• 일부 업적은 DLC 출시 후에만 이용 가능합니다(예: Bridges & Ports).\n" +
-                    "• 조건을 다 채워도 업적이 게임 재시작 후에야 뜰 때가 있어요." },
+                    "• 일부 업적은 DLC 출시 후에만 이용 가능합니다(예: Bridges & Ports)." },
 
                 // --- Advanced tab ---
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.SelectedAchievement)),   "업적 선택" },

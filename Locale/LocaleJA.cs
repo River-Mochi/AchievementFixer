@@ -50,8 +50,7 @@ namespace AchievementFixer
                     "注意:\n" +
                     "• 実績はすでに有効です——条件を満たせば自然に解除されます。\n\n" +
                     "楽しんで！ :)\n\n" +
-                    "• 一部の実績はDLCがリリースされるまで利用できません（例：Bridges & Ports）。\n" +
-                    "• 条件を満たしても、実績が表示されるのはゲーム再起動後になる場合があります。" },
+                    "• 一部の実績はDLCがリリースされるまで利用できません（例：Bridges & Ports）。" },
 
                 // --- Advanced tab ---
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.SelectedAchievement)),   "実績を選択" },

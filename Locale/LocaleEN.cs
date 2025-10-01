@@ -52,8 +52,7 @@ namespace AchievementFixer
                     "Notes:\n" +
                     "• Achievements are enabled now - just do the required tasks to naturally complete achievements.\n\n" +
                     "Enjoy! :)\n\n" +
-                    "• Some achievements are not available until DLCs are release (e.g. Bridges & Ports DLC).\n" +
-                    "• Sometimes after completing the requirements, an achievement might not appear until the game is restarted." },
+                    "• Some achievements are not available until DLCs are release (e.g. Bridges & Ports DLC)." },
 
                 // --- Advanced tab ---
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.SelectedAchievement)),   "Select achievement" },
