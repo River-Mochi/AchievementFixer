@@ -30,6 +30,7 @@ namespace AchievementFixer
 
         public void OnLoad(UpdateSystem updateSystem)
         {
+            // Log meta banner once only
             Log.Info(nameof(OnLoad));
             if (!s_BannerLogged)
             {
@@ -110,14 +111,14 @@ namespace AchievementFixer
             var lm = GameManager.instance?.localizationManager;
             if (lm == null) { Log.Warn("No LocalizationManager; cannot add warning override."); return; }
 
-            const string key = "Menu.ACHIEVEMENTS_WARNING_MODS";    //locale key to override
-            const string text = "Achievements enabled by Achievement Fixer."; // or "" to fully hide
+            const string key = "Menu.ACHIEVEMENTS_WARNING_MODS";    // Locale key to override
+            const string text = "Achievements enabled by Achievement Fixer."; // Custom text or use "" to hide
 
             var entries = new Dictionary<string, string> { [key] = text };
 
             // Add to every supported locale (last source wins; covers mid-session language changes)
             foreach (var localeId in s_LocaleIds)
-                lm.AddSource(localeId, new MemoryLocalizationSource(entries));
+                lm.AddSource(localeId, new LocaleOverrideSource(entries));
 
             Log.Info("Installed override for 'Achievements disabled because of mods.'");
         }
@@ -145,16 +146,5 @@ namespace AchievementFixer
                 Log.Warn($"[Locale] Rebuild after locale change failed: {ex.GetType().Name}: {ex.Message}");
             }
         }
-
-    }
-    /// <summary> In-memory localization source </summary>
-    // Helper - override banner localization key map
-    internal sealed class MemoryLocalizationSource : IDictionarySource
-    {
-        private readonly Dictionary<string, string> m_Entries;
-        public MemoryLocalizationSource(Dictionary<string, string> entries) { m_Entries = entries; }
-        public IEnumerable<KeyValuePair<string, string>> ReadEntries(
-            IList<IDictionaryEntryError> errors, Dictionary<string, int> indexCounts) => m_Entries;
-        public void Unload() { }
     }
 }

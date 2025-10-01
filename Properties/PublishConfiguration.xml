@@ -7,39 +7,40 @@
 	<ShortDescription Value="Earn achievements naturally even with mods enabled. Keeps the backend on. Enjoy :)" />
 	<!--Long description of the mod. Single line or multi line. Supports minimal markdown subset-->
 	<LongDescription># Achievement Fixer
-Keeps the CS2 achievements active even when you have mods.
+Keeps the achievements active even when you have mods.
 
 ## How it works
-* Automatically re-enables achievements after a city loads.
-* Just install the mod, start earning achievements naturally.
+* Just install the mod, nothing else needed, it works automatically.
 * Stops the in-game warning ("Achievements are disabled because of mods").
-* Uses the game’s built-in localization to show readable names.
+* Re-enables achievements after any city loads or is switched.
 
 ## Notes
 * Some achievements shown on Steam are not available until DLCs are released (e.g., 6 from Bridges and Ports DLC).
 * Safe to remove at any time; does not touch saves.
-* This mod does not use Reflection or Harmony to be safe and compatible, less likely to break with game updates.
+* This mod does not use Reflection or Harmony; safe/compatible, less likely to break with game updates.
 * Avoid using any other Achievement mods at the same time.
 
-## Supports 9+ languages
+### Supports 9+ languages
 * English, Français (French), Deutsch (German), Español (Spanish), Italiano (Italian), 日本語 (Japanese)
 * 한국어 (Korean), Português (Brasil) (Brazilian Portuguese), 简体中文 (Simplified Chinese).
 * Future updates may add more languages. WIP: Tiếng Việt (Vietnamese)
 
-## Advanced tab
-* If you want faster (don't like natural), go to the Advanced tab.
+### Advanced tab
+* If you don't like natural, go to the Advanced tab.
 
-## Support
-* Feedback / Bug Report: **Cities: Skylines Modding** Discord: https://discord.gg/HTav7ARPs2
+### Support
+* Feedback at Cities: Skylines Modding Discord: https://discord.gg/HTav7ARPs2
 * Find the channel named `Achievement-Fixer`
 
-**Credits**
+### Credits
 * RiverMochi - mod author
 * inspired by Wayzeware's old Achievement Enabler (defunct)
-* StarQ for all technical help.
+* StarQ for all the technical help.
 * rcav8tr for method to find game localization keys.
 * Necko1996 for testing
 * and the CS2 modding community for pointers and testing.
+
+
 
 	</LongDescription>
 	<!--Thumbnail-->
