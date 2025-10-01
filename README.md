@@ -3,10 +3,6 @@
 Keep achievements working in **Cities: Skylines II** even when playing with mods.  
 This keeps the game from disabling the achievements backend.
 
-Español: Mantiene los logros de CS2 activos aunque uses mods.
-
-中文（简体）：即使安装了模组，也能让 CS2 的成就保持激活。
-
 ## What it does
 - **Enables achievements** even if mods are loaded.
   - Active mods (not assets) will normally disqualify any achievement completion.
@@ -17,10 +13,9 @@ Español: Mantiene los logros de CS2 activos aunque uses mods.
 - **Language switching**: works even if you switch languages
   - re-reads the game's locale dictionary.
 
-
 ## How to use
 1. Install the mod from Skyve or Paradox Mods.
-   - No configuration needed; we enable achievements by default.
+   - No configuration needed; achievements enabled by default.
 2. Do the tasks (e.g., build 10 parks to get *Groundskeeper*).  
 3. Safe to remove anytime; this mod doesn’t touch your saves.
 
