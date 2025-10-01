@@ -25,7 +25,7 @@ namespace AchievementFixer
         // Add common locale variants
         private static readonly string[] s_LocaleIds =
         {
-            "en-US","fr-FR","de-DE","es-ES","it-IT","ja-JP","ko-KR","pt-BR","zh-HANS","vi-VN",
+            "en-US","fr-FR","de-DE","es-ES","it-IT","ja-JP","ko-KR","pt-BR","zh-HANS","zh-HANT","vi-VN",
         };
 
         public void OnLoad(UpdateSystem updateSystem)
@@ -52,6 +52,7 @@ namespace AchievementFixer
             AddLocale("vi-VN", new LocaleVI(settings));
             AddLocale("pt-BR", new LocalePT_BR(settings));
             AddLocale("zh-HANS", new LocaleZH_CN(settings));
+            AddLocale("zh-HANT", new LocaleZH_HANT(settings));
 
             // Load any saved settings
             AssetDatabase.global.LoadSettings("AchievementFixer", settings, new Settings(this));

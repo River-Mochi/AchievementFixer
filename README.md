@@ -28,9 +28,9 @@ Español: Mantiene los logros de CS2 activos aunque uses mods.
 - Some achievements shown on Steam are not available until DLCs are released (e.g., 6 from Bridges & Ports).
 - If an achievement doesn’t pop right away, a game restart sometimes helps (CS2 quirk).
 
-## Supports 9+ languages
+## Supports 10 languages
 * English, Français (French), Deutsch (German), Español (Spanish), Italiano (Italian), 日本語 (Japanese)
-* 한국어 (Korean), Português (Brasil) (Brazilian Portuguese), 简体中文 (Simplified Chinese).
+* 한국어 (Korean), Português (Brasil) (Brazilian Portuguese), 简体中文 (Simplified Chinese), 繁體中文 (Traditional Chinese).
 * Drop-down achievement names come from the game, so they match whatever game language you use (VI which does not currently have an in-game dictionary).
 * Future updates may add more languages. WIP: Tiếng Việt (Vietnamese)
 
