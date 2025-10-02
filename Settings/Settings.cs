@@ -1,18 +1,18 @@
 // Achievement Fixer
 // https://github.com/River-Mochi/AchievementFixer
 // RiverMochi 2025
-
-using System;                     // Exception handling (try/catch)
-using System.Linq;                // LINQ (Select, OrderBy, ToArray)
-using Colossal.IO.AssetDatabase;  // [FileLocation]
-using Colossal.PSI.Common;        // PlatformManager, AchievementId
-using Game.Modding;               // IMod, ModSetting
-using Game.Settings;              // SettingsUI
-using Game.UI.Widgets;            // DropdownItem<T>
-using UnityEngine;                // Application.OpenURL
-
 namespace AchievementFixer
 {
+    using System;                     // Exception handling (try/catch)
+    using System.Linq;                // LINQ (Select, OrderBy, ToArray)
+    using Colossal.IO.AssetDatabase;  // [FileLocation]
+    using Colossal.PSI.Common;        // PlatformManager, AchievementId
+    using Game.Modding;               // IMod, ModSetting
+    using Game.Settings;              // SettingsUI
+    using Game.UI.Widgets;            // DropdownItem<T>
+    using UnityEngine;                // Application.OpenURL
+
+
     [FileLocation("ModsSettings/AchievementFixer/AchievementFixer")]    // location of persistent settings
     [SettingsUIGroupOrder(
         MainInfoGroup, ButtonGroup, NotesGroup,
