@@ -36,8 +36,7 @@ namespace AchievementFixer
         }
     }
 
-    /// <summary> Tiny 1-line dictionary-backed source for overriding specific locale keys.</summary>
-
+    /// <summary> Tiny dictionary-backed source for overriding 1-line locale keys.</summary>
     // Helper - override warning banner key map (for localization, last source added wins)
     internal sealed class LocaleOverrideSource : IDictionarySource
     {
@@ -71,7 +70,7 @@ namespace AchievementFixer
         };
 
         public static string For(string localeId) =>
-            s_Text.TryGetValue(localeId, out var text) ? text : s_Text["en-US"];
+            s_Text.TryGetValue(localeId, out var text) ? text : s_Text["en-US"]; // fallback to English
     }
 
 }

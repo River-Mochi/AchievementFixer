@@ -1,5 +1,3 @@
-
-
 namespace AchievementFixer
 {
     using System.Collections.Generic;
