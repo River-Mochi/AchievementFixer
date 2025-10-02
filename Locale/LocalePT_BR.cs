@@ -1,9 +1,7 @@
-using System.Collections.Generic;
-using Colossal;
-using Colossal.IO.AssetDatabase.Internal;
-
 namespace AchievementFixer
 {
+    using System.Collections.Generic;
+    using Colossal;
     /// <summary>
     /// Portuguese (Brazil) locale (pt-BR)
     /// </summary>

@@ -1,8 +1,8 @@
-using System.Collections.Generic;
-using Colossal;
-
 namespace AchievementFixer
 {
+    using System.Collections.Generic;
+    using Colossal;
+
     /// <summary>
     /// Japanese locale (ja-JP)
     /// </summary>

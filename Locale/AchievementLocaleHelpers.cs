@@ -1,12 +1,11 @@
 // AchievementLocaleHelpers.cs
-
-using System.Collections.Generic;   // Dictionary
-using Colossal;                     // IDictionarySource
-using Colossal.Localization;        // LocalizationManager
-using Game.SceneFlow;               // GameManager
-
 namespace AchievementFixer
 {
+    using System.Collections.Generic;   // Dictionary
+    using Colossal;                     // IDictionarySource
+    using Colossal.Localization;        // LocalizationManager
+    using Game.SceneFlow;               // GameManager
+
     /// <summary>
     /// Returns a localized achievement title; falls back to internalName.
     /// </summary>
@@ -16,22 +15,29 @@ namespace AchievementFixer
         public static string Get(string internalName)
         {
             if (string.IsNullOrWhiteSpace(internalName))
+            {
                 return string.Empty;
+            }
 
             var lm = GameManager.instance?.localizationManager as LocalizationManager;
             var dict = lm?.activeDictionary;
             if (dict == null)
-                return internalName;  //  no dictionary yet, show raw ID
+            {
+                return internalName; // no dictionary yet, show raw ID
+            }
 
             var key = $"Achievements.TITLE[{internalName}]";
             if (dict.TryGetValue(key, out var localized) && !string.IsNullOrWhiteSpace(localized))
+            {
                 return localized;  // friendly title (spaced, correct casing, punctuation)
+            }
 
             return internalName;  // Fallback: show raw ID to see misses during testing
         }
     }
 
     /// <summary> Tiny 1-line dictionary-backed source for overriding specific locale keys.</summary>
+
     // Helper - override warning banner key map (for localization, last source added wins)
     internal sealed class LocaleOverrideSource : IDictionarySource
     {

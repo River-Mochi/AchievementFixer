@@ -1,10 +1,7 @@
-using System.Collections.Generic;
-using Colossal;
-using Colossal.IO.AssetDatabase;
-using UnityEngine;
-
 namespace AchievementFixer
 {
+    using System.Collections.Generic;
+    using Colossal;
     /// <summary>
     /// Traditional Chinese locale (zh-HANT)
     /// </summary>

@@ -120,5 +120,17 @@
   <ItemGroup Condition="'$(Configuration)'=='Debug'">
     <Compile Include="Utilities\**\*.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="StyleCop\stylecop.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <AdditionalFiles Include="StyleCop\stylecop.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
 
 </Project>

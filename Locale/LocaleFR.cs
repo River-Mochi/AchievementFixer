@@ -1,16 +1,19 @@
-using System.Collections.Generic;
-using Colossal;
-using Colossal.IO.AssetDatabase.Internal;
-
 namespace AchievementFixer
 {
+    using System.Collections.Generic;
+    using Colossal;
+
     /// <summary>
-    /// French locale (fr-FR)
+    /// French locale (fr-FR).
     /// </summary>
     public class LocaleFR : IDictionarySource
     {
         private readonly Settings m_Setting;
-        public LocaleFR(Settings setting) { m_Setting = setting; }
+
+        public LocaleFR(Settings setting)
+        {
+            m_Setting = setting;
+        }
 
         public IEnumerable<KeyValuePair<string, string>> ReadEntries(
             IList<IDictionaryEntryError> errors, Dictionary<string, int> indexCounts)
