@@ -48,6 +48,7 @@ Keeps the achievements active even when you have mods.
 	<Screenshot Value="Properties/10-AF-Main-EN.jpg" />
 	<Screenshot Value="Properties/20-AF-Main-FR.jpg" />
 	<Screenshot Value="Properties/30-AF-Main-ZH_CN.jpg" />
+	<Screenshot Value="Properties/50Thumbnail.jpg" />
 	<!--Tag, can be set multiple times-->
 	<Tag Value="Code Mod" />
 	<!--Link to the forum post where the mod can be discussed-->
