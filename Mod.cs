@@ -20,7 +20,7 @@ namespace AchievementFixer
 
         // Single source for metadata name/version
         public const string Name = "Achievement Fixer";
-        public const string VersionShort = "1.0.1";
+        public const string VersionShort = "1.0.2";
 
         private static bool s_BannerLogged;
         private static bool s_Reapplying;
