@@ -24,7 +24,7 @@ namespace AchievementFixer
 
                 // Groups (Main tab)
                 { m_Setting.GetOptionGroupLocaleID(Settings.MainInfoGroup), "Info"     },
-                { m_Setting.GetOptionGroupLocaleID(Settings.ButtonGroup),   "Links"    },
+                { m_Setting.GetOptionGroupLocaleID(Settings.ButtonGroup),   "Support-Links"    },
                 { m_Setting.GetOptionGroupLocaleID(Settings.NotesGroup),    "Hinweise" },
 
                 // Groups (Advanced tab)

@@ -19,6 +19,7 @@ namespace AchievementFixer
         AdvRowActions, AdvRowDebug
     )]
     [SettingsUIShowGroupName(
+        ButtonGroup,    // show SUPPORT LINKS on Main tab
         NotesGroup,     // show NOTES on Main tab
         AdvRowDebug     // show DEBUG on Advanced tab
     )]
