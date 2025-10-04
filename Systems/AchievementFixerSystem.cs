@@ -1,3 +1,5 @@
+// AchievementFixerSystem.cs
+
 namespace AchievementFixer
 {
     using Colossal.PSI.Common;              // PlatformManager.instance (achievementsEnabled flag)
@@ -32,11 +34,13 @@ namespace AchievementFixer
 
             m_FramesLeft = 0;
 
-            // IMPORTANT: When Enabled == false, the scheduler will NOT call OnUpdate each frame.
-            // This keeps the mod at zero per-frame cost until it is explicitly enabled.
+            // Efficient: when Enabled == false, the DOTS scheduler does NOT call OnUpdate every frame.
+            // Keeps the mod at zero per-frame cost until it is enabled after city finishes loading.
             Enabled = false;
 
-            Mod.Log.Info("AchievementFixerSystem created (disabled)");
+#if DEBUG
+            Mod.Log.Info("AchievementFixerSystem created (idle)");
+#endif
         }
 
         /// <summary>
@@ -47,20 +51,23 @@ namespace AchievementFixer
         {
             base.OnGameLoadingComplete(purpose, mode);
 
-            // Simple GameMode gate
-            // Skip in Menu/Editor — keep the system disabled and do nothing.
+#if DEBUG
+            Mod.Log.Info($"OnGameLoadingComplete: initial achievementsEnabled={Colossal.PSI.Common.PlatformManager.instance?.achievementsEnabled}");
+#endif
+
             if (mode != GameMode.Game)
             {
-                Enabled = false; // remain idle; OnUpdate will not be scheduled
-                Mod.Log.Info($"OnGameLoadingComplete: mode={mode}; not gameplay → skipping.");
+#if DEBUG
+                Mod.Log.Info($"OnGameLoadingComplete: mode={mode}; Not gameplay → skipping.");
+#endif
+                Enabled = false;
                 return;
             }
 
-            // Enter gameplay: open a new assert window and ENABLE the system so it runs per-frame.
             m_FramesLeft = kAssertFrames;
-            Enabled = true; // scheduler will now call OnUpdate()
+            Enabled = true;
 
-            // Immediately enforce once at load-complete
+            // enforce immediately one-time at load-complete
             ForceEnableIfNeeded("OnGameLoadingComplete");
 
 #if DEBUG
@@ -79,7 +86,8 @@ namespace AchievementFixer
             //  - return immediately (no more work this frame)
             if (m_FramesLeft <= 0)
             {
-                Enabled = false; // turn off per-frame updates until the next load event
+                Enabled = false; // turn off per-frame updates until next load event
+
                 return;
             }
 
@@ -90,8 +98,12 @@ namespace AchievementFixer
             m_FramesLeft--;
 
 #if DEBUG
+            // Every ~1s @60fps, show frames left and current platform flag.
             if (m_FramesLeft % 60 == 0)
-                Mod.Log.Info($"Asserting… {m_FramesLeft} frames left");
+            {
+                var enabledText = PlatformManager.instance?.achievementsEnabled == true ? "TRUE" : "FALSE";
+                Mod.Log.Info($"Asserting… framesLeft={m_FramesLeft}, achievementsEnabled={enabledText}");
+            }
 #endif
         }
 
@@ -100,7 +112,7 @@ namespace AchievementFixer
         /// </summary>
         private static bool ForceEnableIfNeeded(string source)
         {
-            var pm = PlatformManager.instance;
+            PlatformManager pm = PlatformManager.instance;
             if (pm == null)
             {
                 Mod.Log.Info($"{source}: PlatformManager.instance == null; skip");

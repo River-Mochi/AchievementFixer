@@ -1,0 +1,24 @@
+<Project>
+  <!-- Repo-wide analyzer/settings -->
+  <PropertyGroup>
+    <!-- Use the newest analyzer rule set available to your SDK -->
+    <AnalysisLevel>latest</AnalysisLevel>
+
+    <!-- Make code-style rules (from .editorconfig) participate in build -->
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Roslynator analyzers (dev-only, not shipped) -->
+    <PackageReference Include="Roslynator.Analyzers" Version="4.*">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+
+    <PackageReference Include="Roslynator.Formatting.Analyzers" Version="4.*">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+</Project>

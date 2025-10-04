@@ -20,7 +20,7 @@ namespace AchievementFixer
             }
 
             var lm = GameManager.instance?.localizationManager as LocalizationManager;
-            var dict = lm?.activeDictionary;
+            LocalizationDictionary? dict = lm?.activeDictionary;
             if (dict == null)
             {
                 return internalName; // no dictionary yet, show raw ID

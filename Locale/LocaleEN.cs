@@ -1,3 +1,4 @@
+// LocaleEN.cs
 namespace AchievementFixer
 {
     using System.Collections.Generic;
@@ -72,7 +73,7 @@ namespace AchievementFixer
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ResetAllAchievements)),  "DEBUG: RESET ALL" }, //Button label
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.ResetAllAchievements)),
                     "**WARNING**: clears/resets ALL achievements. Useful to debug or for testers.\n" +
-                    "If you accidentally use this, you can get achievements back by using the [UNLOCK SELECTED] button." },
+                    "If you accidentally use this, you can get achievements back by using the [Unlock Selected] button." },
 
                 // Confirmation modal Yes/No
                 { m_Setting.GetOptionWarningLocaleID(nameof(Settings.ResetAllAchievements)), "Warning Warning: RESET/CLEAR all achievements to a NOT complete status. Continue?" },

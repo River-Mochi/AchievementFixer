@@ -1,3 +1,5 @@
+// DebugLocaleScan.cs
+
 #if DEBUG
 using System;
 using Colossal.Localization;   // LocalizationManager, LocalizationDictionary
@@ -70,12 +72,12 @@ namespace AchievementFixer
         public static void DumpAchievements(ILog log)
         {
             var lm = GameManager.instance?.localizationManager as LocalizationManager;
-            var dict = lm?.activeDictionary;
+            LocalizationDictionary? dict = lm?.activeDictionary;
             if (dict == null) { log.Info("[Locale] No activeDictionary."); return; }
 
             int title = 0, desc = 0, other = 0, printed = 0;
 
-            foreach (var kv in dict.entries)
+            foreach (System.Collections.Generic.KeyValuePair<string, string> kv in dict.entries)
             {
                 // Print a handful of examples so logs stay readable.
                 if (kv.Key.StartsWith("Achievements.TITLE[", StringComparison.Ordinal))
@@ -108,10 +110,10 @@ namespace AchievementFixer
             if (string.IsNullOrWhiteSpace(needle)) return;
 
             var lm = GameManager.instance?.localizationManager as LocalizationManager;
-            var dict = lm?.activeDictionary;
+            LocalizationDictionary? dict = lm?.activeDictionary;
             if (dict == null) { log.Info("[Locale] No activeDictionary."); return; }
 
-            foreach (var kv in dict.entries)
+            foreach (System.Collections.Generic.KeyValuePair<string, string> kv in dict.entries)
             {
                 if (skipAssets && kv.Key.StartsWith("Assets.", StringComparison.Ordinal)) continue;
                 if (kv.Value?.IndexOf(needle, StringComparison.OrdinalIgnoreCase) >= 0)
@@ -128,11 +130,11 @@ namespace AchievementFixer
             if (string.IsNullOrWhiteSpace(prefix)) return;
 
             var lm = GameManager.instance?.localizationManager as LocalizationManager;
-            var dict = lm?.activeDictionary;
+            LocalizationDictionary? dict = lm?.activeDictionary;
             if (dict == null) { log.Info("[Locale] No activeDictionary."); return; }
 
             int count = 0, printed = 0;
-            foreach (var kv in dict.entries)
+            foreach (System.Collections.Generic.KeyValuePair<string, string> kv in dict.entries)
             {
                 if (kv.Key.StartsWith(prefix, StringComparison.Ordinal))
                 {
