@@ -64,8 +64,8 @@ Keeps the achievements active even when you have mods.
 	<RequiredDLC Value="" />
 	<!--Change log for new version. Single line or multi line. Supports minimal markdown subset-->
 	<ChangeLog>* Quieter logs in Release build.
-* Belts and suspenders, ensure ECS eneables achievements reliably after loading a city.
-* Tidied UI messages and logging
+* Belts and suspenders, ensure ECS enables achievements reliably after loading a city.
+* Tidy UI messages and logging
 * Locale warning banner override, install once per-locale</ChangeLog>
 	<!--External link, can be set multiple times. supported types are "discord", "github", "youtube", "twitch", "x", "paypal", "patreon", "buymeacoffee", "kofi", "crowdin", "gitlab", "gofundme"-->
 	<ExternalLink Type="discord" Url="https://discord.gg/HTav7ARPs2" />
