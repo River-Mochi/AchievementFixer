@@ -73,7 +73,11 @@ namespace AchievementFixer
         {
             var lm = GameManager.instance?.localizationManager as LocalizationManager;
             LocalizationDictionary? dict = lm?.activeDictionary;
-            if (dict == null) { log.Info("[Locale] No activeDictionary."); return; }
+            if (dict == null)
+            {
+                log.Info("[Locale] No activeDictionary.");
+                return;
+            }
 
             int title = 0, desc = 0, other = 0, printed = 0;
 
@@ -82,17 +86,20 @@ namespace AchievementFixer
                 // Print a handful of examples so logs stay readable.
                 if (kv.Key.StartsWith("Achievements.TITLE[", StringComparison.Ordinal))
                 {
-                    if (printed++ < 10) log.Info($"[Locale] TITLE: {kv.Key} = {kv.Value}");
+                    if (printed++ < 10)
+                        log.Info($"[Locale] TITLE: {kv.Key} = {kv.Value}");
                     title++;
                 }
                 else if (kv.Key.StartsWith("Achievements.DESCRIPTION[", StringComparison.Ordinal))
                 {
-                    if (printed++ < 20) log.Info($"[Locale] DESC : {kv.Key} = {kv.Value}");
+                    if (printed++ < 20)
+                        log.Info($"[Locale] DESC : {kv.Key} = {kv.Value}");
                     desc++;
                 }
                 else if (kv.Key.StartsWith("Achievements.", StringComparison.Ordinal))
                 {
-                    if (printed++ < 25) log.Info($"[Locale] OTHER: {kv.Key} = {kv.Value}");
+                    if (printed++ < 25)
+                        log.Info($"[Locale] OTHER: {kv.Key} = {kv.Value}");
                     other++;
                 }
             }
@@ -107,15 +114,21 @@ namespace AchievementFixer
         /// </summary>
         public static void DumpWhereValueContains(string needle, ILog log, bool skipAssets = true)
         {
-            if (string.IsNullOrWhiteSpace(needle)) return;
+            if (string.IsNullOrWhiteSpace(needle))
+                return;
 
             var lm = GameManager.instance?.localizationManager as LocalizationManager;
             LocalizationDictionary? dict = lm?.activeDictionary;
-            if (dict == null) { log.Info("[Locale] No activeDictionary."); return; }
+            if (dict == null)
+            {
+                log.Info("[Locale] No activeDictionary.");
+                return;
+            }
 
             foreach (System.Collections.Generic.KeyValuePair<string, string> kv in dict.entries)
             {
-                if (skipAssets && kv.Key.StartsWith("Assets.", StringComparison.Ordinal)) continue;
+                if (skipAssets && kv.Key.StartsWith("Assets.", StringComparison.Ordinal))
+                    continue;
                 if (kv.Value?.IndexOf(needle, StringComparison.OrdinalIgnoreCase) >= 0)
                     log.Info($"[Locale] MATCH: {kv.Key}\t{kv.Value}");
             }
@@ -127,11 +140,16 @@ namespace AchievementFixer
         /// </summary>
         public static void DumpByPrefix(string prefix, ILog log, int printLimit = 20)
         {
-            if (string.IsNullOrWhiteSpace(prefix)) return;
+            if (string.IsNullOrWhiteSpace(prefix))
+                return;
 
             var lm = GameManager.instance?.localizationManager as LocalizationManager;
             LocalizationDictionary? dict = lm?.activeDictionary;
-            if (dict == null) { log.Info("[Locale] No activeDictionary."); return; }
+            if (dict == null)
+            {
+                log.Info("[Locale] No activeDictionary.");
+                return;
+            }
 
             int count = 0, printed = 0;
             foreach (System.Collections.Generic.KeyValuePair<string, string> kv in dict.entries)
