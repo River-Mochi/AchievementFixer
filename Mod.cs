@@ -14,7 +14,7 @@ namespace AchievementFixer
     {
         // ----- Public constants / metadata -----
         public const string Name = "Achievement Fixer";
-        public const string VersionShort = "1.0.3";
+        public const string VersionShort = "1.1.0";
 
         // ----- Logger & public properties -----
         public static readonly ILog Log =
