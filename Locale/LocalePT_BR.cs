@@ -8,7 +8,10 @@ namespace AchievementFixer
     public class LocalePT_BR : IDictionarySource
     {
         private readonly Settings m_Setting;
-        public LocalePT_BR(Settings setting) { m_Setting = setting; }
+        public LocalePT_BR(Settings setting)
+        {
+            m_Setting = setting;
+        }
 
         public IEnumerable<KeyValuePair<string, string>> ReadEntries(
             IList<IDictionaryEntryError> errors, Dictionary<string, int> indexCounts)
@@ -79,6 +82,8 @@ namespace AchievementFixer
             };
         }
 
-        public void Unload() { }
+        public void Unload()
+        {
+        }
     }
 }

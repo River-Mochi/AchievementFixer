@@ -84,6 +84,8 @@ namespace AchievementFixer
             };
         }
 
-        public void Unload() { }
+        public void Unload()
+        {
+        }
     }
 }

@@ -23,9 +23,10 @@ This keeps the game from disabling the achievements backend.
 - Some achievements shown on Steam are not available until DLCs are released (e.g., 6 from Bridges & Ports).
 - If an achievement doesn’t pop right away, a game restart sometimes helps (CS2 quirk).
 
-## Supports 10 languages
-* English, Français (French), Deutsch (German), Español (Spanish), Italiano (Italian), 日本語 (Japanese)
-* 한국어 (Korean), Português (Brasil) (Brazilian Portuguese), 简体中文 (Simplified Chinese), 繁體中文 (Traditional Chinese).
+## Supports 11 languages
+* English, Français (French), Deutsch (German), Español (Spanish), Italiano (Italian), Polski (Polish)
+* 日本語 (Japanese), 한국어 (Korean), 简体中文 (Simplified Chinese), 繁體中文 (Traditional Chinese)
+* Português (Brasil) (Brazilian Portuguese)
 * Drop-down achievement names come from the game, so they match whatever game language you use (VI which does not currently have an in-game dictionary).
 * Future updates may add more languages. WIP: Tiếng Việt (Vietnamese)
 

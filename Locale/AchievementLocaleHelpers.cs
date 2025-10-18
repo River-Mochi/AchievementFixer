@@ -46,7 +46,9 @@ namespace AchievementFixer
         public IEnumerable<KeyValuePair<string, string>> ReadEntries(
             IList<IDictionaryEntryError> errors, Dictionary<string, int> indexCounts) => m_Entries;
 
-        public void Unload() { }
+        public void Unload()
+        {
+        }
     }
 
     /// <summary>
@@ -64,6 +66,7 @@ namespace AchievementFixer
             ["ja-JP"] = "実績は Achievement Fixer によって有効化されています。",
             ["ko-KR"] = "업적이 Achievement Fixer에 의해 활성화되었습니다.",
             ["pt-BR"] = "Conquistas ativadas por Achievement Fixer.",
+            ["pl-PL"] = "Osiągnięcia włączone przez Achievement Fixer.",
             ["vi-VN"] = "Thành tựu được bật bởi Achievement Fixer.",
             ["zh-HANS"] = "成就已由 Achievement Fixer 启用。",
             ["zh-HANT"] = "成就已由 Achievement Fixer 啟用。",

@@ -20,18 +20,19 @@ Keeps the achievements active even when you have mods.
 * This mod does not use Reflection or Harmony; safe/compatible, less likely to break with game updates.
 * Avoid using any other Achievement mods at the same time.
 
-### Supports 9+ languages
-* English, Français (French), Deutsch (German), Español (Spanish), Italiano (Italian),
-* 日本語 (Japanese), 한국어 (Korean), Português (Brasil) (Brazilian Portuguese),
-* 简体中文 (Simplified Chinese), 繁體中文 (Traditional Chinese).
+### Supports 11+ languages
+* English, Français (French), Deutsch (German), Español (Spanish), Italiano (Italian), Polski (Polish)
+* 日本語 (Japanese), 한국어 (Korean), 简体中文 (Simplified Chinese), 繁體中文 (Traditional Chinese)
+* Português (Brasil) (Brazilian Portuguese)
 * Future updates may add more languages. WIP: Tiếng Việt (Vietnamese)
 
 ### Advanced tab
 * If you don't like natural, go to the Advanced tab.
 
 ### Support
-* Feedback at Cities: Skylines Modding Discord: https://discord.gg/HTav7ARPs2
 * If the mod helps you, give it a Like.
+* Feedback at Cities: Skylines Modding Discord: https://discord.gg/HTav7ARPs2
+
 
 ### Credits
 * RiverMochi - mod author
@@ -53,7 +54,7 @@ Keeps the achievements active even when you have mods.
 	<!--Tag, can be set multiple times-->
 	<Tag Value="Code Mod" />
 	<!--Link to the forum post where the mod can be discussed-->
-	<ForumLink Value="" />
+	<ForumLink Value="https://forum.paradoxplaza.com/forum/threads/achievement-fixer.1863551/" />
 	<!--Version of the mod-->
 	<ModVersion Value="1.0.3" />
 	<!--Recommended version of the base game to use the mod-->

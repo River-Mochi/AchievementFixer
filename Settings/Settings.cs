@@ -56,8 +56,12 @@ namespace AchievementFixer
         {
             set
             {
-                if (!value) return;
-                try { Application.OpenURL(UrlDiscord); }
+                if (!value)
+                    return;
+                try
+                {
+                    Application.OpenURL(UrlDiscord);
+                }
                 catch (Exception ex) { Mod.Log.Warn($"Failed to open Discord: {ex.Message}"); }
             }
         }
@@ -70,8 +74,12 @@ namespace AchievementFixer
         {
             set
             {
-                if (!value) return;
-                try { Application.OpenURL(UrlAchievementsWiki); }
+                if (!value)
+                    return;
+                try
+                {
+                    Application.OpenURL(UrlAchievementsWiki);
+                }
                 catch (Exception ex) { Mod.Log.Warn($"Failed to open wiki: {ex.Message}"); }
             }
         }
@@ -96,7 +104,8 @@ namespace AchievementFixer
         {
             set
             {
-                if (!value) return;
+                if (!value)
+                    return;
 
                 try
                 {
@@ -141,7 +150,8 @@ namespace AchievementFixer
         {
             set
             {
-                if (!value) return;
+                if (!value)
+                    return;
 
                 try
                 {
@@ -194,7 +204,8 @@ namespace AchievementFixer
         {
             set
             {
-                if (!value) return;
+                if (!value)
+                    return;
                 try
                 {
                     PlatformManager pm = PlatformManager.instance;
@@ -228,7 +239,8 @@ namespace AchievementFixer
         public static DropdownItem<string>[] GetAchievementChoices()
         {
             PlatformManager pm = PlatformManager.instance;
-            if (pm == null) return Array.Empty<DropdownItem<string>>();
+            if (pm == null)
+                return Array.Empty<DropdownItem<string>>();
 
             System.Collections.Generic.IEnumerable<string> ids = pm.EnumerateAchievements()
                         .Select(a => a.internalName ?? a.id.ToString());
@@ -249,7 +261,8 @@ namespace AchievementFixer
         {
             id = default;
             PlatformManager pm = PlatformManager.instance;
-            if (pm == null) return false;
+            if (pm == null)
+                return false;
 
             foreach (IAchievement? a in pm.EnumerateAchievements())
             {

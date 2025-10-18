@@ -20,7 +20,10 @@ namespace AchievementFixer
         public static readonly ILog Log =
             LogManager.GetLogger("AchievementFixer").SetShowsErrorsInUI(false);
 
-        public static Settings? Settings { get; private set; }
+        public static Settings? Settings
+        {
+            get; private set;
+        }
 
         // ----- Private state -----
         private static readonly HashSet<string> s_InstalledLocales = new(); // prevent duplicate installs
@@ -31,7 +34,9 @@ namespace AchievementFixer
 #if DEBUG
         private static void DebugLog(string message) => Log.Info(message);
 #else
-        private static void DebugLog(string message) { }
+        private static void DebugLog(string message)
+        {
+        }
 #endif
 
         // ----- IMod -----
@@ -47,7 +52,7 @@ namespace AchievementFixer
             var settings = new Settings(this);
             Settings = settings;
 
-            // Register locales BEFORE Options UI
+            // Register locales BEFORE register Options UI
             AddLocale("en-US", new LocaleEN(settings));
             AddLocale("fr-FR", new LocaleFR(settings));
             AddLocale("de-DE", new LocaleDE(settings));
@@ -56,9 +61,11 @@ namespace AchievementFixer
             AddLocale("ja-JP", new LocaleJA(settings));
             AddLocale("ko-KR", new LocaleKO(settings));
             AddLocale("vi-VN", new LocaleVI(settings));
+            AddLocale("pl-PL", new LocalePL(settings));
             AddLocale("pt-BR", new LocalePT_BR(settings));
             AddLocale("zh-HANS", new LocaleZH_CN(settings));
             AddLocale("zh-HANT", new LocaleZH_HANT(settings));
+
 
             // Load saved settings + Options UI
             AssetDatabase.global.LoadSettings("AchievementFixer", settings, new Settings(this));
@@ -68,7 +75,7 @@ namespace AchievementFixer
             updateSystem.UpdateAfter<AchievementFixerSystem, AchievementTriggerSystem>(SystemUpdatePhase.MainLoop);
 
             // Lazy per-locale banner override (install for current locale now)
-            var lm = GameManager.instance?.localizationManager;
+            Colossal.Localization.LocalizationManager? lm = GameManager.instance?.localizationManager;
             var activeId = lm?.activeLocaleId;
             if (!string.IsNullOrEmpty(activeId))
                 EnsureWarningOverrideFor(activeId!);
@@ -83,7 +90,7 @@ namespace AchievementFixer
 
         public void OnDispose()
         {
-            var lm = GameManager.instance?.localizationManager;
+            Colossal.Localization.LocalizationManager? lm = GameManager.instance?.localizationManager;
             if (lm != null)
                 lm.onActiveDictionaryChanged -= OnLocaleChanged;
 
@@ -93,11 +100,12 @@ namespace AchievementFixer
         // ----- Event handlers -----
         private void OnLocaleChanged()
         {
-            if (s_Reapplying) return; // debounce re-entrancy
+            if (s_Reapplying)
+                return; // debounce re-entrancy
             s_Reapplying = true;
             try
             {
-                var lm = GameManager.instance?.localizationManager;
+                Colossal.Localization.LocalizationManager? lm = GameManager.instance?.localizationManager;
                 var active = lm?.activeLocaleId ?? string.Empty;
 
                 if (!string.IsNullOrEmpty(active))
@@ -122,7 +130,7 @@ namespace AchievementFixer
         /// </summary>
         private static void EnsureWarningOverrideFor(string localeId)
         {
-            var lm = GameManager.instance?.localizationManager;
+            Colossal.Localization.LocalizationManager? lm = GameManager.instance?.localizationManager;
             if (lm == null)
             {
                 Log.Warn("No LocalizationManager; cannot add warning override.");
@@ -133,7 +141,7 @@ namespace AchievementFixer
             if (!s_InstalledLocales.Add(localeId))
                 return;
 
-            const string kWarningKey = "Menu.ACHIEVEMENTS_WARNING_MODS";    // key to override
+            const string kWarningKey = "Menu.ACHIEVEMENTS_WARNING_MODS";    // game key to override
 
             var bannerText = GetBannerTextFor(localeId);
 
@@ -156,7 +164,7 @@ namespace AchievementFixer
 
         private static void AddLocale(string localeId, IDictionarySource source)
         {
-            var lm = GameManager.instance?.localizationManager;
+            Colossal.Localization.LocalizationManager? lm = GameManager.instance?.localizationManager;
             if (lm == null)
             {
                 Log.Warn("No LocalizationManager; cannot add locale source.");
