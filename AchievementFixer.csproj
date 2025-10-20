@@ -6,11 +6,7 @@
     <!-- PDX Mods publish config -->
     <PublishConfigurationPath>Properties\PublishConfiguration.xml</PublishConfigurationPath>
 
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <AssemblyTitle>Achievement Fixer</AssemblyTitle>
     <AssemblyName>AchievementFixer</AssemblyName>
-    <Product>Achievement Fixer</Product>
-
     <RootNamespace>AchievementFixer</RootNamespace>
     <Nullable>enable</Nullable>
   </PropertyGroup>
