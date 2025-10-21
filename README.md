@@ -37,7 +37,7 @@ This keeps the game from disabling the achievements backend.
 - `[DEBUG: Reset All]` wipes all achievement progress (useful for testing).  If you click this by accident, you can use the Unlock button to get them back.
 
 ## Compatibility
-- Safe to remove anytime; does not touch saves.
+- Safe to remove anytime, will not mess up your saves.
 - This mod does not use Reflection or Harmony, so it's safe/compatible, and less likely to break with every game update.
 - Designed to be minimal and conflict-free: we only manage the platform flag and localization.
 - Avoid using/installing any other Achievement mods at the same time.
