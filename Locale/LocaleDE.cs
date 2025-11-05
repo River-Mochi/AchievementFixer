@@ -51,8 +51,7 @@ namespace AchievementFixer
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.MainNotes)),
                     "Hinweise:\n" +
                     "• Erfolge sind jetzt aktiviert – erledige einfach die Aufgaben, um sie ganz normal freizuschalten.\n\n" +
-                    "Viel Spaß! :)\n\n" +
-                    "• Manche Erfolge sind erst verfügbar, wenn DLCs veröffentlicht wurden (z. B. Bridges & Ports).\n" },
+                    "Viel Spaß! :)\n" },
 
                 // --- Advanced tab ---
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.SelectedAchievement)),   "Erfolg auswählen" },

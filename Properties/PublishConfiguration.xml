@@ -4,10 +4,12 @@
 	<!--Name of the mod to display to players-->
 	<DisplayName Value="Achievement Fixer" />
 	<!--Short description of the mod-->
-	<ShortDescription Value="Earn achievements naturally even with mods enabled. Keeps the backend on. Enjoy :)" />
+	<ShortDescription Value="Earn achievements even with mods enabled. Keeps the backend on. Enjoy :)" />
 	<!--Long description of the mod. Single line or multi line. Supports minimal markdown subset-->
 	<LongDescription># Achievement Fixer
 Keeps the achievements active even when you have mods.
+
+# UPDATED for 1.3.6* and Bridges DLC
 
 ## How it works
 * Just install the mod, nothing else needed, it works automatically.
@@ -15,10 +17,10 @@ Keeps the achievements active even when you have mods.
 * Re-enables achievements after any city loads or is switched.
 
 ## Notes
-* Some achievements shown on Steam are not available until DLCs are released (e.g., 6 from Bridges and Ports DLC).
-* Safe to remove at any time; does not touch saves.
+* Safe to remove at any time.
+* Remove any other "achievement" mods which may cause conflicts.
+* mod prevents **future** misses by flipping the flag `true`. it doesn’t retroactively grant past events.
 * This mod does not use Reflection or Harmony; safe/compatible, less likely to break with game updates.
-* Avoid using any other Achievement mods at the same time.
 
 ### Supports 11+ languages
 * English, Français (French), Deutsch (German), Español (Spanish), Italiano (Italian)
@@ -26,13 +28,16 @@ Keeps the achievements active even when you have mods.
 * Polski (Polish), Português (Brasil) (Brazilian Portuguese)
 * Future updates may add more languages. WIP: Tiếng Việt (Vietnamese)
 
+### Support and Feedback
+* If the mod helps you, give it a Like :)
+* Report issues to the Github link is best. or discord `Achievement Fixer` channel: https://discord.gg/HTav7ARPs2
+* There is also a Forum link for this mod.
+
 ### Advanced tab
-* If you don't like natural, go to the Advanced tab.
-
-### Support
-* If the mod helps you, give it a Like.
-* Feedback at Cities: Skylines Modding Discord: https://discord.gg/HTav7ARPs2
-
+- Past things done before installing the mod, the game will not suddenly give you the achievement.
+- When the game flipped 'achievementsEnabled = false' when a player 'originally' satisfied a condition, that unlock isn't recorded.
+- You need to re-trigger the condition in-game again from scratch (install this mod, keep it installed, and just do same things again). 
+Or use the mod's Advanced buttons (if you feel like you deserve it now and can't wait). Reload the game if Steam is not updated.
 
 ### Credits
 * RiverMochi - mod author
@@ -56,15 +61,16 @@ Keeps the achievements active even when you have mods.
 	<!--Link to the forum post where the mod can be discussed-->
 	<ForumLink Value="https://forum.paradoxplaza.com/forum/threads/achievement-fixer.1863551/" />
 	<!--Version of the mod-->
-	<ModVersion Value="1.1.0" />
+	<ModVersion Value="1.1.2" />
 	<!--Recommended version of the base game to use the mod-->
-	<GameVersion Value="1.3.*" />
+	<GameVersion Value="1.3.6*" />
 	<!--Dependency for the mod, can be set multiple times-->
 	<Dependency Id="" />
 	<!--Required DLC, can be set multiple times. Supported values are "Landmark Buildings", "San Fransisco Set", "Beach Properties", "Urban Promenades", "Modern Architecture"-->
 	<RequiredDLC Value="" />
 	<!--Change log for new version. Single line or multi line. Supports minimal markdown subset-->
-	<ChangeLog>* Add Polski (Polish) locale support</ChangeLog>
+<ChangeLog>* Increase assert frame to ensure achievement flag stays true
+* Banner re-applies on interval during the assert window </ChangeLog>
 	<!--External link, can be set multiple times. supported types are "discord", "github", "youtube", "twitch", "x", "paypal", "patreon", "buymeacoffee", "kofi", "crowdin", "gitlab", "gofundme"-->
 	<ExternalLink Type="discord" Url="https://discord.gg/HTav7ARPs2" />
 	<ExternalLink Type="github" Url="https://github.com/River-Mochi/AchievementFixer" />

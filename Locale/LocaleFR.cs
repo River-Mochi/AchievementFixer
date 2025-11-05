@@ -53,8 +53,7 @@ namespace AchievementFixer
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.MainNotes)),
                     "Notes :\n" +
                     "• Les succès sont activés : réalisez simplement les objectifs pour les obtenir naturellement.\n\n" +
-                    "Amusez-vous bien ! :)\n\n" +
-                    "• Certains succès ne sont disponibles qu’avec des DLC (ex. Bridges & Ports)." },
+                    "Amusez-vous bien ! :)\n" },
 
                 // --- Advanced tab ---
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.SelectedAchievement)),   "Sélectionner un succès" },

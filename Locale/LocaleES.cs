@@ -51,8 +51,7 @@ namespace AchievementFixer
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.MainNotes)),
                     "Notas:\n" +
                     "• Los logros están activos: cumple los requisitos para completarlos de forma natural.\n\n" +
-                    "¡Que lo disfrutes! :)\n\n" +
-                    "• Algunos logros no estarán disponibles hasta que salgan DLC (p. ej., Bridges & Ports)." },
+                    "¡Que lo disfrutes! :)\n" },
 
                 // --- Advanced tab ---
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.SelectedAchievement)),   "Seleccionar logro" },

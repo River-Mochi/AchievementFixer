@@ -17,10 +17,12 @@ This keeps the game from disabling the achievements backend.
 1. Install the mod from Skyve or Paradox Mods.
    - No configuration needed; achievements enabled by default.
 2. Do the tasks (e.g., build 10 parks to get *Groundskeeper*).  
-3. Safe to remove anytime; this mod doesn’t touch your saves.
+3. Safe to remove anytime
+4. Optional: use the Advanced tab to unlock/clear achievements manually for instant gratification or testing.
+5. Remove all other Achievement mods to avoid conflicts.
+
 
 ## Notes
-- Some achievements shown on Steam are not available until DLCs are released (e.g., 6 from Bridges & Ports).
 - If an achievement doesn’t pop right away, a game restart sometimes helps (CS2 quirk).
 
 ## Supports 11 languages
@@ -40,9 +42,10 @@ This keeps the game from disabling the achievements backend.
 - Safe to remove anytime; does not touch saves.
 - This mod does not use Reflection or Harmony, so it's safe/compatible, and less likely to break with every game update.
 - Designed to be minimal and conflict-free: we only manage the platform flag and localization.
-- Avoid using/installing any other Achievement mods at the same time.
+- Remove all other Achievement mods if you want the mod to work and to prevent conflicts 
 
-## Thanks
+
+## Credits
 - Inspired by **Wayzware's** early [Achievement Enabler](https://github.com/Wayzware/AchievementEnabler) (defunct).
 - **rcav8tr** for code snippets to find localization keys.
 - **StarQ** for technical support.

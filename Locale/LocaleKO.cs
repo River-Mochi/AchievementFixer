@@ -51,8 +51,7 @@ namespace AchievementFixer
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.MainNotes)),
                     "노트:\n" +
                     "• 업적은 이미 활성화됨 — 필요한 작업을 하면 자연스럽게 달성됩니다.\n\n" +
-                    "즐거운 시간 되세요! :)\n\n" +
-                    "• 일부 업적은 DLC 출시 후에만 이용 가능합니다(예: Bridges & Ports)." },
+                    "즐거운 시간 되세요! :)\n" },
 
                 // --- Advanced tab ---
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.SelectedAchievement)),   "업적 선택" },

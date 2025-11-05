@@ -52,8 +52,7 @@ namespace AchievementFixer
                 // Main >> Notes
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.MainNotes)),
                     "• Osiągnięcia są teraz włączone - po prostu wykonaj wymagane zadania, aby naturalnie je ukończyć.\n\n" +
-                    "Miłej zabawy! :)\n\n" +
-                    "• Niektóre osiągnięcia są niedostępne, dopóki nie zostaną wydane DLC (np. DLC Mosty i Porty)." },
+                    "Miłej zabawy! :)\n" },
 
                 // --- Advanced tab ---
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.SelectedAchievement)),   "Wybierz osiągnięcie" },

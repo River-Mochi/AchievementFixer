@@ -1,41 +1,41 @@
 // AchievementFixerSystem.cs
-
 namespace AchievementFixer
 {
-    using Colossal.PSI.Common;              // PlatformManager.instance (achievementsEnabled flag)
-    using Colossal.Serialization.Entities;  // Purpose enum (load purpose)
-    using Game;                             // GameSystemBase, GameMode (tells us Menu/Editor/Game)
+    using Colossal.PSI.Common;              // PlatformManager
+    using Colossal.Serialization.Entities;  // Purpose enum
+    using Game;                             // GameSystemBase, GameMode
 
     /// <summary>
-    /// After a game load completes, keep achievements enabled for a short "assert" window,
-    /// then go completely idle. System is disabled by default and only enabled while
-    /// the assert window runs.
+    /// After a game load completes, keep achievements enabled for a frame-based window,
+    /// then go completely idle.
+    /// Re-assert the banner during that window to overwrite game "disabled banner".
     ///
     /// Lifecycle:
     ///   - OnCreate():   start disabled (no per-frame updates scheduled)
-    ///   - OnGameLoadingComplete(Game): open a 5s assert window and enable the system
-    ///   - OnUpdate():   enforce achievementsEnabled during the window, then disable again
+    ///   - OnGameLoadingComplete(Game): open assert window and enable the system
+    ///   - OnUpdate():   enforce achievementsEnabled; re-apply banner at interval;
+    ///                   when frames elapse, do one final banner apply (single log) then go idle
     /// </summary>
-    public partial class AchievementFixerSystem : GameSystemBase
+    public sealed partial class AchievementFixerSystem : GameSystemBase
     {
-        /// <summary>Countdown for the assert window (frames remaining).</summary>
-        private int m_FramesLeft;
+        // --- Tunables (frames) ---
+        private const int kAssertFrames = 1800;  // ~30s @ 60FPS or ~60s @ 30FPS
 
-        /// <summary>Duration of the assert window (~5s at 60fps).</summary>
-        private const int kAssertFrames = 300;
+        // Re-apply banner key to keep game or other mods from overriding it
+        private const int kBannerReapplyEveryFrames = 60;   // ~2.0s @ 30fps or ~1.0s @ 60fps
 
-        /// <summary>
-        /// Created once when the world/system is constructed.
-        /// Start DISABLED so OnUpdate is not scheduled until we actually need it.
-        /// </summary>
+        // --- State ---
+        private int m_FramesLeft;        // counts down from kAssertFrames to 0
+        private int m_BannerCountdown;   // counts down to next banner re-apply
+
         protected override void OnCreate()
         {
             base.OnCreate();
 
             m_FramesLeft = 0;
+            m_BannerCountdown = 0;
 
-            // Efficient: when Enabled == false, the DOTS scheduler does NOT call OnUpdate every frame.
-            // Keeps the mod at zero per-frame cost until it is enabled after city finishes loading.
+            // Start idle so we don't get scheduled until a real game load occurs
             Enabled = false;
 
 #if DEBUG
@@ -43,86 +43,82 @@ namespace AchievementFixer
 #endif
         }
 
-        /// <summary>
-        /// Called by the game when a load completes (new map, save, etc.).
-        /// Only run the assert window for real gameplay.
-        /// </summary>
         protected override void OnGameLoadingComplete(Purpose purpose, GameMode mode)
         {
             base.OnGameLoadingComplete(purpose, mode);
 
-#if DEBUG
-            Mod.Log.Info($"OnGameLoadingComplete: initial achievementsEnabled={Colossal.PSI.Common.PlatformManager.instance?.achievementsEnabled}");
-#endif
-
+            // Only assert while entering real gameplay; skip menu/editor.
             if (mode != GameMode.Game)
             {
-#if DEBUG
-                Mod.Log.Info($"OnGameLoadingComplete: mode={mode}; Not gameplay → skipping.");
-#endif
                 Enabled = false;
+#if DEBUG
+                Mod.Log.Info($"OnGameLoadingComplete: mode={mode}; not gameplay → skipping.");
+#endif
                 return;
             }
 
+            // Open the frame-based assert window and start ticking.
             m_FramesLeft = kAssertFrames;
+            m_BannerCountdown = 0;
             Enabled = true;
 
-            // enforce immediately one-time at load-complete
+            // Enforce immediately at first tick and push our banner once at start.
             ForceEnableIfNeeded("OnGameLoadingComplete");
+            Mod.ReapplyBannerForActiveLocale();
 
 #if DEBUG
             Mod.Log.Info($"Assert window started: {kAssertFrames} frames.");
 #endif
         }
 
-        /// <summary>
-        /// Called each frame ONLY while Enabled == true.
-        /// Enforce during the assert window, then disable to go idle again.
-        /// </summary>
         protected override void OnUpdate()
         {
-            // When the window finishes, go fully idle:
-            //  - set Enabled = false so the scheduler stops calling OnUpdate
-            //  - return immediately (no more work this frame)
+            // If the window ended, do one last banner re-apply (with a single Release log), then go idle.
             if (m_FramesLeft <= 0)
             {
-                Enabled = false; // turn off per-frame updates until next load event
-
+                Mod.ReapplyBannerForActiveLocaleFinal();
+                Enabled = false;
                 return;
             }
 
-            // During the window: if the game flips FALSE, force it back to TRUE.
+            // Keep achievementsEnabled true — check every frame (cheap & robust)
             ForceEnableIfNeeded("OnUpdate");
 
-            // Decrement AFTER enforcing so we still act on the last frame.
+            // Re-apply the banner at the chosen frame cadence (idempotent & cheap)
+            if (--m_BannerCountdown <= 0)
+            {
+                Mod.ReapplyBannerForActiveLocale();
+                m_BannerCountdown = kBannerReapplyEveryFrames;
+            }
+
+            // Advance the window
             m_FramesLeft--;
 
 #if DEBUG
-            // Every ~1s @60fps, show frames left and current platform flag.
+            // Every ~60 frames, log a coarse heartbeat to avoid noise.
             if (m_FramesLeft % 60 == 0)
             {
-                var enabledText = PlatformManager.instance?.achievementsEnabled == true ? "TRUE" : "FALSE";
-                Mod.Log.Info($"Asserting… framesLeft={m_FramesLeft}, achievementsEnabled={enabledText}");
+                var flag = (PlatformManager.instance?.achievementsEnabled == true) ? "TRUE" : "FALSE";
+                Mod.Log.Info($"Asserting… framesLeft={m_FramesLeft}, achievementsEnabled={flag}");
             }
 #endif
         }
 
-        /// <summary>
-        /// If achievements were flipped off, turn them back on and log it.
-        /// </summary>
         private static bool ForceEnableIfNeeded(string source)
         {
-            PlatformManager pm = PlatformManager.instance;
+            var pm = PlatformManager.instance;
             if (pm == null)
             {
-                Mod.Log.Info($"{source}: PlatformManager.instance == null; skip");
+#if DEBUG
+                Mod.Log.Info($"{source}: PlatformManager.instance is null; skip");
+#endif
                 return false;
             }
 
-            /// Return true if we changed state.
             if (!pm.achievementsEnabled)
             {
-                Mod.Log.Info($"{source}: ATTENTION: detected game flipped achievementsEnabled == FALSE. Forcing TRUE.");
+                // KEEP these Release logs (proof for players)
+                Mod.Log.Info($"{source}: ATTN: detected game flipped achievementsEnabled == FALSE. Forcing TRUE now");
                 pm.achievementsEnabled = true;
                 Mod.Log.Info($"{source}: achievementsEnabled is now TRUE.");
                 return true;

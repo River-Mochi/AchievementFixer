@@ -52,8 +52,7 @@ namespace AchievementFixer
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.MainNotes)),
                 //    "Notes:\n" +
                     "• Achievements are enabled now - just do the required tasks to naturally complete achievements.\n\n" +
-                    "Enjoy! :)\n\n" +
-                    "• Some achievements are not available until DLCs are release (e.g. Bridges & Ports DLC)." },
+                    "Enjoy! :)\n" },
 
                 // --- Advanced tab ---
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.SelectedAchievement)),   "Select achievement" },

@@ -51,8 +51,7 @@ namespace AchievementFixer
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.MainNotes)),
                     "说明：\n" +
                     "• 成就已启用——按要求完成即可自然解锁。\n\n" +
-                    "玩得开心！ :)\n\n" +
-                    "• 部分成就需等到DLC发布后才可用（如 Bridges & Ports）。" },
+                    "玩得开心！ :)\n" },
 
                 // --- Advanced tab ---
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.SelectedAchievement)),   "选择成就" },

@@ -51,8 +51,7 @@ namespace AchievementFixer
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.MainNotes)),
                     "Ghi chú:\n" +
                     "• Thành tựu đã được bật — chỉ cần làm đủ yêu cầu để mở khóa tự nhiên.\n\n" +
-                    "Chúc chơi vui! :)\n\n" +
-                    "• Một số thành tựu chỉ có khi DLC phát hành (ví dụ: Bridges & Ports)." },
+                    "Chúc chơi vui! :)\n" },
 
                 // --- Advanced tab ---
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.SelectedAchievement)),   "Chọn thành tựu" },

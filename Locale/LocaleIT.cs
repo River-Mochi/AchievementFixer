@@ -51,8 +51,7 @@ namespace AchievementFixer
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.MainNotes)),
                     "Note:\n" +
                     "• Gli obiettivi sono attivi: completa i requisiti per sbloccarli in modo naturale.\n\n" +
-                    "Divertiti! :)\n\n" +
-                    "• Alcuni obiettivi non sono disponibili finché non escono i DLC (es. Bridges & Ports)." },
+                    "Divertiti! :)\n" },
 
                 // --- Advanced tab ---
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.SelectedAchievement)),   "Seleziona obiettivo" },

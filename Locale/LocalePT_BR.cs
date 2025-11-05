@@ -51,8 +51,7 @@ namespace AchievementFixer
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.MainNotes)),
                     "Notas:\n" +
                     "• As conquistas já estão ativas — basta cumprir os requisitos para desbloquear naturalmente.\n\n" +
-                    "Divirta-se! :)\n\n" +
-                    "• Algumas conquistas só ficam disponíveis quando os DLCs forem lançados (ex.: Bridges & Ports)." },
+                    "Divirta-se! :)\n" },
 
                 // --- Advanced tab ---
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.SelectedAchievement)),   "Selecionar conquista" },

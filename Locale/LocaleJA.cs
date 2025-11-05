@@ -52,8 +52,7 @@ namespace AchievementFixer
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.MainNotes)),
                     "注意:\n" +
                     "• 実績はすでに有効です——条件を満たせば自然に解除されます。\n\n" +
-                    "楽しんで！ :)\n\n" +
-                    "• 一部の実績はDLCがリリースされるまで利用できません（例：Bridges & Ports）。" },
+                    "楽しんで！ :)\n" },
 
                 // --- Advanced tab ---
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.SelectedAchievement)),   "実績を選択" },
