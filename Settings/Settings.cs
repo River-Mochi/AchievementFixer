@@ -43,10 +43,10 @@ namespace AchievementFixer
 
         // ---- Main Meta ----
         [SettingsUISection(MainTab, MainInfoGroup)]
-        public string NameDisplay => Mod.Name;
+        public string NameDisplay => Mod.ModName;
 
         [SettingsUISection(MainTab, MainInfoGroup)]
-        public string VersionDisplay => Mod.VersionShort;
+        public string VersionDisplay => Mod.ModVersion;
 
         // Main - Discord button
         [SettingsUIButtonGroup(ButtonGroup)]
@@ -62,7 +62,7 @@ namespace AchievementFixer
                 {
                     Application.OpenURL(UrlDiscord);
                 }
-                catch (Exception ex) { Mod.Log.Warn($"Failed to open Discord: {ex.Message}"); }
+                catch (Exception ex) { Mod.s_Log.Warn($"Failed to open Discord: {ex.Message}"); }
             }
         }
 
@@ -80,7 +80,7 @@ namespace AchievementFixer
                 {
                     Application.OpenURL(UrlAchievementsWiki);
                 }
-                catch (Exception ex) { Mod.Log.Warn($"Failed to open wiki: {ex.Message}"); }
+                catch (Exception ex) { Mod.s_Log.Warn($"Failed to open wiki: {ex.Message}"); }
             }
         }
 
@@ -111,32 +111,32 @@ namespace AchievementFixer
                 {
                     if (!TryGetAchievementId(SelectedAchievement, out AchievementId id))
                     {
-                        Mod.Log.Warn($"Unlock: could not resolve '{SelectedAchievement}'.");
+                        Mod.s_Log.Warn($"Unlock: could not resolve '{SelectedAchievement}'.");
                         return;
                     }
 
                     PlatformManager pm = PlatformManager.instance;
                     if (pm == null)
                     {
-                        Mod.Log.Warn("Unlock: PlatformManager.instance is null.");
+                        Mod.s_Log.Warn("Unlock: PlatformManager.instance is null.");
                         return;
                     }
 
 #if DEBUG
-                    Mod.Log.Info($"[UI] UnlockSelected → before call; achievementsEnabled={pm.achievementsEnabled}");
+                    Mod.s_Log.Info($"[UI] UnlockSelected → before call; achievementsEnabled={pm.achievementsEnabled}");
 #endif
                     pm.UnlockAchievement(id);
 #if DEBUG
-                    Mod.Log.Info($"[UI] UnlockSelected → after call; achievementsEnabled={pm.achievementsEnabled}");
+                    Mod.s_Log.Info($"[UI] UnlockSelected → after call; achievementsEnabled={pm.achievementsEnabled}");
 #endif
 
                     // Post-check
                     var ok = pm.GetAchievement(id, out IAchievement? a) && a.achieved;
-                    Mod.Log.Info($"UnlockSelected: \"{AchievementDisplay.Get(SelectedAchievement)}\" → {(ok ? "Enabled" : "No change")}");
+                    Mod.s_Log.Info($"UnlockSelected: \"{AchievementDisplay.Get(SelectedAchievement)}\" → {(ok ? "Enabled" : "No change")}");
                 }
                 catch (Exception ex)
                 {
-                    Mod.Log.Warn($"UnlockSelected failed: {ex.GetType().Name}: {ex.Message}");
+                    Mod.s_Log.Warn($"UnlockSelected failed: {ex.GetType().Name}: {ex.Message}");
                 }
             }
         }
@@ -157,32 +157,32 @@ namespace AchievementFixer
                 {
                     if (!TryGetAchievementId(SelectedAchievement, out AchievementId id))
                     {
-                        Mod.Log.Warn($"Clear: could not resolve '{SelectedAchievement}'.");
+                        Mod.s_Log.Warn($"Clear: could not resolve '{SelectedAchievement}'.");
                         return;
                     }
 
                     PlatformManager pm = PlatformManager.instance;
                     if (pm == null)
                     {
-                        Mod.Log.Warn("Clear: PlatformManager.instance is null.");
+                        Mod.s_Log.Warn("Clear: PlatformManager.instance is null.");
                         return;
                     }
 
 #if DEBUG
-                    Mod.Log.Info($"[UI] ClearSelected → before call; achievementsEnabled={pm.achievementsEnabled}");
+                    Mod.s_Log.Info($"[UI] ClearSelected → before call; achievementsEnabled={pm.achievementsEnabled}");
 #endif
                     pm.ClearAchievement(id);
 #if DEBUG
-                    Mod.Log.Info($"[UI] ClearSelected → after call; achievementsEnabled={pm.achievementsEnabled}");
+                    Mod.s_Log.Info($"[UI] ClearSelected → after call; achievementsEnabled={pm.achievementsEnabled}");
 #endif
 
                     // Post-check & single friendly line
                     var cleared = pm.GetAchievement(id, out IAchievement? a) && !a.achieved;
-                    Mod.Log.Info($"ClearSelected: \"{AchievementDisplay.Get(SelectedAchievement)}\" → {(cleared ? "Disabled" : "No change")}");
+                    Mod.s_Log.Info($"ClearSelected: \"{AchievementDisplay.Get(SelectedAchievement)}\" → {(cleared ? "Disabled" : "No change")}");
                 }
                 catch (Exception ex)
                 {
-                    Mod.Log.Warn($"ClearSelected failed: {ex.GetType().Name}: {ex.Message}");
+                    Mod.s_Log.Warn($"ClearSelected failed: {ex.GetType().Name}: {ex.Message}");
                 }
             }
         }
@@ -211,24 +211,24 @@ namespace AchievementFixer
                     PlatformManager pm = PlatformManager.instance;
                     if (pm == null)
                     {
-                        Mod.Log.Warn("ResetAllAchievements: PlatformManager.instance is null.");
+                        Mod.s_Log.Warn("ResetAllAchievements: PlatformManager.instance is null.");
                         return;
                     }
 
 #if DEBUG
-                    Mod.Log.Info($"[UI] ResetAll → about to call ResetAchievements; achievementsEnabled={pm.achievementsEnabled}");
+                    Mod.s_Log.Info($"[UI] ResetAll → about to call ResetAchievements; achievementsEnabled={pm.achievementsEnabled}");
 #endif
 
                     pm.ResetAchievements();
 #if DEBUG
-                    Mod.Log.Info($"[UI] ResetAll → call returned; achievementsEnabled={pm.achievementsEnabled}");
+                    Mod.s_Log.Info($"[UI] ResetAll → call returned; achievementsEnabled={pm.achievementsEnabled}");
 #endif
 
-                    Mod.Log.Info("Requested Reset of ALL platform achievements.");
+                    Mod.s_Log.Info("Requested Reset of ALL platform achievements.");
                 }
                 catch (Exception ex)
                 {
-                    Mod.Log.Warn($"ResetAllAchievements failed: {ex.GetType().Name}: {ex.Message}");
+                    Mod.s_Log.Warn($"ResetAllAchievements failed: {ex.GetType().Name}: {ex.Message}");
                 }
             }
         }

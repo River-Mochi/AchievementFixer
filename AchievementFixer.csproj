@@ -9,6 +9,13 @@
     <AssemblyName>AchievementFixer</AssemblyName>
     <RootNamespace>AchievementFixer</RootNamespace>
     <Nullable>enable</Nullable>
+
+  <!-- Single source of truth for version number -->
+	  <Version>1.1.4</Version>
+	<AssemblyVersion>$(Version).0</AssemblyVersion>
+	<FileVersion>$(Version).0</FileVersion>  <!-- for file properties -->
+
+
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)'=='Debug'">

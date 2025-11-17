@@ -61,7 +61,7 @@ Or use the mod's Advanced buttons (you met the condition before, you deserve it)
 	<!--Link to the forum post where the mod can be discussed-->
 	<ForumLink Value="https://forum.paradoxplaza.com/forum/threads/achievement-fixer.1863551/" />
 	<!--Version of the mod-->
-	<ModVersion Value="1.1.3" />
+	<ModVersion Value="1.1.4" />
 	<!--Recommended version of the base game to use the mod-->
 	<GameVersion Value="1.3.6*" />
 	<!--Dependency for the mod, can be set multiple times-->
@@ -69,8 +69,7 @@ Or use the mod's Advanced buttons (you met the condition before, you deserve it)
 	<!--Required DLC, can be set multiple times. Supported values are "Landmark Buildings", "San Fransisco Set", "Beach Properties", "Urban Promenades", "Modern Architecture"-->
 	<RequiredDLC Value="" />
 	<!--Change log for new version. Single line or multi line. Supports minimal markdown subset-->
-<ChangeLog>* Increase assert window to ensure achievement flag stays true even with many mods loading
-* Banner reapplies during that window </ChangeLog>
+<ChangeLog>- Fix locale issue </ChangeLog>
 	<!--External link, can be set multiple times. supported types are "discord", "github", "youtube", "twitch", "x", "paypal", "patreon", "buymeacoffee", "kofi", "crowdin", "gitlab", "gofundme"-->
 	<ExternalLink Type="discord" Url="https://discord.gg/HTav7ARPs2" />
 	<ExternalLink Type="github" Url="https://github.com/River-Mochi/AchievementFixer" />

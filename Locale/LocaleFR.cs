@@ -21,7 +21,7 @@ namespace AchievementFixer
             return new Dictionary<string, string>
             {
                 // Options menu entry
-                { m_Setting.GetSettingsLocaleID(), Mod.Name },
+                { m_Setting.GetSettingsLocaleID(), Mod.ModName },
 
                 // Tabs
                 { m_Setting.GetOptionTabLocaleID(Settings.MainTab),     "Principal" },

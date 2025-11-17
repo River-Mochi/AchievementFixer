@@ -20,7 +20,7 @@ namespace AchievementFixer
             return new Dictionary<string, string>
             {
                 // Options menu entry
-                { m_Setting.GetSettingsLocaleID(), Mod.Name },
+                { m_Setting.GetSettingsLocaleID(), Mod.ModName },
 
                 // Tabs
                 { m_Setting.GetOptionTabLocaleID(Settings.MainTab),     "Main"     },
@@ -67,7 +67,9 @@ namespace AchievementFixer
 
                 // Advanced >> advisory text
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.AdvancedAdvisory)),
-                  "• This mod already enables achievements (default) without using any buttons in Advanced tab.\n" },
+                  "• This mod already enables achievements (default) without using any of these Advanced tab buttons.\n" +
+                  "• Descriptions in the right side panel give details on these buttons."
+                },
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.AdvancedAdvisory)),
                     "**BE CAREFUL** using the [DEBUG: RESET ALL] button. If you accidentally use it, you can recover completed achievements with the [Unlock Selected] button." },
 

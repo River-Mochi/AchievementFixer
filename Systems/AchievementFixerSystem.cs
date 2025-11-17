@@ -39,7 +39,7 @@ namespace AchievementFixer
             Enabled = false;
 
 #if DEBUG
-            Mod.Log.Info("AchievementFixerSystem created (idle)");
+            Mod.s_Log.Info("AchievementFixerSystem created (idle)");
 #endif
         }
 
@@ -52,7 +52,7 @@ namespace AchievementFixer
             {
                 Enabled = false;
 #if DEBUG
-                Mod.Log.Info($"OnGameLoadingComplete: mode={mode}; not gameplay → skipping.");
+                Mod.s_Log.Info($"OnGameLoadingComplete: mode={mode}; not gameplay → skipping.");
 #endif
                 return;
             }
@@ -67,7 +67,7 @@ namespace AchievementFixer
             Mod.ReapplyBannerForActiveLocale();
 
 #if DEBUG
-            Mod.Log.Info($"Assert window started: {kAssertFrames} frames.");
+            Mod.s_Log.Info($"Assert window started: {kAssertFrames} frames.");
 #endif
         }
 
@@ -99,7 +99,7 @@ namespace AchievementFixer
             if (m_FramesLeft % 60 == 0)
             {
                 var flag = (PlatformManager.instance?.achievementsEnabled == true) ? "TRUE" : "FALSE";
-                Mod.Log.Info($"Asserting… framesLeft={m_FramesLeft}, achievementsEnabled={flag}");
+                Mod.s_Log.Info($"Asserting… framesLeft={m_FramesLeft}, achievementsEnabled={flag}");
             }
 #endif
         }
@@ -110,17 +110,17 @@ namespace AchievementFixer
             if (pm == null)
             {
 #if DEBUG
-                Mod.Log.Info($"{source}: PlatformManager.instance is null; skip");
+                Mod.s_Log.Info($"{source}: PlatformManager.instance is null; skip");
 #endif
                 return false;
             }
 
             if (!pm.achievementsEnabled)
             {
-                // KEEP these Release logs (proof for players)
-                Mod.Log.Info($"{source}: ATTN: detected game flipped achievementsEnabled == FALSE. Forcing TRUE now");
+                // KEEP these Release s_Logs (proof for players)
+                Mod.s_Log.Info($"{source}: ATTN: detected game flipped achievementsEnabled == FALSE. Forcing TRUE now");
                 pm.achievementsEnabled = true;
-                Mod.Log.Info($"{source}: achievementsEnabled is now TRUE.");
+                Mod.s_Log.Info($"{source}: achievementsEnabled is now TRUE.");
                 return true;
             }
 
