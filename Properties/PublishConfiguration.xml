@@ -70,7 +70,7 @@ Or use the mod's Advanced buttons (you met the condition before, you deserve it)
 	<!--Change log for new version. Single line or multi line. Supports minimal markdown subset-->
 	<ChangeLog>
 - update images
-- worked with i18n nullpinter to resolve Korean banner not working if i18n installed
+- worked with i18n nullpinter to fix Korean banner not working if i18n installed
 	</ChangeLog>
 	<!--External link, can be set multiple times. supported types are "discord", "github", "youtube", "twitch", "x", "paypal", "patreon", "buymeacoffee", "kofi", "crowdin", "gitlab", "gofundme"-->
 	<ExternalLink Type="discord" Url="https://discord.gg/HTav7ARPs2" />
