@@ -71,7 +71,12 @@ Or use the mod's Advanced buttons (you met the condition before, you deserve it)
 	<!--Required DLC, can be set multiple times. Supported values are "Landmark Buildings", "San Fransisco Set", "Beach Properties", "Urban Promenades", "Modern Architecture"-->
 	<RequiredDLC Value="" />
 	<!--Change log for new version. Single line or multi line. Supports minimal markdown subset-->
-<ChangeLog>- Harden Locale </ChangeLog>
+	<ChangeLog>
+- More robust localization
+- refactor options UI layout
+- updated translations
+- note for Korean: achievements still work even if you see vanilla game text warning "Achievements disabled"
+	</ChangeLog>
 	<!--External link, can be set multiple times. supported types are "discord", "github", "youtube", "twitch", "x", "paypal", "patreon", "buymeacoffee", "kofi", "crowdin", "gitlab", "gofundme"-->
 	<ExternalLink Type="discord" Url="https://discord.gg/HTav7ARPs2" />
 	<ExternalLink Type="github" Url="https://github.com/River-Mochi/AchievementFixer" />
