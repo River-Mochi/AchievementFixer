@@ -54,7 +54,6 @@ Or use the mod's Advanced buttons (you met the condition before, you deserve it)
 	<Screenshot Value="Properties/10-AF-Main-EN.jpg" />
 	<Screenshot Value="Properties/20-AF-Main-FR.jpg" />
 	<Screenshot Value="Properties/30-AF-Main-ZH_CN.jpg" />
-	<Screenshot Value="Properties/Thumbnail.png" />
 	<!--Tag, can be set multiple times-->
 	<Tag Value="Code Mod" />
 	<!--Link to the forum post where the mod can be discussed-->
