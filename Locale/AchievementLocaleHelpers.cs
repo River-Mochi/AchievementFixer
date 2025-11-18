@@ -3,13 +3,13 @@ namespace AchievementFixer
 {
     using System.Collections.Generic;   // Dictionary
     using Colossal;                     // IDictionarySource
-    using Colossal.Localization;        // LocalizationManager
+    using Colossal.Localization;        // LocalizationManager, LocalizationDictionary
     using Game.SceneFlow;               // GameManager
 
     /// <summary>
     /// Returns a localized achievement title; falls back to internalName.
+    /// Used for the dropdown list in Advanced tab.
     /// </summary>
-    // Helper - used for the Dropdown list
     internal static class AchievementDisplay
     {
         public static string Get(string internalName)
@@ -19,32 +19,44 @@ namespace AchievementFixer
                 return string.Empty;
             }
 
-            var lm = GameManager.instance?.localizationManager as LocalizationManager;
-            LocalizationDictionary? dict = lm?.activeDictionary;
+            LocalizationManager? localizationManager = GameManager.instance?.localizationManager;
+            LocalizationDictionary? dict = localizationManager?.activeDictionary;
             if (dict == null)
             {
-                return internalName; // no dictionary yet, show raw ID
+                // No dictionary yet; show raw ID.
+                return internalName;
             }
 
             var key = $"Achievements.TITLE[{internalName}]";
             if (dict.TryGetValue(key, out var localized) && !string.IsNullOrWhiteSpace(localized))
             {
-                return localized;  // friendly title (spaced, correct casing, punctuation)
+                // friendly title (spaced, correct casing, punctuation)
+                return localized;
             }
 
-            return internalName;  // Fallback: show raw ID to see misses during testing
+            // Fallback: show raw ID to see misses during testing
+            return internalName;
         }
     }
 
-    /// <summary> Tiny dictionary-backed source for overriding 1-line locale keys.</summary>
-    // Helper - override warning banner key map (for localization, last source added wins)
+    /// <summary>
+    /// Tiny dictionary-backed source for overriding one or more locale keys.
+    /// Used for the achievements banner.
+    /// </summary>
     internal sealed class LocaleOverrideSource : IDictionarySource
     {
         private readonly Dictionary<string, string> m_Entries;
-        public LocaleOverrideSource(Dictionary<string, string> entries) => m_Entries = entries;
+
+        public LocaleOverrideSource(Dictionary<string, string> entries)
+        {
+            m_Entries = entries;
+        }
 
         public IEnumerable<KeyValuePair<string, string>> ReadEntries(
-            IList<IDictionaryEntryError> errors, Dictionary<string, int> indexCounts) => m_Entries;
+            IList<IDictionaryEntryError> errors, Dictionary<string, int> indexCounts)
+        {
+            return m_Entries;
+        }
 
         public void Unload()
         {
@@ -56,7 +68,7 @@ namespace AchievementFixer
     /// </summary>
     internal static class LocaleBannerText
     {
-        private static readonly Dictionary<string, string> s_Text = new()
+        private static readonly Dictionary<string, string> s_Text = new Dictionary<string, string>
         {
             ["en-US"] = "Achievements enabled by Achievement Fixer.",
             ["de-DE"] = "Erfolge aktiviert durch Achievement Fixer.",
@@ -69,12 +81,18 @@ namespace AchievementFixer
             ["pl-PL"] = "Osiągnięcia włączone przez Achievement Fixer.",
             ["vi-VN"] = "Thành tựu được bật bởi Achievement Fixer.",
             ["zh-HANS"] = "成就已由 Achievement Fixer 启用。",
-            ["zh-HANT"] = "成就已由 Achievement Fixer 啟用。",
+            ["zh-HANT"] = "成就已由 Achievement Fixer 啟用。"
         };
 
-        public static string For(string localeId) =>
-            s_Text.TryGetValue(localeId, out var text) ? text : s_Text["en-US"]; // fallback to English
+        public static string For(string localeId)
+        {
+            if (s_Text.TryGetValue(localeId, out var text))
+            {
+                return text;
+            }
+
+            // Fallback to English
+            return s_Text["en-US"];
+        }
     }
-
 }
-

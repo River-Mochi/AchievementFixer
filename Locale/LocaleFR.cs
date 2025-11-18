@@ -1,10 +1,11 @@
+// LocaleFR.cs
 namespace AchievementFixer
 {
     using System.Collections.Generic;
     using Colossal;
 
     /// <summary>
-    /// French locale (fr-FR).
+    /// French locale (fr-FR)
     /// </summary>
     public class LocaleFR : IDictionarySource
     {
@@ -28,58 +29,73 @@ namespace AchievementFixer
                 { m_Setting.GetOptionTabLocaleID(Settings.AdvancedTab), "Avancé"    },
 
                 // Groups (Main tab)
-                { m_Setting.GetOptionGroupLocaleID(Settings.MainInfoGroup), "Infos"  },
-                { m_Setting.GetOptionGroupLocaleID(Settings.ButtonGroup),   "Liens d'aide"  },
-                { m_Setting.GetOptionGroupLocaleID(Settings.NotesGroup),    "Notes"  },
+                { m_Setting.GetOptionGroupLocaleID(Settings.NotesGroup),    "Notes"          },
+                { m_Setting.GetOptionGroupLocaleID(Settings.MainInfoGroup), "Informations"   },
+                { m_Setting.GetOptionGroupLocaleID(Settings.ButtonGroup),   "Liens de support" },
 
                 // Groups (Advanced tab)
                 { m_Setting.GetOptionGroupLocaleID(Settings.AdvRowActions), "Actions" },
-                { m_Setting.GetOptionGroupLocaleID(Settings.AdvRowDebug),   "DEBUG"   },
+                { m_Setting.GetOptionGroupLocaleID(Settings.AdvRowDebug),   "DEBUG"  },
+
+                // Main >> Notes
+                {
+                    m_Setting.GetOptionLabelLocaleID(nameof(Settings.MainNotes)),
+                    "<• Les succès sont maintenant activés ;> accomplissez simplement les tâches requises pour les obtenir naturellement.\n\n" +
+                    "Amusez-vous bien ! :)\n"
+                },
 
                 // Main >> Info
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.NameDisplay)),    "Mod" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.NameDisplay)),     "Nom d’affichage du mod." },
+                { m_Setting.GetOptionDescLocaleID(nameof(Settings.NameDisplay)),     "Nom d’affichage de ce mod." },
 
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.VersionDisplay)), "Version" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.VersionDisplay)),  "Version actuelle du mod." },
+                { m_Setting.GetOptionDescLocaleID(nameof(Settings.VersionDisplay)),  "Numéro de version actuel." },
 
                 // Main >> Links
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.OpenAchievementsWikiButton)), "Wiki des succès" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.OpenAchievementsWikiButton)),  "Ouvrir le wiki des succès dans votre navigateur." },
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.OpenDiscordButton)),          "Discord" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.OpenDiscordButton)),           "Ouvrir le Discord modding CS2 dans votre navigateur." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.OpenParadoxButton)), "Paradox" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Settings.OpenParadoxButton)),  "Ouvrir la page **Paradox** des mods de cet auteur." },
 
-                // Main >> Notes
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.MainNotes)),
-                    "Notes :\n" +
-                    "• Les succès sont activés : réalisez simplement les objectifs pour les obtenir naturellement.\n\n" +
-                    "Amusez-vous bien ! :)\n" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.OpenDiscordButton)), "Discord" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Settings.OpenDiscordButton)),  "Ouvrir le **Discord** de modding CS2 dans votre navigateur." },
+
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.OpenAchievementsWikiButton)), "Wiki des succès" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Settings.OpenAchievementsWikiButton)),  "Ouvrir le **wiki** des succès dans votre navigateur." },
 
                 // --- Advanced tab ---
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.SelectedAchievement)),   "Sélectionner un succès" },
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.SelectedAchievement)),    "Choisissez un succès sur lequel agir." },
 
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.UnlockSelectedAchievement)), "DÉVERROUILLER SÉLECTIONNÉ" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.UnlockSelectedAchievement)),  "Marque le succès sélectionné comme **déverrouillé et complété**." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.UnlockSelectedAchievement)), "DÉVERROUILLER LA SÉLECTION" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Settings.UnlockSelectedAchievement)),  "**Déverrouille et complète** le succès sélectionné." },
 
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ClearSelectedAchievement)),  "EFFACER SÉLECTIONNÉ" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.ClearSelectedAchievement)),   "Marque le succès sélectionné comme **non terminé**." },
-                { m_Setting.GetOptionWarningLocaleID(nameof(Settings.ClearSelectedAchievement)),"EFFACER/RÉINITIALISER ce succès.\n\nContinuer ?" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ClearSelectedAchievement)),  "EFFACER LA SÉLECTION" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Settings.ClearSelectedAchievement)),   "Marque le succès sélectionné comme **non complété**." },
+                { m_Setting.GetOptionWarningLocaleID(nameof(Settings.ClearSelectedAchievement)), "EFFACER / RÉINITIALISER ce succès.\n\nContinuer ?" },
 
-                // Advanced >> advisory text
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.AdvancedAdvisory)),
-                  "• Ce mod active déjà les succès par défaut — pas besoin des boutons de l’onglet Avancé.\n" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.AdvancedAdvisory)),
-                    "**ATTENTION** avec [DEBUG : TOUT RÉINITIALISER]. En cas d’erreur, vous pouvez récupérer les succès avec [DÉVERROUILLER SÉLECTIONNÉ]." },
+                // Advanced >> advisory text notes
+                {
+                    m_Setting.GetOptionLabelLocaleID(nameof(Settings.AdvancedAdvisory)),
+                    "• Remarque : les succès sont <déjà activés> (par défaut) sans utiliser ces boutons Avancés.\n\n" +
+                    "• Si cela vous intéresse, survolez un bouton pour voir les détails dans le panneau de droite."
+                },
+                {
+                    m_Setting.GetOptionDescLocaleID(nameof(Settings.AdvancedAdvisory)),
+                    "**FAITES ATTENTION** en utilisant le bouton [DEBUG: TOUT RÉINITIALISER]. Si vous l’utilisez par erreur, vous pouvez récupérer les succès complétés avec le bouton [Déverrouiller la sélection]."
+                },
 
                 // Advanced >> DEBUG
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ResetAllAchievements)),  "DEBUG : TOUT RÉINITIALISER" }, // Button label
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.ResetAllAchievements)),
-                    "**AVERTISSEMENT** : réinitialise **TOUS** les succès. Utile pour les tests.\n" +
-                    "En cas d’erreur, vous pouvez les récupérer avec [DÉVERROUILLER SÉLECTIONNÉ]." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ResetAllAchievements)),  "DEBUG : TOUT RÉINITIALISER" },
+                {
+                    m_Setting.GetOptionDescLocaleID(nameof(Settings.ResetAllAchievements)),
+                    "**AVERTISSEMENT** : réinitialise **tous** les succès. Utile pour les tests.\n" +
+                    "Si vous l’utilisez par erreur, vous pouvez les récupérer avec le bouton [Déverrouiller la sélection]."
+                },
 
                 // Confirmation modal Yes/No
-                { m_Setting.GetOptionWarningLocaleID(nameof(Settings.ResetAllAchievements)), "Attention : RÉINITIALISER/EFFACER tous les succès en **non terminé**. Continuer ?" },
+                {
+                    m_Setting.GetOptionWarningLocaleID(nameof(Settings.ResetAllAchievements)),
+                    "Avertissement : RÉINITIALISER / EFFACER tous les succès vers l’état NON complété. Continuer ?"
+                },
             };
         }
 

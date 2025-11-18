@@ -8,32 +8,23 @@ namespace AchievementFixer
     /// <summary>
     /// After a game load completes, keep achievements enabled for a frame-based window,
     /// then go completely idle.
-    /// Re-assert the banner during that window to overwrite game "disabled banner".
-    ///
-    /// Lifecycle:
-    ///   - OnCreate():   start disabled (no per-frame updates scheduled)
-    ///   - OnGameLoadingComplete(Game): open assert window and enable the system
-    ///   - OnUpdate():   enforce achievementsEnabled; re-apply banner at interval;
-    ///                   when frames elapse, do one final banner apply (single log) then go idle
+    /// Also re-assert the banner warning override:
+    ///   - once when gameplay starts
+    ///   - once at the end of the assert window.
     /// </summary>
     public sealed partial class AchievementFixerSystem : GameSystemBase
     {
         // --- Tunables (frames) ---
         private const int kAssertFrames = 1800;  // ~30s @ 60FPS or ~60s @ 30FPS
 
-        // Re-apply banner key to keep game or other mods from overriding it
-        private const int kBannerReapplyEveryFrames = 60;   // ~2.0s @ 30fps or ~1.0s @ 60fps
-
         // --- State ---
         private int m_FramesLeft;        // counts down from kAssertFrames to 0
-        private int m_BannerCountdown;   // counts down to next banner re-apply
 
         protected override void OnCreate()
         {
             base.OnCreate();
 
             m_FramesLeft = 0;
-            m_BannerCountdown = 0;
 
             // Start idle so we don't get scheduled until a real game load occurs
             Enabled = false;
@@ -59,7 +50,6 @@ namespace AchievementFixer
 
             // Open the frame-based assert window and start ticking.
             m_FramesLeft = kAssertFrames;
-            m_BannerCountdown = 0;
             Enabled = true;
 
             // Enforce immediately at first tick and push our banner once at start.
@@ -84,13 +74,6 @@ namespace AchievementFixer
             // Keep achievementsEnabled true — check every frame (cheap & robust)
             ForceEnableIfNeeded("OnUpdate");
 
-            // Re-apply the banner at the chosen frame cadence (idempotent & cheap)
-            if (--m_BannerCountdown <= 0)
-            {
-                Mod.ReapplyBannerForActiveLocale();
-                m_BannerCountdown = kBannerReapplyEveryFrames;
-            }
-
             // Advance the window
             m_FramesLeft--;
 
@@ -98,7 +81,8 @@ namespace AchievementFixer
             // Every ~60 frames, log a coarse heartbeat to avoid noise.
             if (m_FramesLeft % 60 == 0)
             {
-                var flag = (PlatformManager.instance?.achievementsEnabled == true) ? "TRUE" : "FALSE";
+                bool achievementsOn = PlatformManager.instance?.achievementsEnabled == true;
+                string flag = achievementsOn ? "TRUE" : "FALSE";
                 Mod.s_Log.Info($"Asserting… framesLeft={m_FramesLeft}, achievementsEnabled={flag}");
             }
 #endif
@@ -106,7 +90,7 @@ namespace AchievementFixer
 
         private static bool ForceEnableIfNeeded(string source)
         {
-            var pm = PlatformManager.instance;
+            PlatformManager pm = PlatformManager.instance;
             if (pm == null)
             {
 #if DEBUG
@@ -117,7 +101,7 @@ namespace AchievementFixer
 
             if (!pm.achievementsEnabled)
             {
-                // KEEP these Release s_Logs (proof for players)
+                // KEEP these Release logs (proof for players it's on)
                 Mod.s_Log.Info($"{source}: ATTN: detected game flipped achievementsEnabled == FALSE. Forcing TRUE now");
                 pm.achievementsEnabled = true;
                 Mod.s_Log.Info($"{source}: achievementsEnabled is now TRUE.");

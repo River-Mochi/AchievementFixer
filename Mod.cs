@@ -1,6 +1,5 @@
 // Mod.cs
 
-
 namespace AchievementFixer
 {
     using System.Reflection;                   // Only for version number
@@ -12,6 +11,7 @@ namespace AchievementFixer
     using Game.Achievements;                   // AchievementTriggerSystem (phase anchor)
     using Game.Modding;                        // IMod
     using Game.SceneFlow;                      // GameManager
+    using Colossal.Localization;
 
     public sealed class Mod : IMod
     {
@@ -36,8 +36,7 @@ namespace AchievementFixer
         }
 
         // ----- Private state -----
-        private static readonly HashSet<string> s_InstalledLocales = new(); // prevent duplicate installs
-        private static readonly HashSet<string> s_FailedLocales = new();    // locales that blew up AddSource
+        private static readonly HashSet<string> s_InstalledLocales = new(); // locales where banner override was successfully installed
         private static bool s_BannerLogged;
         private static bool s_Reapplying;
 
@@ -73,11 +72,11 @@ namespace AchievementFixer
             AssetDatabase.global.LoadSettings("AchievementFixer", settings, new Settings(this));
             settings.RegisterInOptionsUI();
 
-            // Ensure our system runs after the game's trigger during the main loop.
+            // Ensure AF system runs after the game's trigger during the main loop.
             updateSystem.UpdateAfter<AchievementFixerSystem, AchievementTriggerSystem>(SystemUpdatePhase.MainLoop);
 
             // Lazy per-locale banner override (install for current locale now)
-            var lm = GameManager.instance?.localizationManager;
+            LocalizationManager? lm = GameManager.instance?.localizationManager;
             var activeId = lm?.activeLocaleId;
             if (!string.IsNullOrEmpty(activeId))
             {
@@ -97,11 +96,18 @@ namespace AchievementFixer
             var lm = GameManager.instance?.localizationManager;
             if (lm != null)
             {
-                lm.onActiveDictionaryChanged -= OnLocaleChanged;
+                lm.onActiveDictionaryChanged -= OnLocaleChanged;    // locale event unsubscribe
+            }
+
+            if (Settings != null)
+            {
+                Settings.UnregisterInOptionsUI();   // optional, tidy
+                Settings = null;
             }
 
             s_Log.Info("OnDispose");
         }
+
 
         // ----- Event handlers -----
         private void OnLocaleChanged()
@@ -114,12 +120,12 @@ namespace AchievementFixer
             s_Reapplying = true;
             try
             {
-                var lm = GameManager.instance?.localizationManager;
+                LocalizationManager? lm = GameManager.instance?.localizationManager;
                 var active = lm?.activeLocaleId ?? string.Empty;
 
                 if (!string.IsNullOrEmpty(active))
                 {
-                    EnsureWarningOverrideFor(active); // install once for newly active locale
+                    EnsureWarningOverrideFor(active); // install once for newly active locale (or retry if previous attempt failed)
                 }
 
                 // Keep Options UI consistent
@@ -135,8 +141,8 @@ namespace AchievementFixer
 
         /// <summary>
         /// Central wrapper around LocalizationManager.AddSource that
-        /// - skips locales that already failed,
-        /// - catches any exception (e.g. from I18NEverywhere) and logs once.
+        /// catches any exception (e.g. from I18NEverywhere) and logs once.
+        /// No permanent blacklist — a locale can be retried later.
         /// </summary>
         private static bool TryAddLocaleSource(string localeId, IDictionarySource source, string context)
         {
@@ -145,13 +151,7 @@ namespace AchievementFixer
                 return false;
             }
 
-            if (s_FailedLocales.Contains(localeId))
-            {
-                // If locale broken for AddSource; avoid spamming errors.
-                return false;
-            }
-
-            var lm = GameManager.instance?.localizationManager;
+            LocalizationManager? lm = GameManager.instance?.localizationManager;
             if (lm == null)
             {
                 s_Log.Warn($"{context}: No LocalizationManager; cannot add source for locale '{localeId}'.");
@@ -165,8 +165,7 @@ namespace AchievementFixer
             }
             catch (System.Exception ex)
             {
-                // This is where I18NEverywhere mod was throwing. Catch it so it doesn't become a global NRE.
-                s_FailedLocales.Add(localeId);
+                // Catch and log so it doesn't become a global NRE from another mod.
                 s_Log.Warn($"{context}: AddSource for locale '{localeId}' failed: {ex.GetType().Name}: {ex.Message}");
                 return false;
             }
@@ -178,8 +177,13 @@ namespace AchievementFixer
         /// </summary>
         private static void EnsureWarningOverrideFor(string localeId)
         {
-            // Only once per locale (if it previously failed, TryAddLocaleSource will early-out)
-            if (!s_InstalledLocales.Add(localeId))
+            if (string.IsNullOrEmpty(localeId))
+            {
+                return;
+            }
+
+            // Only skip if it's KNOWN the locale was successfully installed before.
+            if (s_InstalledLocales.Contains(localeId))
             {
                 return;
             }
@@ -192,23 +196,27 @@ namespace AchievementFixer
                 [kWarningKey] = bannerText
             };
 
-            TryAddLocaleSource(localeId, new LocaleOverrideSource(entries), "EnsureWarningOverrideFor");
+            if (TryAddLocaleSource(localeId, new LocaleOverrideSource(entries), "EnsureWarningOverrideFor"))
+            {
+                // Mark as installed only after a successful AddSource.
+                s_InstalledLocales.Add(localeId);
+            }
         }
 
         /// <summary>
-        /// Re-assert the banner for the currently active locale.
-        /// Cheap, “last writer wins” nudge — used by the system at intervals.
+        /// Re-assert the banner override for the currently active locale.
+        /// Cheap, “last writer wins” nudge.
         /// </summary>
         internal static void ReapplyBannerForActiveLocale()
         {
-            var lm = GameManager.instance?.localizationManager;
+            LocalizationManager? lm = GameManager.instance?.localizationManager;
             var active = lm?.activeLocaleId;
             if (lm == null || string.IsNullOrEmpty(active))
             {
                 return;
             }
 
-            const string kWarningKey = "Menu.ACHIEVEMENTS_WARNING_MODS";
+            const string kWarningKey = "Menu.ACHIEVEMENTS_WARNING_MODS"; // game key for banner
             var text = LocaleBannerText.For(active!);
             var entries = new Dictionary<string, string>
             {
@@ -224,7 +232,7 @@ namespace AchievementFixer
         /// </summary>
         internal static void ReapplyBannerForActiveLocaleFinal()
         {
-            var lm = GameManager.instance?.localizationManager;
+            LocalizationManager? lm = GameManager.instance?.localizationManager;
             var active = lm?.activeLocaleId;
             if (lm == null || string.IsNullOrEmpty(active))
             {
@@ -247,7 +255,7 @@ namespace AchievementFixer
 
         private static void AddLocale(string localeId, IDictionarySource source)
         {
-            // Use the same safe wrapper for your own locales; if I18NEverywhere or
+            // Use the same safe wrapper for our own locales; if I18NEverywhere or
             // some other localization hook is fragile, we don't let it crash anything.
             TryAddLocaleSource(localeId, source, "AddLocale");
         }

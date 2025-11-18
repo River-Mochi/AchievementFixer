@@ -1,3 +1,4 @@
+// LocaleJA.cs
 namespace AchievementFixer
 {
     using System.Collections.Generic;
@@ -9,6 +10,7 @@ namespace AchievementFixer
     public class LocaleJA : IDictionarySource
     {
         private readonly Settings m_Setting;
+
         public LocaleJA(Settings setting)
         {
             m_Setting = setting;
@@ -24,61 +26,76 @@ namespace AchievementFixer
 
                 // Tabs
                 { m_Setting.GetOptionTabLocaleID(Settings.MainTab),     "メイン" },
-                { m_Setting.GetOptionTabLocaleID(Settings.AdvancedTab), "詳細"   },
+                { m_Setting.GetOptionTabLocaleID(Settings.AdvancedTab), "詳細" },
 
                 // Groups (Main tab)
-                { m_Setting.GetOptionGroupLocaleID(Settings.MainInfoGroup), "情報"   },
+                { m_Setting.GetOptionGroupLocaleID(Settings.NotesGroup),    "メモ" },
+                { m_Setting.GetOptionGroupLocaleID(Settings.MainInfoGroup), "情報" },
                 { m_Setting.GetOptionGroupLocaleID(Settings.ButtonGroup),   "サポートリンク" },
-                { m_Setting.GetOptionGroupLocaleID(Settings.NotesGroup),    "メモ"   },
 
                 // Groups (Advanced tab)
-                { m_Setting.GetOptionGroupLocaleID(Settings.AdvRowActions), "アクション" },
-                { m_Setting.GetOptionGroupLocaleID(Settings.AdvRowDebug),   "DEBUG"     },
+                { m_Setting.GetOptionGroupLocaleID(Settings.AdvRowActions), "操作" },
+                { m_Setting.GetOptionGroupLocaleID(Settings.AdvRowDebug),   "DEBUG" },
+
+                // Main >> Notes
+                {
+                    m_Setting.GetOptionLabelLocaleID(nameof(Settings.MainNotes)),
+                    "<• 実績はすでに有効になっています;> 必要な条件を満たしていけば自然に解除されます。\n\n" +
+                    "楽しんでください！ :)\n"
+                },
 
                 // Main >> Info
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.NameDisplay)),    "Mod" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.NameDisplay)),     "このModの表示名。" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Settings.NameDisplay)),     "この Mod の表示名です。" },
 
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.VersionDisplay)), "バージョン" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.VersionDisplay)),  "現在のModバージョン。" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Settings.VersionDisplay)),  "現在のバージョン番号です。" },
 
                 // Main >> Links
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.OpenAchievementsWikiButton)), "実績Wiki" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.OpenAchievementsWikiButton)),  "実績Wikiをブラウザーで開きます。" },
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.OpenDiscordButton)),          "Discord" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.OpenDiscordButton)),           "CS2モッディングのDiscordをブラウザーで開きます。" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.OpenParadoxButton)), "Paradox" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Settings.OpenParadoxButton)), "この作者の Mod 用 Paradox ページをブラウザで開きます。" },
 
-                // Main >> Notes
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.MainNotes)),
-                    "注意:\n" +
-                    "• 実績はすでに有効です——条件を満たせば自然に解除されます。\n\n" +
-                    "楽しんで！ :)\n" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.OpenDiscordButton)), "Discord" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Settings.OpenDiscordButton)), "CS2 モッディング用 Discord をブラウザで開きます。" },
+
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.OpenAchievementsWikiButton)), "実績 Wiki" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Settings.OpenAchievementsWikiButton)), "実績に関する Wiki をブラウザで開きます。" },
 
                 // --- Advanced tab ---
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.SelectedAchievement)),   "実績を選択" },
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.SelectedAchievement)),    "操作する実績を選んでください。" },
 
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.UnlockSelectedAchievement)), "選択をアンロック" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.UnlockSelectedAchievement)),  "選択した実績を**解除して完了**としてマークします。" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.UnlockSelectedAchievement)), "選択した実績を解除" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Settings.UnlockSelectedAchievement)),  "選択した実績を**解除して達成済み**にします。" },
 
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ClearSelectedAchievement)),  "選択をリセット" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.ClearSelectedAchievement)),   "選択した実績を**未達成**にします。" },
-                { m_Setting.GetOptionWarningLocaleID(nameof(Settings.ClearSelectedAchievement)),"この実績をリセットします。\n\n続行しますか？" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ClearSelectedAchievement)),  "選択した実績をリセット" },
+                { m_Setting.GetOptionDescLocaleID(nameof(Settings.ClearSelectedAchievement)),   "選択した実績を**未達成**としてマークします。" },
+                { m_Setting.GetOptionWarningLocaleID(nameof(Settings.ClearSelectedAchievement)), "この実績をリセットします。\n\n続行しますか？" },
 
-                // Advanced >> advisory text
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.AdvancedAdvisory)),
-                  "• このModは既定で実績を有効にします—[詳細]タブのボタンは不要です。\n" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.AdvancedAdvisory)),
-                    "**注意**: [DEBUG: すべてリセット] は慎重に。誤って押したら、[選択をアンロック] で戻せます。" },
+                // Advanced >> advisory text notes
+                {
+                    m_Setting.GetOptionLabelLocaleID(nameof(Settings.AdvancedAdvisory)),
+                    "• 注意: これらの詳細ボタンを使わなくても、実績はデフォルトで<すでに有効>です。\n\n" +
+                    "• 興味があれば、ボタンにカーソルを合わせると右側のパネルに詳細が表示されます。"
+                },
+                {
+                    m_Setting.GetOptionDescLocaleID(nameof(Settings.AdvancedAdvisory)),
+                    "[DEBUG: すべてリセット] ボタンを使うときは **注意** してください。誤って押してしまっても、[選択した実績を解除] ボタンで達成済みの実績を戻すことができます。"
+                },
 
                 // Advanced >> DEBUG
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ResetAllAchievements)),  "DEBUG: すべてリセット" }, // Button label
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.ResetAllAchievements)),
-                    "**警告**: **すべて**の実績を消去/リセットします。テスト向け。\n" +
-                    "誤って実行した場合は [選択をアンロック] で復旧できます。" },
+                {
+                    m_Setting.GetOptionDescLocaleID(nameof(Settings.ResetAllAchievements)),
+                    "**警告**: すべての実績をクリア／リセットします。テストやデバッグ用途向けです。\n" +
+                    "誤って実行した場合は、[選択した実績を解除] ボタンで実績を戻すことができます。"
+                },
 
                 // Confirmation modal Yes/No
-                { m_Setting.GetOptionWarningLocaleID(nameof(Settings.ResetAllAchievements)), "警告: すべての実績を**未達成**にリセットします。続行しますか？" },
+                {
+                    m_Setting.GetOptionWarningLocaleID(nameof(Settings.ResetAllAchievements)),
+                    "警告: すべての実績を **未達成** 状態にリセットします。続行しますか？"
+                },
             };
         }
 

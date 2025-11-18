@@ -12,13 +12,13 @@ namespace AchievementFixer
 
     [FileLocation("ModsSettings/AchievementFixer/AchievementFixer")]
     [SettingsUIGroupOrder(
-        MainInfoGroup, ButtonGroup, NotesGroup,
+        NotesGroup, MainInfoGroup, ButtonGroup,
         AdvRowActions, AdvRowDebug
     )]
     [SettingsUIShowGroupName(
-        ButtonGroup,     // show SUPPORT LINKS on Main tab
-        NotesGroup,      // show NOTES on Main tab
-        AdvRowDebug      // show DEBUG on Advanced tab
+        NotesGroup,       // show NOTES on Main tab
+        ButtonGroup,      // show SUPPORT LINKS on Main tab
+        AdvRowDebug       // show DEBUG on Advanced tab
     )]
     public class Settings : ModSetting
     {
@@ -36,6 +36,7 @@ namespace AchievementFixer
         public const string AdvRowDebug = "Debug";
 
         // ---- Constants ----
+        private const string UrlParadox = "https://mods.paradoxplaza.com/uploaded?orderBy=desc&sortBy=best&time=alltime";
         private const string UrlDiscord = "https://discord.gg/HTav7ARPs2";
         private const string UrlAchievementsWiki = "https://cs2.paradoxwikis.com/Achievements";
 
@@ -48,6 +49,30 @@ namespace AchievementFixer
         [SettingsUISection(MainTab, MainInfoGroup)]
         public string VersionDisplay => Mod.ModVersion;
 
+        // Main - Paradox button
+        [SettingsUIButtonGroup(ButtonGroup)]
+        [SettingsUIButton]
+        [SettingsUISection(MainTab, ButtonGroup)]
+        public bool OpenParadoxButton
+        {
+            set
+            {
+                if (!value)
+                {
+                    return;
+                }
+
+                try
+                {
+                    Application.OpenURL(UrlParadox);
+                }
+                catch (Exception ex)
+                {
+                    Mod.s_Log.Warn($"Failed to open Paradox: {ex.Message}");
+                }
+            }
+        }
+
         // Main - Discord button
         [SettingsUIButtonGroup(ButtonGroup)]
         [SettingsUIButton]
@@ -57,12 +82,18 @@ namespace AchievementFixer
             set
             {
                 if (!value)
+                {
                     return;
+                }
+
                 try
                 {
                     Application.OpenURL(UrlDiscord);
                 }
-                catch (Exception ex) { Mod.s_Log.Warn($"Failed to open Discord: {ex.Message}"); }
+                catch (Exception ex)
+                {
+                    Mod.s_Log.Warn($"Failed to open Discord: {ex.Message}");
+                }
             }
         }
 
@@ -75,12 +106,18 @@ namespace AchievementFixer
             set
             {
                 if (!value)
+                {
                     return;
+                }
+
                 try
                 {
                     Application.OpenURL(UrlAchievementsWiki);
                 }
-                catch (Exception ex) { Mod.s_Log.Warn($"Failed to open wiki: {ex.Message}"); }
+                catch (Exception ex)
+                {
+                    Mod.s_Log.Warn($"Failed to open wiki: {ex.Message}");
+                }
             }
         }
 
@@ -105,7 +142,9 @@ namespace AchievementFixer
             set
             {
                 if (!value)
+                {
                     return;
+                }
 
                 try
                 {
@@ -151,7 +190,9 @@ namespace AchievementFixer
             set
             {
                 if (!value)
+                {
                     return;
+                }
 
                 try
                 {
@@ -187,7 +228,6 @@ namespace AchievementFixer
             }
         }
 
-
         // Advisory text under the two buttons
         [SettingsUIMultilineText]
         [SettingsUISection(AdvancedTab, AdvRowActions)]
@@ -205,7 +245,10 @@ namespace AchievementFixer
             set
             {
                 if (!value)
+                {
                     return;
+                }
+
                 try
                 {
                     PlatformManager pm = PlatformManager.instance;
@@ -240,10 +283,12 @@ namespace AchievementFixer
         {
             PlatformManager pm = PlatformManager.instance;
             if (pm == null)
+            {
                 return Array.Empty<DropdownItem<string>>();
+            }
 
             System.Collections.Generic.IEnumerable<string> ids = pm.EnumerateAchievements()
-                        .Select(a => a.internalName ?? a.id.ToString());
+                .Select(a => a.internalName ?? a.id.ToString());
 
             IOrderedEnumerable<string> ordered = ids.OrderBy(id => AchievementDisplay.Get(id),
                                       StringComparer.CurrentCultureIgnoreCase);
@@ -262,7 +307,9 @@ namespace AchievementFixer
             id = default;
             PlatformManager pm = PlatformManager.instance;
             if (pm == null)
+            {
                 return false;
+            }
 
             foreach (IAchievement? a in pm.EnumerateAchievements())
             {
@@ -281,6 +328,7 @@ namespace AchievementFixer
                     return true;
                 }
             }
+
             return false;
         }
 
