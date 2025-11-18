@@ -47,8 +47,6 @@ Or use the mod's Advanced buttons (you met the condition before, you deserve it)
 * Necko1996 for testing
 * and the CS2 modding community for pointers and testing.
 
-- Don't worry, Achievements Fixer [AF] still works. That is just a text sentence. Uncheck i18N mod "Enabled Overwrite" if you want to see AF corrected sentence.
-
 	</LongDescription>
 	<!--Thumbnail-->
 	<Thumbnail Value="Properties/Thumbnail.png" />
@@ -62,7 +60,7 @@ Or use the mod's Advanced buttons (you met the condition before, you deserve it)
 	<!--Link to the forum post where the mod can be discussed-->
 	<ForumLink Value="https://forum.paradoxplaza.com/forum/threads/achievement-fixer.1863551/" />
 	<!--Version of the mod-->
-	<ModVersion Value="1.1.5" />
+	<ModVersion Value="1.1.6" />
 	<!--Recommended version of the base game to use the mod-->
 	<GameVersion Value="1.3.6*" />
 	<!--Dependency for the mod, can be set multiple times-->
@@ -71,10 +69,8 @@ Or use the mod's Advanced buttons (you met the condition before, you deserve it)
 	<RequiredDLC Value="" />
 	<!--Change log for new version. Single line or multi line. Supports minimal markdown subset-->
 	<ChangeLog>
-- More robust localization
-- refactor options UI layout
-- updated translations
-- note for Korean: achievements still work even if you see vanilla game text warning "Achievements disabled"
+- update images
+- worked with i18n nullpinter to resolve Korean banner not working if i18n installed
 	</ChangeLog>
 	<!--External link, can be set multiple times. supported types are "discord", "github", "youtube", "twitch", "x", "paypal", "patreon", "buymeacoffee", "kofi", "crowdin", "gitlab", "gofundme"-->
 	<ExternalLink Type="discord" Url="https://discord.gg/HTav7ARPs2" />
