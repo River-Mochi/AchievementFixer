@@ -54,7 +54,7 @@ namespace AchievementFixer
                 // Main >> Links
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.OpenParadoxButton)), "Paradox" },
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.OpenParadoxButton)), "Open the **Paradox** webpage for this author's mods." },
-  
+
                 { m_Setting.GetOptionLabelLocaleID(nameof(Settings.OpenDiscordButton)), "Discord" },
                 { m_Setting.GetOptionDescLocaleID(nameof(Settings.OpenDiscordButton)), "Open the CS2 modding **Discord** in your browser." },
 
