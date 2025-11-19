@@ -253,7 +253,8 @@ namespace AchievementFixer
         }
 
         /// <summary>
-        /// Helper for registering this mod's own locale sources (Options UI text) via AddSource.
+        /// Helper for registering this mod's locale dictionaries (Options UI text) into the game's
+        /// LocalizationManager.AddSource via TryAddLocaleSource.
         /// </summary>
         private static void AddLocaleSource(string localeId, IDictionarySource source)
         {
