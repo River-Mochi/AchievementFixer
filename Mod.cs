@@ -21,7 +21,7 @@ namespace AchievementFixer
         public const string ModTag = "[AF]";
 
         /// <summary>
-        /// Read &lt;Version&gt; from .csproj (3-part).
+        /// Read Version from .csproj (3-part).
         /// </summary>
         public static readonly string ModVersion =
             Assembly.GetExecutingAssembly().GetName().Version?.ToString(3) ?? "1.0.0";
