@@ -58,5 +58,5 @@ If you see the in game warning banner about "achievements disabled because of mo
 
 ## Links
 - 📘 [CS2 Achievements Wiki](https://cs2.paradoxwikis.com/Achievements)
-- 🧩 [Paradox Mods](https://mods.paradoxplaza.com/games/cities_skylines_2?orderBy=desc&sortBy=updated&tags=Code%20Mod&time=quarter)
+- 🧩 [Paradox Mods](https://mods.paradoxplaza.com/authors/kimosabe1/cities_skylines_2?games=cities_skylines_2&orderBy=desc&sortBy=best&time=alltime)
 - 💻 [GitHub](https://github.com/River-Mochi/AchievementFixer)
