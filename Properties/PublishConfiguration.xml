@@ -17,7 +17,7 @@ Keeps the achievements active even when you have mods.
 ### Notes
 * Safe to remove any time; does not touch saves.
 * Remove any other "achievement" mods to avoid conflicts.
-* Prevents **future** misses by keeping the achievement flag `true`. Game doesn’t retroactively grant past progress.
+* Game doesn’t retroactively grant past progress. This prevents **future** misses by keeping the achievement flag `true`. 
 * Mod does not use Reflection or Harmony; safer and less likely to break with game updates.
 
 ### 11+ languages
@@ -33,7 +33,7 @@ Keeps the achievements active even when you have mods.
 
 ### Advanced tab
 - Past things done before installing the mod, the game will not suddenly give you the achievement.
-- You'll need to re-trigger the condition in-game again from scratch (Keep this mod installed, and just do same things again). 
+- You need to re-trigger the condition in-game again from scratch (Keep this mod installed, and just do same things again). 
 Or use the mod's Advanced buttons (you met the condition before, you deserve it).
 
 ### Credits
@@ -57,7 +57,7 @@ Or use the mod's Advanced buttons (you met the condition before, you deserve it)
 	<!--Link to the forum post where the mod can be discussed-->
 	<ForumLink Value="https://forum.paradoxplaza.com/forum/threads/achievement-fixer.1863551/" />
 	<!--Version of the mod-->
-	<ModVersion Value="1.1.8" />
+	<ModVersion Value="1.1.9" />
 	<!--Recommended version of the base game to use the mod-->
 	<GameVersion Value="1.4.2*" />
 	<!--Dependency for the mod, can be set multiple times-->
@@ -66,7 +66,7 @@ Or use the mod's Advanced buttons (you met the condition before, you deserve it)
 	<RequiredDLC Value="" />
 	<!--Change log for new version. Single line or multi line. Supports minimal markdown subset-->
 	<ChangeLog>
-- update for game patch 1.4.2*, fixed docs
+- fix paradox link
 	</ChangeLog>
 	<!--External link, can be set multiple times. supported types are "discord", "github", "youtube", "twitch", "x", "paypal", "patreon", "buymeacoffee", "kofi", "crowdin", "gitlab", "gofundme"-->
 	<ExternalLink Type="discord" Url="https://discord.gg/HTav7ARPs2" />
