@@ -25,10 +25,10 @@ This keeps the game from disabling the achievements backend.
 ## Notes
 - If an achievement doesn’t pop right away, a game restart sometimes helps (CS2 quirk).
 
-## 11 languages
+## 12 languages
 * English, Français (French), Deutsch (German), Español (Spanish), Italiano (Italian), Polski (Polish)
 * 日本語 (Japanese), 한국어 (Korean), 简体中文 (Simplified Chinese), 繁體中文 (Traditional Chinese)
-* Português (Brasil) (Brazilian Portuguese)
+* Português (Brasil) (Brazilian Portuguese), Türkçe (Turkish)
 * Drop-down achievement names come from the game, so they match whatever game language you use (VI which does not currently have an in-game dictionary).
 * Future updates may add more languages. WIP: Tiếng Việt (Vietnamese)
 

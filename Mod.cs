@@ -65,6 +65,7 @@ namespace AchievementFixer
             AddLocaleSource("vi-VN", new LocaleVI(settings));
             AddLocaleSource("pl-PL", new LocalePL(settings));
             AddLocaleSource("pt-BR", new LocalePT_BR(settings));
+            AddLocaleSource("tr-TR", new LocaleTR(settings));
             AddLocaleSource("zh-HANS", new LocaleZH_CN(settings));
             AddLocaleSource("zh-HANT", new LocaleZH_HANT(settings));
 
