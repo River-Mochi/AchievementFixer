@@ -17,7 +17,7 @@ Keeps the achievements active even when you have mods.
 ### Notes
 * Safe to remove any time; does not touch saves.
 * Remove any other "achievement" mods to avoid conflicts.
-* Game doesn’t retroactively grant past progress. This prevents **future** misses by keeping the achievement flag `true`. 
+* Game doesn’t retroactively grant past progress. The mod prevents **future** misses by keeping the achievement flag `true`. 
 * Mod does not use Reflection or Harmony; safer and less likely to break with game updates.
 
 ### 11+ languages
@@ -37,12 +37,12 @@ Keeps the achievements active even when you have mods.
 Or use the mod's Advanced buttons (you met the condition before, you deserve it).
 
 ### Credits
-* RiverMochi - mod author
+* RiverMochi - author
 * inspired by Wayzeware's old Achievement Enabler (defunct)
-* StarQ for all the technical help.
-* rcav8tr for method to find game localization keys.
-* yenyang for code review and technical support.
-* Necko1996 for testing
+* StarQ - technical support.
+* rcav8tr - method to find game localization keys.
+* yenyang - code review and technical support.
+* Necko1996 - testing
 * and the CS2 modding community for pointers and testing.
 
 	</LongDescription>
@@ -57,16 +57,16 @@ Or use the mod's Advanced buttons (you met the condition before, you deserve it)
 	<!--Link to the forum post where the mod can be discussed-->
 	<ForumLink Value="https://forum.paradoxplaza.com/forum/threads/achievement-fixer.1863551/" />
 	<!--Version of the mod-->
-	<ModVersion Value="1.1.9" />
+	<ModVersion Value="1.2.0" />
 	<!--Recommended version of the base game to use the mod-->
-	<GameVersion Value="1.4.2*" />
+	<GameVersion Value="1.5.*" />
 	<!--Dependency for the mod, can be set multiple times-->
 	<Dependency Id="" />
 	<!--Required DLC, can be set multiple times. Supported values are "Landmark Buildings", "San Fransisco Set", "Beach Properties", "Urban Promenades", "Modern Architecture"-->
 	<RequiredDLC Value="" />
 	<!--Change log for new version. Single line or multi line. Supports minimal markdown subset-->
 	<ChangeLog>
-- fix paradox link
+- Update for game patch 1.5*
 	</ChangeLog>
 	<!--External link, can be set multiple times. supported types are "discord", "github", "youtube", "twitch", "x", "paypal", "patreon", "buymeacoffee", "kofi", "crowdin", "gitlab", "gofundme"-->
 	<ExternalLink Type="discord" Url="https://discord.gg/HTav7ARPs2" />
