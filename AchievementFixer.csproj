@@ -78,19 +78,9 @@
   </ItemGroup>
 
   <!-- DEBUG: Utilities/**.cs compiles; non-.cs visible only -->
-  <ItemGroup Condition="'$(Configuration)'=='Debug'">
-    <!-- default glob already compiles **/*.cs, no need to Include explicitly -->
-    <None Include="Utilities\**\*.*" Exclude="Utilities\**\*.cs">
-      <Visible>true</Visible>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <Pack>false</Pack>
-    </None>
-  </ItemGroup>
 
   <!-- RELEASE: Utilities/** not compiled/copied/packed, but still visible -->
   <ItemGroup Condition="'$(Configuration)'=='Release'">
-    <Compile Remove="Utilities\**\*.cs" />
-    <Content Remove="Utilities\**\*.*" />
     <None Include="Utilities\**\*.*">
       <Visible>true</Visible>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
