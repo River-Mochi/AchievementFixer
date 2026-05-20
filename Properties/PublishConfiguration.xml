@@ -48,7 +48,8 @@ Or use the mod's Advanced buttons (you met the condition before, you deserve it)
 	<!--Thumbnail-->
 	<Thumbnail Value="Properties/Thumbnail.png" />
 	<!--Screenshot, can be set multiple times-->
-	<Screenshot Value="Properties/10-AF-Main-EN.jpg" />
+	<Screenshot Value="Properties/10-AF-Steam.jpg" />
+	<Screenshot Value="Properties/15-AF-Main-EN.jpg" />
 	<Screenshot Value="Properties/20-AF-Main-FR.jpg" />
 	<Screenshot Value="Properties/30-AF-Main-ZH_CN.jpg" />
 	<!--Tag, can be set multiple times-->
@@ -56,7 +57,7 @@ Or use the mod's Advanced buttons (you met the condition before, you deserve it)
 	<!--Link to the forum post where the mod can be discussed-->
 	<ForumLink Value="https://forum.paradoxplaza.com/forum/threads/achievement-fixer.1863551/" />
 	<!--Version of the mod-->
-	<ModVersion Value="1.2.2" />
+	<ModVersion Value="1.2.4" />
 	<!--Recommended version of the base game to use the mod-->
 	<GameVersion Value="1.5.*" />
 	<!--Dependency for the mod, can be set multiple times-->
