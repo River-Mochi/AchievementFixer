@@ -46,7 +46,7 @@ Or use the mod's Advanced buttons (you met the condition before, you deserve it)
 
 	</LongDescription>
 	<!--Thumbnail-->
-	<Thumbnail Value="Properties/Thumbnail.png" />
+	<Thumbnail Value="Properties/Thumbnail.jpg" />
 	<!--Screenshot, can be set multiple times-->
 	<Screenshot Value="Properties/10-AF-Steam.jpg" />
 	<Screenshot Value="Properties/15-AF-Main-EN.jpg" />
