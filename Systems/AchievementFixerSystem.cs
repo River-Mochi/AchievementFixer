@@ -8,9 +8,6 @@ namespace AchievementFixer
     /// <summary>
     /// After a game load completes, keep achievements enabled for a frame-based window,
     /// then go completely idle.
-    /// Also re-assert the banner warning override:
-    ///   - once when gameplay starts
-    ///   - once at the end of the assert window.
     /// </summary>
     public sealed partial class AchievementFixerSystem : GameSystemBase
     {
@@ -52,9 +49,8 @@ namespace AchievementFixer
             m_FramesLeft = kAssertFrames;
             Enabled = true;
 
-            // Enforce immediately at first tick and push our banner once at start.
+            // Enforce immediately at first tick.
             ForceEnableIfNeeded("OnGameLoadingComplete");
-            Mod.ReapplyBannerForActiveLocale();
 
 #if DEBUG
             Mod.s_Log.Info($"Assert window started: {kAssertFrames} frames.");
@@ -63,10 +59,9 @@ namespace AchievementFixer
 
         protected override void OnUpdate()
         {
-            // If the window ended, do one last banner re-apply (with a single Release log), then go idle.
+            // If the assert window ended, go idle.
             if (m_FramesLeft <= 0)
             {
-                Mod.ReapplyBannerForActiveLocaleFinal();
                 Enabled = false;
                 return;
             }

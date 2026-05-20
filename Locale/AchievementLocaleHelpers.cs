@@ -1,10 +1,10 @@
 // AchievementLocaleHelpers.cs
 namespace AchievementFixer
 {
-    using System.Collections.Generic;   // Dictionary
     using Colossal;                     // IDictionarySource
     using Colossal.Localization;        // LocalizationManager, LocalizationDictionary
     using Game.SceneFlow;               // GameManager
+    using System.Collections.Generic;   // Dictionary
 
     /// <summary>
     /// Returns a localized achievement title; falls back to internalName.
@@ -83,6 +83,8 @@ namespace AchievementFixer
             ["zh-HANS"] = "成就已由 Achievement Fixer 启用。",
             ["zh-HANT"] = "成就已由 Achievement Fixer 啟用。"
         };
+
+        public static IEnumerable<string> LocaleIds => s_Text.Keys;
 
         public static string For(string localeId)
         {
