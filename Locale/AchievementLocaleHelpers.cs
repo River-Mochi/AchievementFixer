@@ -79,6 +79,7 @@ namespace AchievementFixer
             ["ko-KR"] = "업적이 Achievement Fixer에 의해 활성화되었습니다.",
             ["pt-BR"] = "Conquistas ativadas por Achievement Fixer.",
             ["pl-PL"] = "Osiągnięcia włączone przez Achievement Fixer.",
+            ["tr-TR"] = "Başarımlar Achievement Fixer tarafından etkinleştirildi.",
             ["vi-VN"] = "Thành tựu được bật bởi Achievement Fixer.",
             ["zh-HANS"] = "成就已由 Achievement Fixer 启用。",
             ["zh-HANT"] = "成就已由 Achievement Fixer 啟用。"
