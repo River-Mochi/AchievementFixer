@@ -102,7 +102,7 @@ namespace AchievementFixer
                 // Confirmation modal Yes/No
                 {
                     m_Setting.GetOptionWarningLocaleID(nameof(Settings.ResetAllAchievements)),
-                    "Aviso Aviso: REPOR/LIMPAR todas as conquistas para estado NÃO concluído. Continuar?"
+                    "AVISO: REPOR/LIMPAR todas as conquistas para estado NÃO concluído. Continuar?"
                 },
             };
         }
