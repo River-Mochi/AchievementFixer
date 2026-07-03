@@ -1,13 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <Configurations>Debug;Release</Configurations>
 
     <!-- PDX Mods publish config -->
     <PublishConfigurationPath>Properties\PublishConfiguration.xml</PublishConfigurationPath>
-
-    <AssemblyName>AchievementFixer</AssemblyName>
-    <RootNamespace>AchievementFixer</RootNamespace>
+    <!-- Path to the PowerShell that syncs PublishConfiguration.xml + mod.json with $(Version). -->
+    <PublishConfigScript>$(MSBuildProjectDirectory)\Scripts\Update-PublishConfig.ps1</PublishConfigScript>
     <Nullable>enable</Nullable>
 
   <!-- Single source of truth for version number -->
@@ -15,6 +14,13 @@
 	<AssemblyVersion>$(Version).0</AssemblyVersion>
 	<FileVersion>$(Version).0</FileVersion>  <!-- for file properties -->
 
+    <GameVersion>1.6.*</GameVersion>
+
+    <!-- Assembly identity -->
+    <AssemblyName>AchievementFixer</AssemblyName>
+    <RootNamespace>AchievementFixer</RootNamespace>
+    <AssemblyTitle>AchievementFixer</AssemblyTitle>
+    <Copyright>Copyright © 2025-26 River-Mochi</Copyright>
 
   </PropertyGroup>
 
@@ -87,5 +93,13 @@
       <Pack>false</Pack>
     </None>
   </ItemGroup>
+
+  <!-- AUTO UPDATE PublishConfiguration.xml GameVersion + ModVersion + nested mod.json "version" from $(Version). -->
+  <Target Name="UpdatePublishConfigVersion" BeforeTargets="PrepareForBuild" Condition="Exists('$(PublishConfigScript)') AND Exists('$(MSBuildProjectDirectory)\$(PublishConfigurationPath)')">
+
+      <Message Text="$(AssemblyTitle) PublishConfig: syncing ModVersion/GameVersion + normalizing EOL/BOM + left-aligning blocks..." Importance="high" />
+
+      <Exec Command="&quot;$(SystemRoot)\System32\WindowsPowerShell\v1.0\powershell.exe&quot; -NoProfile -ExecutionPolicy Bypass -File &quot;$(PublishConfigScript)&quot; -Path &quot;$(MSBuildProjectDirectory)\$(PublishConfigurationPath)&quot; -Version &quot;$(Version)&quot; -GameVersion &quot;$(GameVersion)&quot; -Eol lf -LeftAlignBlocks" />
+  </Target>
 
 </Project>
