@@ -9,10 +9,10 @@
 // AchievementLocaleHelpers.cs
 namespace AchievementFixer
 {
+    using System.Collections.Generic;   // Dictionary
     using Colossal;                     // IDictionarySource
     using Colossal.Localization;        // LocalizationManager, LocalizationDictionary
     using Game.SceneFlow;               // GameManager
-    using System.Collections.Generic;   // Dictionary
 
     /// <summary>
     /// Returns a localized achievement title; falls back to internalName.
@@ -86,6 +86,7 @@ namespace AchievementFixer
             ["ja-JP"] = "実績は Achievement Fixer によって有効化されています。",
             ["ko-KR"] = "업적이 Achievement Fixer에 의해 활성화되었습니다.",
             ["pt-BR"] = "Conquistas ativadas por Achievement Fixer.",
+            ["pt-PT"] = "Conquistas ativadas pelo Achievement Fixer.",
             ["pl-PL"] = "Osiągnięcia włączone przez Achievement Fixer.",
             ["vi-VN"] = "Thành tựu được bật bởi Achievement Fixer.",
             ["zh-HANS"] = "成就已由 Achievement Fixer 启用。",

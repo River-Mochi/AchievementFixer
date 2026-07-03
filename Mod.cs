@@ -10,6 +10,8 @@
 
 namespace AchievementFixer
 {
+    using System.Collections.Generic;          // Dictionary<string,string>, HashSet<string>
+    using System.Reflection;                   // Only for version number
     using Colossal;                            // IDictionarySource
     using Colossal.IO.AssetDatabase;           // AssetDatabase
     using Colossal.Localization;               // LocalizationManager
@@ -18,8 +20,6 @@ namespace AchievementFixer
     using Game.Achievements;                   // AchievementTriggerSystem (phase anchor)
     using Game.Modding;                        // IMod
     using Game.SceneFlow;                      // GameManager
-    using System.Collections.Generic;          // Dictionary<string,string>, HashSet<string>
-    using System.Reflection;                   // Only for version number
 
     public sealed class Mod : IMod
     {
@@ -36,7 +36,7 @@ namespace AchievementFixer
 
         // ----- Logger & public properties -----
         public static readonly ILog s_Log =
-            LogManager.GetLogger("AchievementFixer").SetShowsErrorsInUI(false);
+            LogManager.GetLogger(ModId).SetShowsErrorsInUI(false);
 
         public static Settings? Settings
         {
@@ -74,6 +74,7 @@ namespace AchievementFixer
             AddLocaleSource("pt-BR", new LocalePT_BR(settings));
             AddLocaleSource("zh-HANS", new LocaleZH_CN(settings));
             AddLocaleSource("zh-HANT", new LocaleZH_HANT(settings));
+            AddLocaleSource("pt-PT", new LocalePT_PT(settings));
             AddWarningOverrideSources();
 
             // Load saved settings + Options UI
