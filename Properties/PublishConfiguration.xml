@@ -33,13 +33,14 @@ Keeps achievements active even when you have mods.
 - Past things done before installing the mod, the game will not suddenly give you the achievement.
 - You need to re-trigger the condition in-game again from scratch (Keep this mod installed, and just do same things again).
 Or use the mod's Advanced buttons (you met the condition before, you deserve it).
+- Reset all your achievements to start over (if you want to do it again for fun).
 
 ### Credits
 * RiverMochi - author
 * inspired by Wayzeware's old Achievement Enabler (defunct)
-* StarQ - technical support.
-* rcav8tr - method to find game localization keys.
 * yenyang - code review and technical support.
+* rcav8tr - method to find game localization keys.
+* StarQ - technical support.
 * Necko1996 - testing
 * and the CS2 modding community for pointers and testing.
 
