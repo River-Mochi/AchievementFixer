@@ -102,15 +102,25 @@ namespace AchievementFixer
                 s_Log.Warn($"{ModTag} Localization registration failed: {ex.GetType().Name}: {ex.Message}");
             }
 
+            // Load settings if available, then register Options UI.
             try
             {
                 AssetDatabase.global.LoadSettings(ModId, settings, new Settings(this));
+            }
+            catch (Exception ex)
+            {
+                s_Log.Warn($"{ModTag} Settings load failed: {ex.GetType().Name}: {ex.Message}");
+            }
+
+            try
+            {
                 settings.RegisterInOptionsUI();
             }
             catch (Exception ex)
             {
-                s_Log.Warn($"{ModTag} Settings/UI registration failed: {ex.GetType().Name}: {ex.Message}");
+                s_Log.Warn($"{ModTag} Options UI registration failed: {ex.GetType().Name}: {ex.Message}");
             }
+
 
             try
             {

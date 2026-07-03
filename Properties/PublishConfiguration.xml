@@ -22,8 +22,8 @@ Keeps achievements active even when you have mods.
 * Mod does not use Harmony patch; safer and less likely to break with game updates.
 
 ### 12+ languages
-* English, Français, Deutsch, Español, Italiano, Polski
-* 日本語, 한국어, 简体中文, 繁體中文, Português Brazilian, Tiếng Việt
+* English, Français, Deutsch, Español, Italiano, Polski, Tiếng Việt
+* 日本語, 한국어, 简体中文, 繁體中文, Português Brazilian, Português Portugal
 
 ### Support and Feedback
 * If the mod helps you, give it a Like :)
@@ -66,7 +66,7 @@ Or use the mod's Advanced buttons (you met the condition before, you deserve it)
 	<!--Change log for new version. Single line or multi line. Supports minimal markdown subset-->
 	<ChangeLog>
 - Added Portuguese (Portugal) translation.
-    </ChangeLog>
+</ChangeLog>
 	<!--External link, can be set multiple times. supported types are "discord", "github", "youtube", "twitch", "x", "paypal", "patreon", "buymeacoffee", "kofi", "crowdin", "gitlab", "gofundme"-->
 	<ExternalLink Type="discord" Url="https://discord.gg/gwXgvtyhjc" />
 	<ExternalLink Type="github" Url="https://github.com/River-Mochi/AchievementFixer" />

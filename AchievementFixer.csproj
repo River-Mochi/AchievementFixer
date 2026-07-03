@@ -83,16 +83,6 @@
     </None>
   </ItemGroup>
 
-  <!-- DEBUG: Utilities/**.cs compiles; non-.cs visible only -->
-
-  <!-- RELEASE: Utilities/** not compiled/copied/packed, but still visible -->
-  <ItemGroup Condition="'$(Configuration)'=='Release'">
-    <None Include="Utilities\**\*.*">
-      <Visible>true</Visible>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <Pack>false</Pack>
-    </None>
-  </ItemGroup>
 
   <!-- AUTO UPDATE PublishConfiguration.xml GameVersion + ModVersion + nested mod.json "version" from $(Version). -->
   <Target Name="UpdatePublishConfigVersion" BeforeTargets="PrepareForBuild" Condition="Exists('$(PublishConfigScript)') AND Exists('$(MSBuildProjectDirectory)\$(PublishConfigurationPath)')">
