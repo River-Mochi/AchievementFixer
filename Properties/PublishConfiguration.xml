@@ -21,10 +21,9 @@
         * Game does not retroactively grant past progress. The mod prevents **future** misses by keeping the achievement flag `true`.
         * Mod does not use Harmony patch; safer and less likely to break with game updates.
 
-        ### 11+ languages
-        * English, Français, Deutsch, Español, Italiano, Polski Polish
-        * 日本語, 한국어, 简体中文, 繁體中文
-        * Português Brazilian, Tiếng Việt (Vietnamese)
+        ### 12+ languages
+        * English, Français, Deutsch, Español, Italiano, Polski
+        * 日本語, 한국어, 简体中文, 繁體中文, Português Brazilian, Tiếng Việt
 
         ### Support and Feedback
         * If the mod helps you, give it a Like :)
