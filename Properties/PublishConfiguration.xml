@@ -65,10 +65,10 @@ Or use the mod's Advanced buttons (you met the condition before, you deserve it)
 	<RequiredDLC Value="" />
 	<!--Change log for new version. Single line or multi line. Supports minimal markdown subset-->
 	<ChangeLog>
-- Added Portugues Portugal
-</ChangeLog>
+- Added Portuguese (Portugal) translation.
+    </ChangeLog>
 	<!--External link, can be set multiple times. supported types are "discord", "github", "youtube", "twitch", "x", "paypal", "patreon", "buymeacoffee", "kofi", "crowdin", "gitlab", "gofundme"-->
-	<ExternalLink Type="discord" Url="https://discord.gg/HTav7ARPs2" />
+	<ExternalLink Type="discord" Url="https://discord.gg/gwXgvtyhjc" />
 	<ExternalLink Type="github" Url="https://github.com/River-Mochi/AchievementFixer" />
 
 </Publish>
