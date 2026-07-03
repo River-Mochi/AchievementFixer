@@ -121,7 +121,6 @@ namespace AchievementFixer
                 s_Log.Warn($"{ModTag} Options UI registration failed: {ex.GetType().Name}: {ex.Message}");
             }
 
-
             try
             {
                 // Ensure AF system runs after the game's trigger during the main loop.
