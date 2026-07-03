@@ -1,3 +1,11 @@
+// <copyright file="Settings.cs" company="River-Mochi">
+// Copyright (c) 2026 River-Mochi. All rights reserved.
+// Licensed under the MIT License. You may not use this file except in compliance with this License.
+// See LICENSE file in the project root for full license information.
+// This notice and the MIT License notice must be kept with
+// all copies or substantial portions of this code.
+// ================= </copyright> ======================
+
 // Settings.cs
 namespace AchievementFixer
 {
@@ -38,7 +46,7 @@ namespace AchievementFixer
         // ---- Constants ----
         private const string UrlParadox =
             "https://mods.paradoxplaza.com/authors/River-mochi/cities_skylines_2?games=cities_skylines_2&orderBy=desc&sortBy=best&time=alltime";
-        private const string UrlDiscord = "https://discord.gg/HTav7ARPs2";
+        private const string UrlDiscord = "https://discord.gg/gwXgvtyhjc";
         private const string UrlAchievementsWiki = "https://cs2.paradoxwikis.com/Achievements";
 
         public Settings(IMod mod) : base(mod) { }

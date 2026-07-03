@@ -1,4 +1,4 @@
-﻿# Achievement Fixer  [AF]
+# Achievement Fixer  [AF]
 
 Keep achievements working in **Cities: Skylines II** even when playing with mods.  
 This keeps the game from disabling the achievements backend.
