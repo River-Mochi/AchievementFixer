@@ -37,6 +37,7 @@ namespace AchievementFixer
         // CO logger
         private static readonly ILog s_Log =
             LogManager.GetLogger(ModId).SetShowsErrorsInUI(false);
+
         private static bool s_BannerLogged;
         private AFSettings? m_Settings;
 
@@ -44,7 +45,7 @@ namespace AchievementFixer
         {
             LogUtils.Configure(ModId, s_Log);
 
-            // Keep one metadata banner as the first AF log entry.
+            // no-repeat metadata banner top of AF log.
             if (!s_BannerLogged)
             {
                 s_BannerLogged = true;

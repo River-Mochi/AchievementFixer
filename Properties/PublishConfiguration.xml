@@ -68,7 +68,7 @@ Or use the mod's Advanced tab buttons (you met the condition before, you deserve
 <!--Change log for new version. Single line or multi line. Supports minimal markdown subset-->
 <ChangeLog>
 - Added Thai and Ukrainian translations. Those languages need extra mod to see in game.
-- Internal refactor for settings and logging using a shared lib.
+- Internal refactor for settings and logging using shared lib.
 </ChangeLog>
 <!--External link, can be set multiple times. supported types are "discord", "github", "youtube", "twitch", "x", "paypal", "patreon", "buymeacoffee", "kofi", "crowdin", "gitlab", "gofundme"-->
 <ExternalLink Type="discord" Url="https://discord.gg/gwXgvtyhjc" />
