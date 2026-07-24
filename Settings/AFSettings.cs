@@ -1,4 +1,4 @@
-// <copyright file="Settings.cs" company="River-Mochi">
+// <copyright file="AFSettings.cs" company="River-Mochi">
 // Copyright (c) 2026 River-Mochi. All rights reserved.
 // Licensed under the MIT License. You may not use this file except in compliance with this License.
 // See LICENSE file in the project root for full license information.
@@ -6,7 +6,7 @@
 // all copies or substantial portions of this code.
 // ================= </copyright> ======================
 
-// Settings.cs
+// AFSettings.cs
 namespace AchievementFixer
 {
     using System;                     // Exception handling (try/catch)
@@ -28,7 +28,7 @@ namespace AchievementFixer
         ButtonGroup,      // show SUPPORT LINKS on Main tab
         AdvRowDebug       // show DEBUG on Advanced tab
     )]
-    public class Settings : ModSetting
+    public class AFSettings : ModSetting
     {
         // ---- Tabs ----
         public const string MainTab = "Main";
@@ -49,7 +49,7 @@ namespace AchievementFixer
         private const string UrlDiscord = "https://discord.gg/gwXgvtyhjc";
         private const string UrlAchievementsWiki = "https://cs2.paradoxwikis.com/Achievements";
 
-        public Settings(IMod mod) : base(mod) { }
+        public AFSettings(IMod mod) : base(mod) { }
 
         // ---- Main Meta ----
         [SettingsUISection(MainTab, MainInfoGroup)]
@@ -138,7 +138,7 @@ namespace AchievementFixer
 
         // Dropdown: Select achievement (value = internal Name)
         [SettingsUISection(AdvancedTab, AdvRowActions)]
-        [SettingsUIDropdown(typeof(Settings), nameof(GetAchievementChoices))]
+        [SettingsUIDropdown(typeof(AFSettings), nameof(GetAchievementChoices))]
         public string SelectedAchievement { get; set; } = "";
 
         // UNLOCK SELECTED
@@ -178,7 +178,7 @@ namespace AchievementFixer
 #endif
 
                     // Post-check
-                    var ok = pm.GetAchievement(id, out IAchievement? a) && a.achieved;
+                    bool ok = pm.GetAchievement(id, out IAchievement? a) && a.achieved;
                     Mod.s_Log.Info($"UnlockSelected: \"{AchievementDisplay.Get(SelectedAchievement)}\" → {(ok ? "Enabled" : "No change")}");
                 }
                 catch (Exception ex)
@@ -226,7 +226,7 @@ namespace AchievementFixer
 #endif
 
                     // Post-check & single friendly line
-                    var cleared = pm.GetAchievement(id, out IAchievement? a) && !a.achieved;
+                    bool cleared = pm.GetAchievement(id, out IAchievement? a) && !a.achieved;
                     Mod.s_Log.Info($"ClearSelected: \"{AchievementDisplay.Get(SelectedAchievement)}\" → {(cleared ? "Disabled" : "No change")}");
                 }
                 catch (Exception ex)

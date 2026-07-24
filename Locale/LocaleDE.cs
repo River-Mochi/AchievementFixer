@@ -17,9 +17,9 @@ namespace AchievementFixer
     /// </summary>
     public class LocaleDE : IDictionarySource
     {
-        private readonly Settings m_Setting;
+        private readonly AFSettings m_Setting;
 
-        public LocaleDE(Settings setting)
+        public LocaleDE(AFSettings setting)
         {
             m_Setting = setting;
         }
@@ -33,75 +33,75 @@ namespace AchievementFixer
                 { m_Setting.GetSettingsLocaleID(), Mod.ModName },
 
                 // Tabs
-                { m_Setting.GetOptionTabLocaleID(Settings.MainTab),     "Haupt"    },
-                { m_Setting.GetOptionTabLocaleID(Settings.AdvancedTab), "Erweitert" },
+                { m_Setting.GetOptionTabLocaleID(AFSettings.MainTab),     "Haupt"    },
+                { m_Setting.GetOptionTabLocaleID(AFSettings.AdvancedTab), "Erweitert" },
 
                 // Groups (Main tab)
-                { m_Setting.GetOptionGroupLocaleID(Settings.NotesGroup),    "Hinweise"   },
-                { m_Setting.GetOptionGroupLocaleID(Settings.MainInfoGroup), "Info"       },
-                { m_Setting.GetOptionGroupLocaleID(Settings.ButtonGroup),   "Support-Links" },
+                { m_Setting.GetOptionGroupLocaleID(AFSettings.NotesGroup),    "Hinweise"   },
+                { m_Setting.GetOptionGroupLocaleID(AFSettings.MainInfoGroup), "Info"       },
+                { m_Setting.GetOptionGroupLocaleID(AFSettings.ButtonGroup),   "Support-Links" },
 
                 // Groups (Advanced tab)
-                { m_Setting.GetOptionGroupLocaleID(Settings.AdvRowActions), "Aktionen" },
-                { m_Setting.GetOptionGroupLocaleID(Settings.AdvRowDebug),   "DEBUG"    },
+                { m_Setting.GetOptionGroupLocaleID(AFSettings.AdvRowActions), "Aktionen" },
+                { m_Setting.GetOptionGroupLocaleID(AFSettings.AdvRowDebug),   "DEBUG"    },
 
                 // Main >> Notes
                 {
-                    m_Setting.GetOptionLabelLocaleID(nameof(Settings.MainNotes)),
+                    m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.MainNotes)),
                     "<• Erfolge sind jetzt aktiviert;> erledigen Sie einfach die erforderlichen Aufgaben, um sie auf natürliche Weise freizuschalten.\n\n" +
                     "Viel Spaß! :)\n"
                 },
 
                 // Main >> Info
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.NameDisplay)),    "Mod" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.NameDisplay)),     "Anzeigename dieses Mods." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.NameDisplay)),    "Mod" },
+                { m_Setting.GetOptionDescLocaleID(nameof(AFSettings.NameDisplay)),     "Anzeigename dieses Mods." },
 
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.VersionDisplay)), "Version" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.VersionDisplay)),  "Aktuelle Versionsnummer." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.VersionDisplay)), "Version" },
+                { m_Setting.GetOptionDescLocaleID(nameof(AFSettings.VersionDisplay)),  "Aktuelle Versionsnummer." },
 
                 // Main >> Links
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.OpenParadoxButton)), "Paradox" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.OpenParadoxButton)),  "Öffnet die **Paradox**-Seite mit den Mods dieses Autors." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.OpenParadoxButton)), "Paradox" },
+                { m_Setting.GetOptionDescLocaleID(nameof(AFSettings.OpenParadoxButton)),  "Öffnet die **Paradox**-Seite mit den Mods dieses Autors." },
 
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.OpenDiscordButton)), "Discord" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.OpenDiscordButton)),  "Öffnet den CS2-Modding-**Discord** im Browser." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.OpenDiscordButton)), "Discord" },
+                { m_Setting.GetOptionDescLocaleID(nameof(AFSettings.OpenDiscordButton)),  "Öffnet den CS2-Modding-**Discord** im Browser." },
 
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.OpenAchievementsWikiButton)), "Erfolge-Wiki" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.OpenAchievementsWikiButton)),  "Öffnet das **Erfolge-Wiki** im Browser." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.OpenAchievementsWikiButton)), "Erfolge-Wiki" },
+                { m_Setting.GetOptionDescLocaleID(nameof(AFSettings.OpenAchievementsWikiButton)),  "Öffnet das **Erfolge-Wiki** im Browser." },
 
                 // --- Advanced tab ---
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.SelectedAchievement)),   "Erfolg auswählen" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.SelectedAchievement)),    "Wählen Sie einen Erfolg, auf den Sie wirken möchten." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.SelectedAchievement)),   "Erfolg auswählen" },
+                { m_Setting.GetOptionDescLocaleID(nameof(AFSettings.SelectedAchievement)),    "Wählen Sie einen Erfolg, auf den Sie wirken möchten." },
 
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.UnlockSelectedAchievement)), "AUSGEWÄHLTEN FREISCHALTEN" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.UnlockSelectedAchievement)),  "**Schaltet den ausgewählten Erfolg frei und markiert ihn als abgeschlossen.**" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.UnlockSelectedAchievement)), "AUSGEWÄHLTEN FREISCHALTEN" },
+                { m_Setting.GetOptionDescLocaleID(nameof(AFSettings.UnlockSelectedAchievement)),  "**Schaltet den ausgewählten Erfolg frei und markiert ihn als abgeschlossen.**" },
 
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ClearSelectedAchievement)),  "AUSGEWÄHLTEN ZURÜCKSETZEN" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.ClearSelectedAchievement)),   "Markiert den ausgewählten Erfolg als **nicht abgeschlossen**." },
-                { m_Setting.GetOptionWarningLocaleID(nameof(Settings.ClearSelectedAchievement)), "Diesen Erfolg zurücksetzen.\n\nFortfahren?" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ClearSelectedAchievement)),  "AUSGEWÄHLTEN ZURÜCKSETZEN" },
+                { m_Setting.GetOptionDescLocaleID(nameof(AFSettings.ClearSelectedAchievement)),   "Markiert den ausgewählten Erfolg als **nicht abgeschlossen**." },
+                { m_Setting.GetOptionWarningLocaleID(nameof(AFSettings.ClearSelectedAchievement)), "Diesen Erfolg zurücksetzen.\n\nFortfahren?" },
 
                 // Advanced >> advisory text notes
                 {
-                    m_Setting.GetOptionLabelLocaleID(nameof(Settings.AdvancedAdvisory)),
+                    m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.AdvancedAdvisory)),
                     "• Hinweis: Erfolge sind <bereits aktiviert> (Standard), ohne diese Erweitert-Schaltflächen zu verwenden.\n\n" +
                     "• Wenn Sie möchten, fahren Sie mit der Maus über eine Schaltfläche, um Details im rechten Seitenbereich zu sehen."
                 },
                 {
-                    m_Setting.GetOptionDescLocaleID(nameof(Settings.AdvancedAdvisory)),
+                    m_Setting.GetOptionDescLocaleID(nameof(AFSettings.AdvancedAdvisory)),
                     "**VORSICHT** bei der Verwendung der Schaltfläche [DEBUG: ALLES ZURÜCKSETZEN]. Wenn Sie sie versehentlich verwenden, können Sie abgeschlossene Erfolge mit der Schaltfläche [Ausgewählten freischalten] wiederherstellen."
                 },
 
                 // Advanced >> DEBUG
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ResetAllAchievements)),  "DEBUG: ALLES ZURÜCKSETZEN" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAchievements)),  "DEBUG: ALLES ZURÜCKSETZEN" },
                 {
-                    m_Setting.GetOptionDescLocaleID(nameof(Settings.ResetAllAchievements)),
+                    m_Setting.GetOptionDescLocaleID(nameof(AFSettings.ResetAllAchievements)),
                     "**WARNUNG**: Setzt **alle** Erfolge zurück. Nützlich für Tests.\n" +
                     "Wenn Sie dies versehentlich tun, können Sie sie mit der Schaltfläche [Ausgewählten freischalten] wiederherstellen."
                 },
 
                 // Confirmation modal Yes/No
                 {
-                    m_Setting.GetOptionWarningLocaleID(nameof(Settings.ResetAllAchievements)),
+                    m_Setting.GetOptionWarningLocaleID(nameof(AFSettings.ResetAllAchievements)),
                     "Warnung: ALLE Erfolge auf den Status NICHT abgeschlossen zurücksetzen. Fortfahren?"
                 },
             };

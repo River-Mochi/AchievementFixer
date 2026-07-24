@@ -38,7 +38,7 @@ namespace AchievementFixer
         public static readonly ILog s_Log =
             LogManager.GetLogger(ModId).SetShowsErrorsInUI(false);
 
-        public static Settings? Settings
+        public static AFSettings? Settings
         {
             get; private set;
         }
@@ -62,8 +62,8 @@ namespace AchievementFixer
                 return;
             }
 
-            // Settings object (must exist before locales so labels resolve)
-            var settings = new Settings(this);
+            // AFSettings object (must exist before locales so labels resolve)
+            var settings = new AFSettings(this);
             Settings = settings;
 
             try
@@ -107,7 +107,7 @@ namespace AchievementFixer
             // Load settings if available, then register Options UI.
             try
             {
-                AssetDatabase.global.LoadSettings(ModId, settings, new Settings(this));
+                AssetDatabase.global.LoadSettings(ModId, settings, new AFSettings(this));
             }
             catch (Exception ex)
             {

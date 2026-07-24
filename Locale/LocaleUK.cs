@@ -17,9 +17,9 @@ namespace AchievementFixer
     /// </summary>
     public class LocaleUK : IDictionarySource
     {
-        private readonly Settings m_Setting;
+        private readonly AFSettings m_Setting;
 
-        public LocaleUK(Settings setting)
+        public LocaleUK(AFSettings setting)
         {
             m_Setting = setting;
         }
@@ -33,75 +33,75 @@ namespace AchievementFixer
                 { m_Setting.GetSettingsLocaleID(), Mod.ModName },
 
                 // Tabs
-                { m_Setting.GetOptionTabLocaleID(Settings.MainTab),     "Основне" },
-                { m_Setting.GetOptionTabLocaleID(Settings.AdvancedTab), "Розширені" },
+                { m_Setting.GetOptionTabLocaleID(AFSettings.MainTab),     "Основне" },
+                { m_Setting.GetOptionTabLocaleID(AFSettings.AdvancedTab), "Розширені" },
 
                 // Groups (Main tab)
-                { m_Setting.GetOptionGroupLocaleID(Settings.NotesGroup),    "Примітки" },
-                { m_Setting.GetOptionGroupLocaleID(Settings.MainInfoGroup), "Інформація" },
-                { m_Setting.GetOptionGroupLocaleID(Settings.ButtonGroup),   "Посилання підтримки" },
+                { m_Setting.GetOptionGroupLocaleID(AFSettings.NotesGroup),    "Примітки" },
+                { m_Setting.GetOptionGroupLocaleID(AFSettings.MainInfoGroup), "Інформація" },
+                { m_Setting.GetOptionGroupLocaleID(AFSettings.ButtonGroup),   "Посилання підтримки" },
 
                 // Groups (Advanced tab)
-                { m_Setting.GetOptionGroupLocaleID(Settings.AdvRowActions), "Дії" },
-                { m_Setting.GetOptionGroupLocaleID(Settings.AdvRowDebug),   "DEBUG" },
+                { m_Setting.GetOptionGroupLocaleID(AFSettings.AdvRowActions), "Дії" },
+                { m_Setting.GetOptionGroupLocaleID(AFSettings.AdvRowDebug),   "DEBUG" },
 
                 // Main >> Notes
                 {
-                    m_Setting.GetOptionLabelLocaleID(nameof(Settings.MainNotes)),
+                    m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.MainNotes)),
                     "<• Досягнення вже ввімкнено;> просто виконуйте необхідні завдання, щоб вони відкривалися природним шляхом.\n\n" +
                     "Приємної гри! :)\n"
                 },
 
                 // Main >> Info
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.NameDisplay)),    "Мод" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.NameDisplay)),     "Назва цього мода." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.NameDisplay)),    "Мод" },
+                { m_Setting.GetOptionDescLocaleID(nameof(AFSettings.NameDisplay)),     "Назва цього мода." },
 
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.VersionDisplay)), "Версія" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.VersionDisplay)),  "Поточний номер версії." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.VersionDisplay)), "Версія" },
+                { m_Setting.GetOptionDescLocaleID(nameof(AFSettings.VersionDisplay)),  "Поточний номер версії." },
 
                 // Main >> Links
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.OpenParadoxButton)), "Paradox" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.OpenParadoxButton)), "Відкрити у браузері сторінку **Paradox** із модами цього автора." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.OpenParadoxButton)), "Paradox" },
+                { m_Setting.GetOptionDescLocaleID(nameof(AFSettings.OpenParadoxButton)), "Відкрити у браузері сторінку **Paradox** із модами цього автора." },
 
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.OpenDiscordButton)), "Discord" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.OpenDiscordButton)), "Відкрити у браузері **Discord** для модингу CS2." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.OpenDiscordButton)), "Discord" },
+                { m_Setting.GetOptionDescLocaleID(nameof(AFSettings.OpenDiscordButton)), "Відкрити у браузері **Discord** для модингу CS2." },
 
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.OpenAchievementsWikiButton)), "Вікі досягнень" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.OpenAchievementsWikiButton)), "Відкрити у браузері **вікі** досягнень." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.OpenAchievementsWikiButton)), "Вікі досягнень" },
+                { m_Setting.GetOptionDescLocaleID(nameof(AFSettings.OpenAchievementsWikiButton)), "Відкрити у браузері **вікі** досягнень." },
 
                 // --- Advanced tab ---
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.SelectedAchievement)),   "Вибрати досягнення" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.SelectedAchievement)),    "Виберіть досягнення, з яким потрібно виконати дію." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.SelectedAchievement)),   "Вибрати досягнення" },
+                { m_Setting.GetOptionDescLocaleID(nameof(AFSettings.SelectedAchievement)),    "Виберіть досягнення, з яким потрібно виконати дію." },
 
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.UnlockSelectedAchievement)), "РОЗБЛОКУВАТИ ВИБРАНЕ" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.UnlockSelectedAchievement)),  "**Розблоковує та зараховує** вибране досягнення." },
+                { m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.UnlockSelectedAchievement)), "РОЗБЛОКУВАТИ ВИБРАНЕ" },
+                { m_Setting.GetOptionDescLocaleID(nameof(AFSettings.UnlockSelectedAchievement)),  "**Розблоковує та зараховує** вибране досягнення." },
 
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ClearSelectedAchievement)),  "ОЧИСТИТИ ВИБРАНЕ" },
-                { m_Setting.GetOptionDescLocaleID(nameof(Settings.ClearSelectedAchievement)),   "Позначає вибране досягнення як **не виконане**." },
-                { m_Setting.GetOptionWarningLocaleID(nameof(Settings.ClearSelectedAchievement)), "ОЧИСТИТИ / СКИНУТИ це досягнення.\n\nПродовжити?" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ClearSelectedAchievement)),  "ОЧИСТИТИ ВИБРАНЕ" },
+                { m_Setting.GetOptionDescLocaleID(nameof(AFSettings.ClearSelectedAchievement)),   "Позначає вибране досягнення як **не виконане**." },
+                { m_Setting.GetOptionWarningLocaleID(nameof(AFSettings.ClearSelectedAchievement)), "ОЧИСТИТИ / СКИНУТИ це досягнення.\n\nПродовжити?" },
 
                 // Advanced >> advisory text notes
                 {
-                    m_Setting.GetOptionLabelLocaleID(nameof(Settings.AdvancedAdvisory)),
+                    m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.AdvancedAdvisory)),
                     "• Примітка: досягнення <вже ввімкнено> (за замовчуванням) без використання цих кнопок на вкладці «Розширені».\n\n" +
                     "• Щоб дізнатися більше, наведіть курсор на будь-яку кнопку — подробиці з’являться на панелі праворуч."
                 },
                 {
-                    m_Setting.GetOptionDescLocaleID(nameof(Settings.AdvancedAdvisory)),
+                    m_Setting.GetOptionDescLocaleID(nameof(AFSettings.AdvancedAdvisory)),
                     "**БУДЬТЕ ОБЕРЕЖНІ** з кнопкою [DEBUG: СКИНУТИ ВСЕ]. Якщо натиснути її випадково, виконані досягнення можна відновити кнопкою [РОЗБЛОКУВАТИ ВИБРАНЕ]."
                 },
 
                 // Advanced >> DEBUG
-                { m_Setting.GetOptionLabelLocaleID(nameof(Settings.ResetAllAchievements)),  "DEBUG: СКИНУТИ ВСЕ" }, // Button label
+                { m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAchievements)),  "DEBUG: СКИНУТИ ВСЕ" }, // Button label
                 {
-                    m_Setting.GetOptionDescLocaleID(nameof(Settings.ResetAllAchievements)),
+                    m_Setting.GetOptionDescLocaleID(nameof(AFSettings.ResetAllAchievements)),
                     "**ПОПЕРЕДЖЕННЯ**: очищає/скидає ВСІ досягнення. Корисно для налагодження або тестування.\n" +
                     "Якщо зробити це випадково, досягнення можна повернути кнопкою [РОЗБЛОКУВАТИ ВИБРАНЕ]."
                 },
 
                 // Confirmation modal Yes/No
                 {
-                    m_Setting.GetOptionWarningLocaleID(nameof(Settings.ResetAllAchievements)),
+                    m_Setting.GetOptionWarningLocaleID(nameof(AFSettings.ResetAllAchievements)),
                     "Попередження: СКИНУТИ/ОЧИСТИТИ всі досягнення до стану «НЕ виконано». Продовжити?"
                 },
             };
