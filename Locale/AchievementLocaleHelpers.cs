@@ -90,7 +90,9 @@ namespace AchievementFixer
             ["pl-PL"] = "Osiągnięcia włączone przez Achievement Fixer.",
             ["vi-VN"] = "Thành tựu được bật bởi Achievement Fixer.",
             ["zh-HANS"] = "成就已由 Achievement Fixer 启用。",
-            ["zh-HANT"] = "成就已由 Achievement Fixer 啟用。"
+            ["zh-HANT"] = "成就已由 Achievement Fixer 啟用。",
+            ["th-TH"] = "เปิดใช้งานความสำเร็จโดย Achievement Fixer แล้ว",
+            ["uk-UA"] = "Досягнення ввімкнено модом Achievement Fixer."
         };
 
         public static IEnumerable<string> LocaleIds => s_Text.Keys;

@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <Configurations>Debug;Release</Configurations>
@@ -10,7 +10,7 @@
     <Nullable>enable</Nullable>
 
   <!-- Single source of truth for version number -->
-	  <Version>1.2.7</Version>
+	  <Version>1.2.8</Version>
 	<AssemblyVersion>$(Version).0</AssemblyVersion>
 	<FileVersion>$(Version).0</FileVersion>  <!-- for file properties -->
 
@@ -81,6 +81,9 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <Pack>false</Pack>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Utils\" />
   </ItemGroup>
 
 

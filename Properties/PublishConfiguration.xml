@@ -1,39 +1,40 @@
 <Publish>
-	<!--Id must be set in order to update existed mod. it is not required for publishing mod for the first time-->
-	<ModId Value="121256" />
-	<!--Name of the mod to display to players-->
-	<DisplayName Value="Achievement Fixer" />
-	<!--Short description of the mod-->
-	<ShortDescription Value="Earn achievements even with mods enabled. Keeps achievement tracking on. Enjoy :)" />
-	<!--Long description of the mod. Single line or multi line. Supports minimal markdown subset-->
-	<LongDescription>
+<!--Id must be set in order to update existed mod. it is not required for publishing mod for the first time-->
+<ModId Value="121256" />
+<!--Name of the mod to display to players-->
+<DisplayName Value="Achievement Fixer" />
+<!--Short description of the mod-->
+<ShortDescription Value="Earn achievements even with mods enabled. Keeps achievement tracking on. Enjoy :)" />
+<!--Long description of the mod. Single line or multi line. Supports minimal markdown subset-->
+<LongDescription>
 ## Achievement Fixer
 Keeps achievements active even when you have mods.
 
 ### How it works
 * Just keep it installed - no set up needed.
 * Re-enables achievements after any city is loaded or switched.
-* Replaces the in-game warning ("Achievements are disabled because of mods").
+* Replaces the in-game warning ["Achievements are disabled because of mods"].
+* don't forget the Like button, top right, so more people know about the mod.
 
 ### Notes
 * Safe to remove any time; does not touch saves.
 * Remove other "achievement" mods to avoid conflicts.
-* Game does not retroactively grant past progress. The mod prevents **future** misses by keeping the achievement flag `true`.
+* Game does not retroactively grant past progress. This prevents **future** misses by keeping the achievement flag `true`.
 * Mod does not use Harmony patch; safer and less likely to break with game updates.
 
-### 12+ languages
+### 13+ languages
 * English, Français, Deutsch, Español, Italiano, Polski, Tiếng Việt
 * 日本語, 한국어, 简体中文, 繁體中文, Português Brazilian, Português Portugal
 
 ### Support and Feedback
 * If the mod helps you, give it a Like :)
-* Report issues on Github link, Forum or Discord.
+* Report issues on Github or Discord links (right side of page).
 
 ### Advanced tab
 - Past things done before installing the mod, the game will not suddenly give you the achievement.
-- You need to re-trigger the condition in-game again from scratch (Keep this mod installed, and just do same things again).
-Or use the mod's Advanced buttons (you met the condition before, you deserve it).
-- Reset all your achievements to start over (if you want to do it again for fun).
+- You need to re-trigger the condition in-game again from scratch (keep this mod installed, and just do same things again).
+Or use the mod's Advanced tab buttons (you met the condition before, you deserve it).
+- Reset button to start over (if you want to do all achievements again for fun).
 
 ### Credits
 * RiverMochi - author
@@ -45,31 +46,31 @@ Or use the mod's Advanced buttons (you met the condition before, you deserve it)
 * and the CS2 modding community for pointers and testing.
 
 </LongDescription>
-	<!--Thumbnail-->
-	<Thumbnail Value="Properties/Thumbnail.jpg" />
-	<!--Screenshot, can be set multiple times-->
-	<Screenshot Value="Properties/10-AF-Steam.jpg" />
-	<Screenshot Value="Properties/15-AF-Main-EN.jpg" />
-	<Screenshot Value="Properties/20-AF-Main-FR.jpg" />
-	<Screenshot Value="Properties/30-AF-Main-ZH_CN.jpg" />
-	<!--Tag, can be set multiple times-->
-	<Tag Value="Code Mod" />
-	<!--Link to the forum post where the mod can be discussed-->
-	<ForumLink Value="https://forum.paradoxplaza.com/forum/threads/achievement-fixer.1863551/" />
-	<!--Version of the mod-->
-	<ModVersion Value="1.2.7" />
-	<!--Recommended version of the base game to use the mod-->
-	<GameVersion Value="1.6.*" />
-	<!--Dependency for the mod, can be set multiple times-->
-	<Dependency Id="" />
-	<!--Required DLC, can be set multiple times. Supported values are "Landmark Buildings", "San Fransisco Set", "Beach Properties", "Urban Promenades", "Modern Architecture"-->
-	<RequiredDLC Value="" />
-	<!--Change log for new version. Single line or multi line. Supports minimal markdown subset-->
-	<ChangeLog>
+<!--Thumbnail-->
+<Thumbnail Value="Properties/Thumbnail.jpg" />
+<!--Screenshot, can be set multiple times-->
+<Screenshot Value="Properties/10-AF-Steam.jpg" />
+<Screenshot Value="Properties/15-AF-Main-EN.jpg" />
+<Screenshot Value="Properties/20-AF-Main-FR.jpg" />
+<Screenshot Value="Properties/30-AF-Main-ZH_CN.jpg" />
+<!--Tag, can be set multiple times-->
+<Tag Value="Code Mod" />
+<!--Link to the forum post where the mod can be discussed-->
+<ForumLink Value="https://forum.paradoxplaza.com/forum/threads/achievement-fixer.1863551/" />
+<!--Version of the mod-->
+<ModVersion Value="1.2.8" />
+<!--Recommended version of the base game to use the mod-->
+<GameVersion Value="1.6.*" />
+<!--Dependency for the mod, can be set multiple times-->
+<Dependency Id="" />
+<!--Required DLC, can be set multiple times. Supported values are "Landmark Buildings", "San Fransisco Set", "Beach Properties", "Urban Promenades", "Modern Architecture"-->
+<RequiredDLC Value="" />
+<!--Change log for new version. Single line or multi line. Supports minimal markdown subset-->
+<ChangeLog>
 - Added Portuguese (Portugal) translation.
 </ChangeLog>
-	<!--External link, can be set multiple times. supported types are "discord", "github", "youtube", "twitch", "x", "paypal", "patreon", "buymeacoffee", "kofi", "crowdin", "gitlab", "gofundme"-->
-	<ExternalLink Type="discord" Url="https://discord.gg/gwXgvtyhjc" />
-	<ExternalLink Type="github" Url="https://github.com/River-Mochi/AchievementFixer" />
+<!--External link, can be set multiple times. supported types are "discord", "github", "youtube", "twitch", "x", "paypal", "patreon", "buymeacoffee", "kofi", "crowdin", "gitlab", "gofundme"-->
+<ExternalLink Type="discord" Url="https://discord.gg/gwXgvtyhjc" />
+<ExternalLink Type="github" Url="https://github.com/River-Mochi/AchievementFixer" />
 
 </Publish>

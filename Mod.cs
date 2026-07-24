@@ -89,6 +89,8 @@ namespace AchievementFixer
                     localizationManager.AddSource("pt-PT", new LocalePT_PT(settings));
                     localizationManager.AddSource("zh-HANS", new LocaleZH_CN(settings));
                     localizationManager.AddSource("zh-HANT", new LocaleZH_HANT(settings));
+                    localizationManager.AddSource("th-TH", new LocaleTH(settings));
+                    localizationManager.AddSource("uk-UA", new LocaleUK(settings));
 
                     // Built-in achievement warning banner override.
                     foreach (string localeId in LocaleBannerText.LocaleIds)
@@ -136,8 +138,6 @@ namespace AchievementFixer
         {
             Settings?.UnregisterInOptionsUI();
             Settings = null;
-
-            s_Log.Info("OnDispose");
         }
 
         private static LocaleOverrideSource CreateBannerOverrideSource(string localeId)

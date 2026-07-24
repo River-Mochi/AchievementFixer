@@ -25,12 +25,12 @@ This keeps the game from disabling the achievements backend.
 ## Notes
 - If an achievement doesn’t pop right away, a game restart sometimes helps (CS2 quirk).
 
-## 11 languages
+## 13 languages
 * English, Français (French), Deutsch (German), Español (Spanish), Italiano (Italian), Polski (Polish)
 * 日本語 (Japanese), 한국어 (Korean), 简体中文 (Simplified Chinese), 繁體中文 (Traditional Chinese)
 * Português (Brasil) (Brazilian Portuguese)
-* Drop-down achievement names come from the game, so they match whatever game language you use (VI which does not currently have an in-game dictionary).
-* Future updates may add more languages. WIP: Tiếng Việt (Vietnamese)
+* Drop-down achievement names come from the game, so they match whatever game language you use (some languages like VI do not have an in-game dictionary).
+*  WIP: Tiếng Việt (Vietnamese)
 
 ## Advanced tab (optional)
 - **Select achievement** →
@@ -58,5 +58,5 @@ If you see the in game warning banner about "achievements disabled because of mo
 
 ## Links
 - 📘 [CS2 Achievements Wiki](https://cs2.paradoxwikis.com/Achievements)
-- 🧩 [Paradox Mods](https://mods.paradoxplaza.com/authors/kimosabe1/cities_skylines_2?games=cities_skylines_2&orderBy=desc&sortBy=best&time=alltime)
+- 🧩 [Paradox Mods](https://mods.paradoxplaza.com/authors/River-mochi/cities_skylines_2?games=cities_skylines_2&orderBy=desc&sortBy=best&time=quarter)
 - 💻 [GitHub](https://github.com/River-Mochi/AchievementFixer)
