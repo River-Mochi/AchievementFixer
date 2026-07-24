@@ -10,13 +10,12 @@
 
 namespace AchievementFixer
 {
-    using System;
     using System.Collections.Generic;
     using System.Reflection;
     using Colossal.IO.AssetDatabase;
     using Colossal.Localization;
     using Colossal.Logging;
-    using CS2Shared.RiverMochi;     // LogUtils
+    using CS2Shared.RiverMochi;
     using Game;
     using Game.Achievements;
     using Game.Modding;
@@ -35,120 +34,82 @@ namespace AchievementFixer
         public static readonly string ModVersion =
             Assembly.GetExecutingAssembly().GetName().Version?.ToString(3) ?? "1.0.0";
 
-        // ----- Logger & public properties -----
-        public static readonly ILog s_Log =
-            LogManager.GetLogger(ModId).SetShowsErrorsInUI(false);
-
-        public static AFSettings? Settings
-        {
-            get; private set;
-        }
-
-        // ----- Private state -----
         private static bool s_BannerLogged;
+        private AFSettings? m_Settings;
 
-        // ----- IMod -----
         public void OnLoad(UpdateSystem updateSystem)
         {
-            // metadata banner (once)
+            LogUtils.Configure(
+                ModId,
+                LogManager.GetLogger(ModId).SetShowsErrorsInUI(false));
+
+            // Keep one metadata banner as the first AF log entry for this game process.
             if (!s_BannerLogged)
             {
                 s_BannerLogged = true;
-                s_Log.Info($"{ModName} {ModTag} v{ModVersion} OnLoad");
+                LogUtils.Info($"{ModName} {ModTag} v{ModVersion} OnLoad");
             }
 
-            if (GameManager.instance == null)
-            {
-                s_Log.Warn($"{ModTag} GameManager.instance is null; {ModName} cannot initialize.");
-                return;
-            }
-
-            // AFSettings object (must exist before locales so labels resolve)
+            // The settings object must exist before locale sources are created.
             AFSettings settings = new AFSettings(this);
-            Settings = settings;
+            m_Settings = settings;
 
-            try
+            LocalizationManager? localizationManager =
+                GameManager.instance?.localizationManager;
+
+            if (localizationManager != null)
             {
-                LocalizationManager? localizationManager = GameManager.instance.localizationManager;
-                if (localizationManager == null)
+                // Options UI strings.
+                localizationManager.AddSource("en-US", new LocaleEN(settings));
+                localizationManager.AddSource("fr-FR", new LocaleFR(settings));
+                localizationManager.AddSource("de-DE", new LocaleDE(settings));
+                localizationManager.AddSource("es-ES", new LocaleES(settings));
+                localizationManager.AddSource("it-IT", new LocaleIT(settings));
+                localizationManager.AddSource("ja-JP", new LocaleJA(settings));
+                localizationManager.AddSource("ko-KR", new LocaleKO(settings));
+                localizationManager.AddSource("vi-VN", new LocaleVI(settings));
+                localizationManager.AddSource("pl-PL", new LocalePL(settings));
+                localizationManager.AddSource("pt-BR", new LocalePT_BR(settings));
+                localizationManager.AddSource("pt-PT", new LocalePT_PT(settings));
+                localizationManager.AddSource("zh-HANS", new LocaleZH_CN(settings));
+                localizationManager.AddSource("zh-HANT", new LocaleZH_HANT(settings));
+                localizationManager.AddSource("th-TH", new LocaleTH(settings));
+                localizationManager.AddSource("uk-UA", new LocaleUK(settings));
+
+                // Override the game's built-in "achievements disabled" banner.
+                foreach (string localeId in LocaleBannerText.LocaleIds)
                 {
-                    s_Log.Warn($"{ModTag} LocalizationManager is null; locale sources were not registered.");
-                }
-                else
-                {
-                    // Options UI strings.
-                    localizationManager.AddSource("en-US", new LocaleEN(settings));
-                    localizationManager.AddSource("fr-FR", new LocaleFR(settings));
-                    localizationManager.AddSource("de-DE", new LocaleDE(settings));
-                    localizationManager.AddSource("es-ES", new LocaleES(settings));
-                    localizationManager.AddSource("it-IT", new LocaleIT(settings));
-                    localizationManager.AddSource("ja-JP", new LocaleJA(settings));
-                    localizationManager.AddSource("ko-KR", new LocaleKO(settings));
-                    localizationManager.AddSource("vi-VN", new LocaleVI(settings));
-                    localizationManager.AddSource("pl-PL", new LocalePL(settings));
-                    localizationManager.AddSource("pt-BR", new LocalePT_BR(settings));
-                    localizationManager.AddSource("pt-PT", new LocalePT_PT(settings));
-                    localizationManager.AddSource("zh-HANS", new LocaleZH_CN(settings));
-                    localizationManager.AddSource("zh-HANT", new LocaleZH_HANT(settings));
-                    localizationManager.AddSource("th-TH", new LocaleTH(settings));
-                    localizationManager.AddSource("uk-UA", new LocaleUK(settings));
-
-                    // Built-in achievement warning banner override.
-                    foreach (string localeId in LocaleBannerText.LocaleIds)
-                    {
-                        localizationManager.AddSource(localeId, CreateBannerOverrideSource(localeId));
-                    }
+                    localizationManager.AddSource(
+                        localeId,
+                        new LocaleOverrideSource(new Dictionary<string, string>
+                        {
+                            ["Menu.ACHIEVEMENTS_WARNING_MODS"] =
+                                LocaleBannerText.For(localeId)
+                        }));
                 }
             }
-            catch (Exception ex)
+            else
             {
-                s_Log.Warn($"{ModTag} Localization registration failed: {ex.GetType().Name}: {ex.Message}");
+                LogUtils.Warn(
+                    $"{ModTag} LocalizationManager is null; locale sources were not registered.");
             }
 
-            // Load settings if available, then register Options UI.
-            try
-            {
-                AssetDatabase.global.LoadSettings(ModId, settings, new AFSettings(this));
-            }
-            catch (Exception ex)
-            {
-                s_Log.Warn($"{ModTag} Settings load failed: {ex.GetType().Name}: {ex.Message}");
-            }
+            AssetDatabase.global.LoadSettings(
+                ModId,
+                settings,
+                new AFSettings(this));
 
-            try
-            {
-                settings.RegisterInOptionsUI();
-            }
-            catch (Exception ex)
-            {
-                s_Log.Warn($"{ModTag} Options UI registration failed: {ex.GetType().Name}: {ex.Message}");
-            }
+            settings.RegisterInOptionsUI();
 
-            try
-            {
-                // Ensure AF system runs after the game's trigger during the main loop.
-                updateSystem.UpdateAfter<AchievementFixerSystem, AchievementTriggerSystem>(SystemUpdatePhase.MainLoop);
-            }
-            catch (Exception ex)
-            {
-                s_Log.Warn($"{ModTag} System scheduling failed: {ex.GetType().Name}: {ex.Message}");
-            }
+            // Run after the game's achievement trigger during the main loop.
+            updateSystem.UpdateAfter<AchievementFixerSystem, AchievementTriggerSystem>(
+                SystemUpdatePhase.MainLoop);
         }
 
         public void OnDispose()
         {
-            Settings?.UnregisterInOptionsUI();
-            Settings = null;
-        }
-
-        private static LocaleOverrideSource CreateBannerOverrideSource(string localeId)
-        {
-            const string kWarningKey = "Menu.ACHIEVEMENTS_WARNING_MODS";
-
-            return new LocaleOverrideSource(new Dictionary<string, string>
-            {
-                [kWarningKey] = LocaleBannerText.For(localeId)
-            });
+            m_Settings?.UnregisterInOptionsUI();
+            m_Settings = null;
         }
     }
 }

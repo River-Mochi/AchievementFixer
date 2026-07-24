@@ -11,7 +11,8 @@ namespace AchievementFixer
 {
     using Colossal.PSI.Common;              // PlatformManager
     using Colossal.Serialization.Entities;  // Purpose enum
-    using Game;                             // GameSystemBase, GameMode
+    using CS2Shared.RiverMochi;              // LogUtils
+    using Game;                              // GameSystemBase, GameMode
 
     /// <summary>
     /// After a game load completes, keep achievements enabled for a frame-based window,
@@ -23,7 +24,7 @@ namespace AchievementFixer
         private const int kAssertFrames = 1800;  // ~30s @ 60FPS or ~60s @ 30FPS
 
         // --- State ---
-        private int m_FramesLeft;        // counts down from kAssertFrames to 0
+        private int m_FramesLeft;  // counts down from kAssertFrames to 0
 
         protected override void OnCreate()
         {
@@ -31,11 +32,11 @@ namespace AchievementFixer
 
             m_FramesLeft = 0;
 
-            // Start idle so we don't get scheduled until a real game load occurs
+            // Start idle so the system is not scheduled until a real game load occurs.
             Enabled = false;
 
 #if DEBUG
-            Mod.s_Log.Info("AchievementFixerSystem created (idle)");
+            LogUtils.Info("AchievementFixerSystem created (idle)");
 #endif
         }
 
@@ -48,7 +49,8 @@ namespace AchievementFixer
             {
                 Enabled = false;
 #if DEBUG
-                Mod.s_Log.Info($"OnGameLoadingComplete: mode={mode}; not gameplay → skipping.");
+                LogUtils.Info(
+                    $"OnGameLoadingComplete: mode={mode}; not gameplay → skipping.");
 #endif
                 return;
             }
@@ -61,7 +63,7 @@ namespace AchievementFixer
             ForceEnableIfNeeded("OnGameLoadingComplete");
 
 #if DEBUG
-            Mod.s_Log.Info($"Assert window started: {kAssertFrames} frames.");
+            LogUtils.Info($"Assert window started: {kAssertFrames} frames.");
 #endif
         }
 
@@ -74,44 +76,48 @@ namespace AchievementFixer
                 return;
             }
 
-            // Keep achievementsEnabled true — check every frame (cheap & robust)
+            // Keep achievementsEnabled true; checking every frame is cheap and robust.
             ForceEnableIfNeeded("OnUpdate");
 
-            // Advance the window
             m_FramesLeft--;
 
 #if DEBUG
             // Every ~60 frames, log a coarse heartbeat to avoid noise.
             if (m_FramesLeft % 60 == 0)
             {
-                bool achievementsOn = PlatformManager.instance?.achievementsEnabled == true;
-                string flag = achievementsOn ? "TRUE" : "FALSE";
-                Mod.s_Log.Info($"Asserting… framesLeft={m_FramesLeft}, achievementsEnabled={flag}");
+                bool achievementsOn =
+                    PlatformManager.instance?.achievementsEnabled == true;
+
+                LogUtils.Info(
+                    () => $"Asserting… framesLeft={m_FramesLeft}, " +
+                          $"achievementsEnabled={(achievementsOn ? "TRUE" : "FALSE")}");
             }
 #endif
         }
 
-        private static bool ForceEnableIfNeeded(string source)
+        private static void ForceEnableIfNeeded(string source)
         {
             PlatformManager pm = PlatformManager.instance;
             if (pm == null)
             {
 #if DEBUG
-                Mod.s_Log.Info($"{source}: PlatformManager.instance is null; skip");
+                LogUtils.WarnOnce(
+                    "AchievementFixer.PlatformManagerNull",
+                    () => $"{source}: PlatformManager.instance is null; skipping.");
 #endif
-                return false;
+                return;
             }
 
             if (!pm.achievementsEnabled)
             {
-                // KEEP these Release logs (proof for players it's on)
-                Mod.s_Log.Info($"{source}: ATTN: detected game flipped achievementsEnabled == FALSE. Forcing TRUE now");
-                pm.achievementsEnabled = true;
-                Mod.s_Log.Info($"{source}: achievementsEnabled is now TRUE.");
-                return true;
-            }
+                // Keep these Release logs as proof that the mod corrected the game state.
+                LogUtils.Info(
+                    $"{source}: detected achievementsEnabled == FALSE; forcing TRUE.");
 
-            return false;
+                pm.achievementsEnabled = true;
+
+                LogUtils.Info($"{source}: achievementsEnabled is now TRUE.");
+            }
         }
     }
 }

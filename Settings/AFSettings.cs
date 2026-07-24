@@ -13,6 +13,7 @@ namespace AchievementFixer
     using System.Linq;                // LINQ (Select, OrderBy, ToArray)
     using Colossal.IO.AssetDatabase;  // [FileLocation]
     using Colossal.PSI.Common;        // PlatformManager, AchievementId
+    using CS2Shared.RiverMochi;        // LogUtils
     using Game.Modding;               // IMod, ModSetting
     using Game.Settings;              // SettingsUI
     using Game.UI.Widgets;            // DropdownItem<T>
@@ -28,7 +29,7 @@ namespace AchievementFixer
         ButtonGroup,      // show SUPPORT LINKS on Main tab
         AdvRowDebug       // show DEBUG on Advanced tab
     )]
-    public class AFSettings : ModSetting
+    public sealed class AFSettings : ModSetting
     {
         // ---- Tabs ----
         public const string MainTab = "Main";
@@ -49,7 +50,9 @@ namespace AchievementFixer
         private const string UrlDiscord = "https://discord.gg/gwXgvtyhjc";
         private const string UrlAchievementsWiki = "https://cs2.paradoxwikis.com/Achievements";
 
-        public AFSettings(IMod mod) : base(mod) { }
+        public AFSettings(IMod mod) : base(mod)
+        {
+        }
 
         // ---- Main Meta ----
         [SettingsUISection(MainTab, MainInfoGroup)]
@@ -70,13 +73,14 @@ namespace AchievementFixer
                 {
                     return;
                 }
+
                 try
                 {
                     Application.OpenURL(UrlParadox);
                 }
                 catch (Exception ex)
                 {
-                    Mod.s_Log.Warn($"Failed to open Paradox: {ex.Message}");
+                    LogUtils.Warn("Failed to open Paradox.", ex);
                 }
             }
         }
@@ -100,7 +104,7 @@ namespace AchievementFixer
                 }
                 catch (Exception ex)
                 {
-                    Mod.s_Log.Warn($"Failed to open Discord: {ex.Message}");
+                    LogUtils.Warn("Failed to open Discord.", ex);
                 }
             }
         }
@@ -124,7 +128,7 @@ namespace AchievementFixer
                 }
                 catch (Exception ex)
                 {
-                    Mod.s_Log.Warn($"Failed to open wiki: {ex.Message}");
+                    LogUtils.Warn("Failed to open wiki.", ex);
                 }
             }
         }
@@ -139,7 +143,7 @@ namespace AchievementFixer
         // Dropdown: Select achievement (value = internal Name)
         [SettingsUISection(AdvancedTab, AdvRowActions)]
         [SettingsUIDropdown(typeof(AFSettings), nameof(GetAchievementChoices))]
-        public string SelectedAchievement { get; set; } = "";
+        public string SelectedAchievement { get; set; } = string.Empty;
 
         // UNLOCK SELECTED
         [SettingsUIButton]
@@ -158,32 +162,36 @@ namespace AchievementFixer
                 {
                     if (!TryGetAchievementId(SelectedAchievement, out AchievementId id))
                     {
-                        Mod.s_Log.Warn($"Unlock: could not resolve '{SelectedAchievement}'.");
+                        LogUtils.Warn($"Unlock: could not resolve '{SelectedAchievement}'.");
                         return;
                     }
 
                     PlatformManager pm = PlatformManager.instance;
                     if (pm == null)
                     {
-                        Mod.s_Log.Warn("Unlock: PlatformManager.instance is null.");
+                        LogUtils.Warn("Unlock: PlatformManager.instance is null.");
                         return;
                     }
 
 #if DEBUG
-                    Mod.s_Log.Info($"[UI] UnlockSelected → before call; achievementsEnabled={pm.achievementsEnabled}");
+                    LogUtils.Info(
+                        $"[UI] UnlockSelected → before call; achievementsEnabled={pm.achievementsEnabled}");
 #endif
                     pm.UnlockAchievement(id);
 #if DEBUG
-                    Mod.s_Log.Info($"[UI] UnlockSelected → after call; achievementsEnabled={pm.achievementsEnabled}");
+                    LogUtils.Info(
+                        $"[UI] UnlockSelected → after call; achievementsEnabled={pm.achievementsEnabled}");
 #endif
 
                     // Post-check
                     bool ok = pm.GetAchievement(id, out IAchievement? a) && a.achieved;
-                    Mod.s_Log.Info($"UnlockSelected: \"{AchievementDisplay.Get(SelectedAchievement)}\" → {(ok ? "Enabled" : "No change")}");
+                    LogUtils.Info(
+                        $"UnlockSelected: \"{AchievementDisplay.Get(SelectedAchievement)}\" → " +
+                        $"{(ok ? "Enabled" : "No change")}");
                 }
                 catch (Exception ex)
                 {
-                    Mod.s_Log.Warn($"UnlockSelected failed: {ex.GetType().Name}: {ex.Message}");
+                    LogUtils.Warn("UnlockSelected failed.", ex);
                 }
             }
         }
@@ -206,32 +214,36 @@ namespace AchievementFixer
                 {
                     if (!TryGetAchievementId(SelectedAchievement, out AchievementId id))
                     {
-                        Mod.s_Log.Warn($"Clear: could not resolve '{SelectedAchievement}'.");
+                        LogUtils.Warn($"Clear: could not resolve '{SelectedAchievement}'.");
                         return;
                     }
 
                     PlatformManager pm = PlatformManager.instance;
                     if (pm == null)
                     {
-                        Mod.s_Log.Warn("Clear: PlatformManager.instance is null.");
+                        LogUtils.Warn("Clear: PlatformManager.instance is null.");
                         return;
                     }
 
 #if DEBUG
-                    Mod.s_Log.Info($"[UI] ClearSelected → before call; achievementsEnabled={pm.achievementsEnabled}");
+                    LogUtils.Info(
+                        $"[UI] ClearSelected → before call; achievementsEnabled={pm.achievementsEnabled}");
 #endif
                     pm.ClearAchievement(id);
 #if DEBUG
-                    Mod.s_Log.Info($"[UI] ClearSelected → after call; achievementsEnabled={pm.achievementsEnabled}");
+                    LogUtils.Info(
+                        $"[UI] ClearSelected → after call; achievementsEnabled={pm.achievementsEnabled}");
 #endif
 
                     // Post-check & single friendly line
                     bool cleared = pm.GetAchievement(id, out IAchievement? a) && !a.achieved;
-                    Mod.s_Log.Info($"ClearSelected: \"{AchievementDisplay.Get(SelectedAchievement)}\" → {(cleared ? "Disabled" : "No change")}");
+                    LogUtils.Info(
+                        $"ClearSelected: \"{AchievementDisplay.Get(SelectedAchievement)}\" → " +
+                        $"{(cleared ? "Disabled" : "No change")}");
                 }
                 catch (Exception ex)
                 {
-                    Mod.s_Log.Warn($"ClearSelected failed: {ex.GetType().Name}: {ex.Message}");
+                    LogUtils.Warn("ClearSelected failed.", ex);
                 }
             }
         }
@@ -262,24 +274,26 @@ namespace AchievementFixer
                     PlatformManager pm = PlatformManager.instance;
                     if (pm == null)
                     {
-                        Mod.s_Log.Warn("ResetAllAchievements: PlatformManager.instance is null.");
+                        LogUtils.Warn("ResetAllAchievements: PlatformManager.instance is null.");
                         return;
                     }
 
 #if DEBUG
-                    Mod.s_Log.Info($"[UI] ResetAll → about to call ResetAchievements; achievementsEnabled={pm.achievementsEnabled}");
+                    LogUtils.Info(
+                        $"[UI] ResetAll → about to call ResetAchievements; achievementsEnabled={pm.achievementsEnabled}");
 #endif
 
                     pm.ResetAchievements();
 #if DEBUG
-                    Mod.s_Log.Info($"[UI] ResetAll → call returned; achievementsEnabled={pm.achievementsEnabled}");
+                    LogUtils.Info(
+                        $"[UI] ResetAll → call returned; achievementsEnabled={pm.achievementsEnabled}");
 #endif
 
-                    Mod.s_Log.Info("Requested Reset of ALL platform achievements.");
+                    LogUtils.Info("Requested Reset of ALL platform achievements.");
                 }
                 catch (Exception ex)
                 {
-                    Mod.s_Log.Warn($"ResetAllAchievements failed: {ex.GetType().Name}: {ex.Message}");
+                    LogUtils.Warn("ResetAllAchievements failed.", ex);
                 }
             }
         }
@@ -295,13 +309,11 @@ namespace AchievementFixer
                 return Array.Empty<DropdownItem<string>>();
             }
 
-            System.Collections.Generic.IEnumerable<string> ids = pm.EnumerateAchievements()
-                .Select(a => a.internalName ?? a.id.ToString());
-
-            IOrderedEnumerable<string> ordered = ids.OrderBy(id => AchievementDisplay.Get(id),
-                                      StringComparer.CurrentCultureIgnoreCase);
-
-            return ordered
+            return pm.EnumerateAchievements()
+                .Select(a => a.internalName ?? a.id.ToString())
+                .OrderBy(
+                    id => AchievementDisplay.Get(id),
+                    StringComparer.CurrentCultureIgnoreCase)
                 .Select(id => new DropdownItem<string>
                 {
                     value = id,
@@ -323,14 +335,20 @@ namespace AchievementFixer
             {
                 // Primary: match by internalName (dropdown value)
                 if (!string.IsNullOrEmpty(a.internalName) &&
-                    string.Equals(a.internalName, selectedValue, StringComparison.OrdinalIgnoreCase))
+                    string.Equals(
+                        a.internalName,
+                        selectedValue,
+                        StringComparison.OrdinalIgnoreCase))
                 {
                     id = a.id;
                     return true;
                 }
 
                 // Fallback: allow selecting by a.id.ToString()
-                if (string.Equals(a.id.ToString(), selectedValue, StringComparison.OrdinalIgnoreCase))
+                if (string.Equals(
+                    a.id.ToString(),
+                    selectedValue,
+                    StringComparison.OrdinalIgnoreCase))
                 {
                     id = a.id;
                     return true;
@@ -342,7 +360,7 @@ namespace AchievementFixer
 
         public override void SetDefaults()
         {
-            SelectedAchievement = "";
+            SelectedAchievement = string.Empty;
         }
     }
 }
