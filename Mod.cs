@@ -34,23 +34,24 @@ namespace AchievementFixer
         public static readonly string ModVersion =
             Assembly.GetExecutingAssembly().GetName().Version?.ToString(3) ?? "1.0.0";
 
+        // CO logger
+        private static readonly ILog s_Log =
+            LogManager.GetLogger(ModId).SetShowsErrorsInUI(false);
         private static bool s_BannerLogged;
         private AFSettings? m_Settings;
 
         public void OnLoad(UpdateSystem updateSystem)
         {
-            LogUtils.Configure(
-                ModId,
-                LogManager.GetLogger(ModId).SetShowsErrorsInUI(false));
+            LogUtils.Configure(ModId, s_Log);
 
-            // Keep one metadata banner as the first AF log entry for this game process.
+            // Keep one metadata banner as the first AF log entry.
             if (!s_BannerLogged)
             {
                 s_BannerLogged = true;
                 LogUtils.Info($"{ModName} {ModTag} v{ModVersion} OnLoad");
             }
 
-            // The settings object must exist before locale sources are created.
+            // Settings object must exist before creating locale sources.
             AFSettings settings = new AFSettings(this);
             m_Settings = settings;
 
