@@ -16,6 +16,7 @@ namespace AchievementFixer
     using Colossal.IO.AssetDatabase;
     using Colossal.Localization;
     using Colossal.Logging;
+    using CS2Shared.RiverMochi;     // LogUtils
     using Game;
     using Game.Achievements;
     using Game.Modding;
@@ -63,7 +64,7 @@ namespace AchievementFixer
             }
 
             // AFSettings object (must exist before locales so labels resolve)
-            var settings = new AFSettings(this);
+            AFSettings settings = new AFSettings(this);
             Settings = settings;
 
             try
