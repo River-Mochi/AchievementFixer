@@ -299,10 +299,9 @@ namespace AchievementFixer
         }
 
         // Reset note under the button
-        [SettingsUIMultilineText]
-        [SettingsUISection(AdvancedTab, AdvRowDebug)]
-        public string ResetAllAdvisory => string.Empty;
-
+  //      [SettingsUIMultilineText]
+  //      [SettingsUISection(AdvancedTab, AdvRowDebug)]
+  //     public string ResetAllAdvisory => string.Empty;
 
         // ---- Helpers ----
 
