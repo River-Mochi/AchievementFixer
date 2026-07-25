@@ -101,7 +101,7 @@ namespace AchievementFixer
                 },
                 {
                     m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAdvisory)),
-                    "• <[Repor tudo]> para recomeçar e voltar a desbloquear as conquistas por diversão."
+                    "[Repor tudo] para recomeçar e voltar a desbloquear as conquistas por diversão."
                 },
 
                 // Confirmation modal Yes/No

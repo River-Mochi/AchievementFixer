@@ -99,7 +99,7 @@ namespace AchievementFixer
                     m_Setting.GetOptionDescLocaleID(nameof(AFSettings.ResetAllAchievements)),
                     "**AVISO**: limpa / redefine TODAS as conquistas. Útil para testes e depuração.\n" +
                     "Se fizer isso por engano, você pode restaurar conquistas usando [DESBLOQUEAR SELECIONADA].\n" +
-                    "<[Redefinir tudo]> para recomeçar e desbloquear tudo de novo por diversão."
+                    "[Redefinir tudo] para recomeçar e desbloquear tudo de novo por diversão."
                 },
                 {
                     m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAdvisory)),

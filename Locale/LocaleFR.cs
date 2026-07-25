@@ -101,7 +101,7 @@ namespace AchievementFixer
                 },
                 {
                     m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAdvisory)),
-                    "• <[Tout réinitialiser]> les succès pour repartir de zéro et les débloquer à nouveau pour le plaisir."
+                    "[Tout réinitialiser] les succès pour repartir de zéro et les débloquer à nouveau pour le plaisir."
                 },
 
                 // Confirmation modal Yes/No

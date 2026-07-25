@@ -101,7 +101,7 @@ namespace AchievementFixer
                 },
                 {
                     m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAdvisory)),
-                    "• <[Скинути все]>, щоб почати спочатку й знову відкрити досягнення заради розваги."
+                    "[Скинути все], щоб почати спочатку й знову відкрити досягнення заради розваги."
                 },
 
                 // Confirmation modal Yes/No

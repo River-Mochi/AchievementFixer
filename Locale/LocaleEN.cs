@@ -101,7 +101,7 @@ namespace AchievementFixer
                 },
                 {
                     m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAdvisory)),
-                    "• <[Reset all]> achievements to start over (if you want to earn them again for fun)."
+                    "[Reset all] achievements to start over (if you want to earn them again for fun). See note on the right."
                 },
 
                 // Confirmation modal Yes/No

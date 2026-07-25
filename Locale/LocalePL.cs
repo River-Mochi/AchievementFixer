@@ -98,7 +98,7 @@ namespace AchievementFixer
                     m_Setting.GetOptionDescLocaleID(nameof(AFSettings.ResetAllAchievements)),
                     "**OSTRZEŻENIE**: czyści / resetuje WSZYSTKIE osiągnięcia. Przydatne do testów i debugowania.\n" +
                     "Jeśli zrobisz to przypadkowo, możesz przywrócić osiągnięcia przyciskiem [ODBLOKUJ WYBRANE].\n" +
-                    "<[Zresetuj wszystko]>, aby zacząć od nowa i ponownie zdobywać osiągnięcia dla zabawy."
+                    "[Zresetuj wszystko], aby zacząć od nowa i ponownie zdobywać osiągnięcia dla zabawy."
                 },
                 {
                     m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAdvisory)),

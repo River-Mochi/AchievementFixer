@@ -101,7 +101,7 @@ namespace AchievementFixer
                 },
                 {
                     m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAdvisory)),
-                    "• <[Restablecer todo]> los logros para empezar de cero y volver a conseguirlos por diversión."
+                    "[Restablecer todo] los logros para empezar de cero y volver a conseguirlos por diversión."
                 },
 
                 // Confirmation modal Yes/No

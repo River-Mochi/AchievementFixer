@@ -101,7 +101,7 @@ namespace AchievementFixer
                 },
                 {
                     m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAdvisory)),
-                    "• <[Alles zurücksetzen]>, um neu anzufangen und die Erfolge zum Spaß erneut freizuschalten."
+                    "[Alles zurücksetzen], um neu anzufangen und die Erfolge zum Spaß erneut freizuschalten."
                 },
 
                 // Confirmation modal Yes/No

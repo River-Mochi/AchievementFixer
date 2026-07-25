@@ -97,7 +97,7 @@ namespace AchievementFixer
                     m_Setting.GetOptionDescLocaleID(nameof(AFSettings.ResetAllAchievements)),
                     "**คำเตือน**: ล้าง/รีเซ็ตความสำเร็จทั้งหมด ใช้สำหรับการดีบักหรือการทดสอบ\n" +
                     "หากกดโดยไม่ตั้งใจ สามารถกู้คืนความสำเร็จได้ด้วยปุ่ม [ปลดล็อกที่เลือก]\n" +
-                    "<[รีเซ็ตทั้งหมด]> แล้วเริ่มใหม่ เพื่อปลดล็อกความสำเร็จอีกรอบสนุก ๆ"
+                    "[รีเซ็ตทั้งหมด] แล้วเริ่มใหม่ เพื่อปลดล็อกความสำเร็จอีกรอบสนุก ๆ"
                 },
                 {
                     m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAdvisory)),

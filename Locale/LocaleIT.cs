@@ -101,7 +101,7 @@ namespace AchievementFixer
                 },
                 {
                     m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAdvisory)),
-                    "• <[Azzera tutto]> gli obiettivi per ricominciare e sbloccarli di nuovo per divertimento."
+                    "[Azzera tutto] gli obiettivi per ricominciare e sbloccarli di nuovo per divertimento."
                 },
 
                 // Confirmation modal Yes/No
