@@ -99,10 +99,6 @@ namespace AchievementFixer
                     "Si lo haces por error, puedes recuperarlos con el botón [Desbloquear seleccionado].\n" +
                     "<[Restablecer todo]> para empezar de cero y volver a conseguirlos por diversión."
                 },
-                {
-                    m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAdvisory)),
-                    "[Restablecer todo] los logros para empezar de cero y volver a conseguirlos por diversión."
-                },
 
                 // Confirmation modal Yes/No
                 {

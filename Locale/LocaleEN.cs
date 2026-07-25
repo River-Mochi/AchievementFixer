@@ -99,10 +99,7 @@ namespace AchievementFixer
                     "If you accidentally use this, you can get achievements back by using the [Unlock Selected] button.\n" +
                      "<[Reset all]> to start over (if you want to earn them again for fun)."
                 },
-                {
-                    m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAdvisory)),
-                    "[Reset all] achievements to start over (if you want to earn them again for fun). See note on the right."
-                },
+
 
                 // Confirmation modal Yes/No
                 {

@@ -99,10 +99,6 @@ namespace AchievementFixer
                     "Se usares isto por engano, podes recuperar as conquistas com o botão [Unlock Selected].\n" +
                     "<[Repor tudo]> para recomeçar e voltar a desbloquear as conquistas por diversão."
                 },
-                {
-                    m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAdvisory)),
-                    "[Repor tudo] para recomeçar e voltar a desbloquear as conquistas por diversão."
-                },
 
                 // Confirmation modal Yes/No
                 {

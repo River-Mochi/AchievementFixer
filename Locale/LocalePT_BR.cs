@@ -101,10 +101,6 @@ namespace AchievementFixer
                     "Se fizer isso por engano, você pode restaurar conquistas usando [DESBLOQUEAR SELECIONADA].\n" +
                     "[Redefinir tudo] para recomeçar e desbloquear tudo de novo por diversão."
                 },
-                {
-                    m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAdvisory)),
-                    "• <[Redefinir tudo]> para recomeçar e desbloquear tudo de novo por diversão."
-                },
 
                 // Confirmation modal Yes/No
                 {

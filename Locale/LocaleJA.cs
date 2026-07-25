@@ -99,10 +99,6 @@ namespace AchievementFixer
                     "誤って実行した場合は、[選択した実績を解除] ボタンで実績を戻すことができます。\n" +
                     "[すべてリセット] すると、最初から実績を取り直して遊べます。"
                 },
-                {
-                    m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAdvisory)),
-                    "• 実績を <[すべてリセット]> して、最初から取り直して遊べます。"
-                },
 
                 // Confirmation modal Yes/No
                 {

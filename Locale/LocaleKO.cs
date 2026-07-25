@@ -99,10 +99,6 @@ namespace AchievementFixer
                     "실수로 사용해도 [선택한 업적 해제] 버튼으로 업적을 복구할 수 있습니다.\n" +
                     "[전체 초기화] 하면 처음부터 업적을 다시 달성하며 즐길 수 있습니다."
                 },
-                {
-                    m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAdvisory)),
-                    "• 업적을 <[전체 초기화]>하고 처음부터 다시 달성해 보세요."
-                },
 
                 // Confirmation modal Yes/No
                 {

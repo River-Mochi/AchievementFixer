@@ -99,10 +99,6 @@ namespace AchievementFixer
                     "Se lo usi per errore, puoi ripristinarli con il pulsante [Sblocca selezionato].\n" +
                     "<[Azzera tutto]> per ricominciare e sbloccarli di nuovo per divertimento."
                 },
-                {
-                    m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAdvisory)),
-                    "[Azzera tutto] gli obiettivi per ricominciare e sbloccarli di nuovo per divertimento."
-                },
 
                 // Confirmation modal Yes/No
                 {

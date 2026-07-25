@@ -100,10 +100,6 @@ namespace AchievementFixer
                     "如果誤觸，可以利用 [解鎖所選成就] 按鈕恢復成就。\n" +
                     "[重設全部] 後可重新開始，再玩一次解鎖成就。"
                 },
-                {
-                    m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAdvisory)),
-                    "• <[重設全部]>成就，重新開始再解鎖一次。"
-                },
 
                 // Confirmation modal Yes/No
                 {

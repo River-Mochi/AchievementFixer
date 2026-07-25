@@ -100,10 +100,6 @@ namespace AchievementFixer
                     "Jeśli zrobisz to przypadkowo, możesz przywrócić osiągnięcia przyciskiem [ODBLOKUJ WYBRANE].\n" +
                     "[Zresetuj wszystko], aby zacząć od nowa i ponownie zdobywać osiągnięcia dla zabawy."
                 },
-                {
-                    m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAdvisory)),
-                    "• <[Zresetuj wszystko]>, aby zacząć od nowa i ponownie zdobywać osiągnięcia dla zabawy."
-                },
 
                 // Confirmation modal Yes/No
                 {
