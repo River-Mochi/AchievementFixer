@@ -64,7 +64,7 @@ namespace AchievementFixer
                 { m_Setting.GetOptionDescLocaleID(nameof(AFSettings.OpenParadoxButton)), "Open the **Paradox** webpage for this author's mods." },
 
                 { m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.OpenDiscordButton)), "Discord" },
-                { m_Setting.GetOptionDescLocaleID(nameof(AFSettings.OpenDiscordButton)), "Open the CS2 modding **Discord** in your browser." },
+                { m_Setting.GetOptionDescLocaleID(nameof(AFSettings.OpenDiscordButton)), "Open the CS2 **Discord** in your browser." },
 
                 { m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.OpenAchievementsWikiButton)), "Achievements Wiki" },
                 { m_Setting.GetOptionDescLocaleID(nameof(AFSettings.OpenAchievementsWikiButton)), "Open the achievements **Wiki** in your browser." },
@@ -84,7 +84,7 @@ namespace AchievementFixer
                 {
                     m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.AdvancedAdvisory)),
                     "• Note: achievements are <already enabled> (default) without using these Advanced buttons.\n\n" +
-                    "• If you are interested, hover over any button for details in the right side panel."
+                    "• Hover over any button for details in the right side panel."
                 },
                 {
                     m_Setting.GetOptionDescLocaleID(nameof(AFSettings.AdvancedAdvisory)),
@@ -96,6 +96,7 @@ namespace AchievementFixer
                 {
                     m_Setting.GetOptionDescLocaleID(nameof(AFSettings.ResetAllAchievements)),
                     "**WARNING**: clears/resets ALL achievements. Useful to debug or for testers.\n" +
+                    "• <[Reset all]> to start over (if you want to do it again for fun).\n" +
                     "If you accidentally use this, you can get achievements back by using the [Unlock Selected] button."
                 },
 
