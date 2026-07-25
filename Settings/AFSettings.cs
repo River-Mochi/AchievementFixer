@@ -298,11 +298,6 @@ namespace AchievementFixer
             }
         }
 
-        // Reset note under the button
-  //      [SettingsUIMultilineText]
-  //      [SettingsUISection(AdvancedTab, AdvRowDebug)]
-  //     public string ResetAllAdvisory => string.Empty;
-
         // ---- Helpers ----
 
         /// <summary> Dropdown: value = internalName, display = friendly name.</summary>

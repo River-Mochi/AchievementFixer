@@ -97,7 +97,7 @@ namespace AchievementFixer
                     m_Setting.GetOptionDescLocaleID(nameof(AFSettings.ResetAllAchievements)),
                     "**警告**: すべての実績をクリア／リセットします。テストやデバッグ用途向けです。\n" +
                     "誤って実行した場合は、[選択した実績を解除] ボタンで実績を戻すことができます。\n" +
-                    "[すべてリセット] すると、最初から実績を取り直して遊べます。"
+                    "<[すべてリセット]> すると、最初から実績を取り直して遊べます。"
                 },
 
                 // Confirmation modal Yes/No

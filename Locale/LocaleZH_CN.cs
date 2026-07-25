@@ -98,7 +98,7 @@ namespace AchievementFixer
                     m_Setting.GetOptionDescLocaleID(nameof(AFSettings.ResetAllAchievements)),
                     "**警告**：清除/重置所有成就，适用于测试或调试。\n" +
                     "如果不小心点击了，可以通过 [解锁所选成就] 按钮恢复成就。\n" +
-                    "[重置全部] 后可从头开始，再玩一次解锁成就。"
+                    "<[重置全部]> 后可从头开始，再玩一次解锁成就。"
                 },
 
                 // Confirmation modal Yes/No
