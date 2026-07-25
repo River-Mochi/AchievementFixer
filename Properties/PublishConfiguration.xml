@@ -7,43 +7,43 @@
 <ShortDescription Value="Earn achievements even with mods enabled. Keeps achievement tracking on. Enjoy :)" />
 <!--Long description of the mod. Single line or multi line. Supports minimal markdown subset-->
 <LongDescription>
-## Achievement Fixer
-Keeps achievements active even when you have mods.
+    ## Achievement Fixer
+    Keeps achievements active even when you have mods.
 
-### How it works
-* Just keep it installed - no set up needed.
-* Re-enables achievements after any city is loaded or switched.
-* Replaces the in-game warning ["Achievements are disabled because of mods"].
-* don't forget the Like button, top right, so more people know about the mod.
+    ### How it works
+    * Just keep it installed - no set up needed.
+    * Re-enables achievements after any city is loaded or switched.
+    * Replaces the in-game warning ["Achievements are disabled because of mods"].
+    * don't forget the Like button, top right, so more people know about the mod.
 
-### Notes
-* Safe to remove any time; does not touch saves.
-* Remove other "achievement" mods to avoid conflicts.
-* Game does not retroactively grant past progress. This prevents **future** misses by keeping the achievement flag `true`.
-* Mod does not use Harmony patch; safer and less likely to break with game updates.
+    ### Notes
+    * Safe to remove any time; does not touch saves.
+    * Remove other "achievement" mods to avoid conflicts.
+    * Game does not retroactively grant past progress. This prevents **future** misses by keeping the achievement flag `true`.
+    * Mod does not use Harmony patch; safer and less likely to break with game updates.
 
-### 13+ languages
-* English, Français, Deutsch, Español, Italiano, Polski, Tiếng Việt
-* 日本語, 한국어, 简体中文, 繁體中文, Português Brazilian, Português Portugal
+    ### 13+ languages
+    * Français, Deutsch, Español, Italiano, Polski, Português Brazilian
+    * 日本語, 한국어, 简体中文, 繁體中文, Tiếng Việt, Português Portugal, ไทย, Українська
 
-### Support and Feedback
-* If the mod helps you, give it a Like :)
-* Report issues on Github or Discord links (right side of page).
+    ### Support and Feedback
+    * If the mod helps you, give it a Like :)
+    * Report issues on Github or Discord links (right side of page).
 
-### Advanced tab
-- Past things done before installing the mod, the game will not suddenly give you the achievement.
-- You need to re-trigger the condition in-game again from scratch (keep this mod installed, and just do same things again).
-Or use the mod's Advanced tab buttons (you met the condition before, you deserve it).
-- Reset button to start over (if you want to do all achievements again for fun).
+    ### Advanced tab
+    - Past things done before installing the mod, the game will not suddenly give you the achievement.
+    - You need to re-trigger the condition in-game again from scratch (keep this mod installed, and just do same things again).
+    Or use the mod's Advanced tab buttons (you met the condition before, you deserve it).
+    - Reset button to start over (if you want to do all achievements again for fun).
 
-### Credits
-* RiverMochi - author
-* inspired by Wayzeware's old Achievement Enabler (defunct)
-* yenyang - code review and technical support.
-* rcav8tr - method to find game localization keys.
-* StarQ - technical support.
-* Necko1996 - testing
-* and the CS2 modding community for pointers and testing.
+    ### Credits
+    * RiverMochi - author
+    * inspired by Wayzeware's old Achievement Enabler (defunct)
+    * yenyang - code review and technical support.
+    * rcav8tr - method to find game localization keys.
+    * StarQ - technical support.
+    * Necko1996 - testing
+    * and the CS2 modding community for pointers and testing.
 
 </LongDescription>
 <!--Thumbnail-->

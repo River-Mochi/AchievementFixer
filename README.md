@@ -21,16 +21,16 @@ This keeps the game from disabling the achievements backend.
 4. Optional: use the Advanced tab to unlock/clear achievements manually for instant gratification or testing.
 5. Remove all other Achievement mods to avoid conflicts.
 
-
 ## Notes
 - If an achievement doesn’t pop right away, a game restart sometimes helps (CS2 quirk).
 
-## 13 languages
+## 15 languages
 * English, Français (French), Deutsch (German), Español (Spanish), Italiano (Italian), Polski (Polish)
-* 日本語 (Japanese), 한국어 (Korean), 简体中文 (Simplified Chinese), 繁體中文 (Traditional Chinese)
-* Português (Brasil) (Brazilian Portuguese)
-* Drop-down achievement names come from the game, so they match whatever game language you use (some languages like VI do not have an in-game dictionary).
-*  WIP: Tiếng Việt (Vietnamese)
+* 日本語 (Japanese), 한국어 (Korean), ไทย (Thai), Українська (Ukrainian)
+* 简体中文 (Simplified Chinese), 繁體中文 (Traditional Chinese)
+* Português (Brasil) (Brazilian Portuguese), Português (Portugal) (European Portuguese)
+* Some languages like VI do not have an in-game dictionary and require an additional language mod.
+* Tiếng Việt (Vietnamese)
 
 ## Advanced tab (optional)
 - **Select achievement** →
