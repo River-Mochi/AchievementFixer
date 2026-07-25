@@ -92,11 +92,16 @@ namespace AchievementFixer
                 },
 
                 // Advanced >> DEBUG
-                { m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAchievements)),  "DEBUG: REPOR TUDO" }, // Button label
+                { m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAchievements)), "DEBUG - REPOR TUDO" },
                 {
                     m_Setting.GetOptionDescLocaleID(nameof(AFSettings.ResetAllAchievements)),
                     "**AVISO**: limpa/repõe TODAS as conquistas. Útil para debug ou testes.\n" +
-                    "Se usares isto por engano, podes recuperar as conquistas com o botão [Unlock Selected]."
+                    "Se usares isto por engano, podes recuperar as conquistas com o botão [Unlock Selected].\n" +
+                    "<[Repor tudo]> para recomeçar e voltar a desbloquear as conquistas por diversão."
+                },
+                {
+                    m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAdvisory)),
+                    "• <[Repor tudo]> para recomeçar e voltar a desbloquear as conquistas por diversão."
                 },
 
                 // Confirmation modal Yes/No
@@ -112,3 +117,4 @@ namespace AchievementFixer
         }
     }
 }
+

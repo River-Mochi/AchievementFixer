@@ -93,11 +93,16 @@ namespace AchievementFixer
                 },
 
                 // Advanced >> DEBUG
-                { m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAchievements)),  "DEBUG: ZRESETUJ WSZYSTKO" }, // Button label
+                { m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAchievements)), "DEBUG - ZRESETUJ WSZYSTKO" },
                 {
                     m_Setting.GetOptionDescLocaleID(nameof(AFSettings.ResetAllAchievements)),
                     "**OSTRZEŻENIE**: czyści / resetuje WSZYSTKIE osiągnięcia. Przydatne do testów i debugowania.\n" +
-                    "Jeśli zrobisz to przypadkowo, możesz przywrócić osiągnięcia przyciskiem [ODBLOKUJ WYBRANE]."
+                    "Jeśli zrobisz to przypadkowo, możesz przywrócić osiągnięcia przyciskiem [ODBLOKUJ WYBRANE].\n" +
+                    "<[Zresetuj wszystko]>, aby zacząć od nowa i ponownie zdobywać osiągnięcia dla zabawy."
+                },
+                {
+                    m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAdvisory)),
+                    "• <[Zresetuj wszystko]>, aby zacząć od nowa i ponownie zdobywać osiągnięcia dla zabawy."
                 },
 
                 // Confirmation modal Yes/No
@@ -113,3 +118,4 @@ namespace AchievementFixer
         }
     }
 }
+

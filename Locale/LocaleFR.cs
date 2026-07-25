@@ -92,11 +92,16 @@ namespace AchievementFixer
                 },
 
                 // Advanced >> DEBUG
-                { m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAchievements)),  "DEBUG : TOUT RÉINITIALISER" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAchievements)), "DEBUG - TOUT RÉINITIALISER" },
                 {
                     m_Setting.GetOptionDescLocaleID(nameof(AFSettings.ResetAllAchievements)),
                     "**AVERTISSEMENT** : réinitialise **tous** les succès. Utile pour les tests.\n" +
-                    "Si vous l’utilisez par erreur, vous pouvez les récupérer avec le bouton [Déverrouiller la sélection]."
+                    "Si vous l’utilisez par erreur, vous pouvez les récupérer avec le bouton [Déverrouiller la sélection].\n" +
+                    "<[Tout réinitialiser]> pour repartir de zéro et les débloquer à nouveau pour le plaisir."
+                },
+                {
+                    m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAdvisory)),
+                    "• <[Tout réinitialiser]> les succès pour repartir de zéro et les débloquer à nouveau pour le plaisir."
                 },
 
                 // Confirmation modal Yes/No
@@ -112,3 +117,4 @@ namespace AchievementFixer
         }
     }
 }
+

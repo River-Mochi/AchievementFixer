@@ -93,11 +93,16 @@ namespace AchievementFixer
                 },
 
                 // Advanced >> DEBUG
-                { m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAchievements)),  "DEBUG: ĐẶT LẠI TẤT CẢ" }, // Button label
+                { m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAchievements)), "DEBUG - ĐẶT LẠI TẤT CẢ" },
                 {
                     m_Setting.GetOptionDescLocaleID(nameof(AFSettings.ResetAllAchievements)),
                     "**CẢNH BÁO**: xóa / đặt lại TẤT CẢ thành tựu. Hữu ích cho việc kiểm thử và debug.\n" +
-                    "Nếu lỡ tay, bạn có thể dùng [MỞ KHÓA ĐÃ CHỌN] để lấy lại thành tựu."
+                    "Nếu lỡ tay, bạn có thể dùng [MỞ KHÓA ĐÃ CHỌN] để lấy lại thành tựu.\n" +
+                    "<[Đặt lại tất cả]> để chơi lại từ đầu và mở khóa thành tựu lần nữa cho vui."
+                },
+                {
+                    m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAdvisory)),
+                    "• <[Đặt lại tất cả]> thành tựu để chơi lại từ đầu và mở khóa lần nữa cho vui."
                 },
 
                 // Confirmation modal Yes/No
@@ -113,3 +118,4 @@ namespace AchievementFixer
         }
     }
 }
+

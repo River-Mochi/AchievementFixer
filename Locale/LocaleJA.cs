@@ -92,11 +92,16 @@ namespace AchievementFixer
                 },
 
                 // Advanced >> DEBUG
-                { m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAchievements)),  "DEBUG: すべてリセット" }, // Button label
+                { m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAchievements)), "DEBUG - すべてリセット" },
                 {
                     m_Setting.GetOptionDescLocaleID(nameof(AFSettings.ResetAllAchievements)),
                     "**警告**: すべての実績をクリア／リセットします。テストやデバッグ用途向けです。\n" +
-                    "誤って実行した場合は、[選択した実績を解除] ボタンで実績を戻すことができます。"
+                    "誤って実行した場合は、[選択した実績を解除] ボタンで実績を戻すことができます。\n" +
+                    "<[すべてリセット]> すると、最初から実績を取り直して遊べます。"
+                },
+                {
+                    m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAdvisory)),
+                    "• 実績を <[すべてリセット]> して、最初から取り直して遊べます。"
                 },
 
                 // Confirmation modal Yes/No
@@ -112,3 +117,4 @@ namespace AchievementFixer
         }
     }
 }
+

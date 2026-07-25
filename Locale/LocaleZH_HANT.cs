@@ -93,11 +93,16 @@ namespace AchievementFixer
                 },
 
                 // Advanced >> DEBUG
-                { m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAchievements)),  "DEBUG: 重設全部" }, // Button label
+                { m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAchievements)), "DEBUG - 重設全部" },
                 {
                     m_Setting.GetOptionDescLocaleID(nameof(AFSettings.ResetAllAchievements)),
                     "**警告**：清除／重設所有成就，適合用來測試或除錯。\n" +
-                    "如果誤觸，可以利用 [解鎖所選成就] 按鈕恢復成就。"
+                    "如果誤觸，可以利用 [解鎖所選成就] 按鈕恢復成就。\n" +
+                    "<[重設全部]>後可重新開始，再玩一次解鎖成就。"
+                },
+                {
+                    m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAdvisory)),
+                    "• <[重設全部]>成就，重新開始再解鎖一次。"
                 },
 
                 // Confirmation modal Yes/No
@@ -113,3 +118,4 @@ namespace AchievementFixer
         }
     }
 }
+

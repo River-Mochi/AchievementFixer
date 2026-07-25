@@ -92,11 +92,16 @@ namespace AchievementFixer
                 },
 
                 // Advanced >> DEBUG
-                { m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAchievements)),  "DEBUG: 전체 초기화" }, // Button label
+                { m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAchievements)), "DEBUG - 전체 초기화" },
                 {
                     m_Setting.GetOptionDescLocaleID(nameof(AFSettings.ResetAllAchievements)),
                     "**경고**: 모든 업적을 초기화/삭제합니다. 테스트나 디버그용으로 유용합니다.\n" +
-                    "실수로 사용해도 [선택한 업적 해제] 버튼으로 업적을 복구할 수 있습니다."
+                    "실수로 사용해도 [선택한 업적 해제] 버튼으로 업적을 복구할 수 있습니다.\n" +
+                    "<[전체 초기화]>하면 처음부터 업적을 다시 달성하며 즐길 수 있습니다."
+                },
+                {
+                    m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAdvisory)),
+                    "• 업적을 <[전체 초기화]>하고 처음부터 다시 달성해 보세요."
                 },
 
                 // Confirmation modal Yes/No
@@ -112,3 +117,4 @@ namespace AchievementFixer
         }
     }
 }
+

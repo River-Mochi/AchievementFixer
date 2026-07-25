@@ -92,11 +92,16 @@ namespace AchievementFixer
                 },
 
                 // Advanced >> DEBUG
-                { m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAchievements)),  "DEBUG: СКИНУТИ ВСЕ" }, // Button label
+                { m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAchievements)), "DEBUG - СКИНУТИ ВСЕ" },
                 {
                     m_Setting.GetOptionDescLocaleID(nameof(AFSettings.ResetAllAchievements)),
                     "**ПОПЕРЕДЖЕННЯ**: очищає/скидає ВСІ досягнення. Корисно для налагодження або тестування.\n" +
-                    "Якщо зробити це випадково, досягнення можна повернути кнопкою [РОЗБЛОКУВАТИ ВИБРАНЕ]."
+                    "Якщо зробити це випадково, досягнення можна повернути кнопкою [РОЗБЛОКУВАТИ ВИБРАНЕ].\n" +
+                    "<[Скинути все]>, щоб почати спочатку й знову відкрити досягнення заради розваги."
+                },
+                {
+                    m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAdvisory)),
+                    "• <[Скинути все]>, щоб почати спочатку й знову відкрити досягнення заради розваги."
                 },
 
                 // Confirmation modal Yes/No
@@ -112,3 +117,4 @@ namespace AchievementFixer
         }
     }
 }
+

@@ -92,11 +92,16 @@ namespace AchievementFixer
                 },
 
                 // Advanced >> DEBUG
-                { m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAchievements)),  "DEBUG: ALLES ZURÜCKSETZEN" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAchievements)), "DEBUG - ALLES ZURÜCKSETZEN" },
                 {
                     m_Setting.GetOptionDescLocaleID(nameof(AFSettings.ResetAllAchievements)),
                     "**WARNUNG**: Setzt **alle** Erfolge zurück. Nützlich für Tests.\n" +
-                    "Wenn Sie dies versehentlich tun, können Sie sie mit der Schaltfläche [Ausgewählten freischalten] wiederherstellen."
+                    "Wenn Sie dies versehentlich tun, können Sie sie mit der Schaltfläche [Ausgewählten freischalten] wiederherstellen.\n" +
+                    "<[Alles zurücksetzen]>, um neu anzufangen und die Erfolge zum Spaß erneut freizuschalten."
+                },
+                {
+                    m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAdvisory)),
+                    "• <[Alles zurücksetzen]>, um neu anzufangen und die Erfolge zum Spaß erneut freizuschalten."
                 },
 
                 // Confirmation modal Yes/No
@@ -112,3 +117,4 @@ namespace AchievementFixer
         }
     }
 }
+

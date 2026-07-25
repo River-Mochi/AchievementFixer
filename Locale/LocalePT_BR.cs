@@ -94,11 +94,16 @@ namespace AchievementFixer
                 },
 
                 // Advanced >> DEBUG
-                { m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAchievements)),  "DEBUG: REDEFINIR TUDO" }, // Button label
+                { m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAchievements)), "DEBUG - REDEFINIR TUDO" },
                 {
                     m_Setting.GetOptionDescLocaleID(nameof(AFSettings.ResetAllAchievements)),
                     "**AVISO**: limpa / redefine TODAS as conquistas. Útil para testes e depuração.\n" +
-                    "Se fizer isso por engano, você pode restaurar conquistas usando [DESBLOQUEAR SELECIONADA]."
+                    "Se fizer isso por engano, você pode restaurar conquistas usando [DESBLOQUEAR SELECIONADA].\n" +
+                    "<[Redefinir tudo]> para recomeçar e desbloquear tudo de novo por diversão."
+                },
+                {
+                    m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAdvisory)),
+                    "• <[Redefinir tudo]> para recomeçar e desbloquear tudo de novo por diversão."
                 },
 
                 // Confirmation modal Yes/No
@@ -114,3 +119,4 @@ namespace AchievementFixer
         }
     }
 }
+

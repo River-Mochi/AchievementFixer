@@ -92,11 +92,16 @@ namespace AchievementFixer
                 },
 
                 // Advanced >> DEBUG
-                { m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAchievements)),  "DEBUG: AZZERA TUTTO" },
+                { m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAchievements)), "DEBUG - AZZERA TUTTO" },
                 {
                     m_Setting.GetOptionDescLocaleID(nameof(AFSettings.ResetAllAchievements)),
                     "**ATTENZIONE**: azzera **tutti** gli obiettivi. Utile per i test.\n" +
-                    "Se lo usi per errore, puoi ripristinarli con il pulsante [Sblocca selezionato]."
+                    "Se lo usi per errore, puoi ripristinarli con il pulsante [Sblocca selezionato].\n" +
+                    "<[Azzera tutto]> per ricominciare e sbloccarli di nuovo per divertimento."
+                },
+                {
+                    m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAdvisory)),
+                    "• <[Azzera tutto]> gli obiettivi per ricominciare e sbloccarli di nuovo per divertimento."
                 },
 
                 // Confirmation modal Yes/No
@@ -112,3 +117,4 @@ namespace AchievementFixer
         }
     }
 }
+
