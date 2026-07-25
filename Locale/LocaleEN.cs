@@ -92,12 +92,16 @@ namespace AchievementFixer
                 },
 
                 // Advanced >> DEBUG
-                { m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAchievements)),  "DEBUG: RESET ALL" }, // Button label
+                { m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAchievements)), "DEBUG - RESET ALL" },
                 {
                     m_Setting.GetOptionDescLocaleID(nameof(AFSettings.ResetAllAchievements)),
                     "**WARNING**: clears/resets ALL achievements. Useful to debug or for testers.\n" +
-                    "• <[Reset all]> to start over (if you want to do it again for fun).\n" +
-                    "If you accidentally use this, you can get achievements back by using the [Unlock Selected] button."
+                    "If you accidentally use this, you can get achievements back by using the [Unlock Selected] button.\n" +
+                     "<[Reset all]> to start over (if you want to earn them again for fun)."
+                },
+                {
+                    m_Setting.GetOptionLabelLocaleID(nameof(AFSettings.ResetAllAdvisory)),
+                    "• <[Reset all]> achievements to start over (if you want to earn them again for fun)."
                 },
 
                 // Confirmation modal Yes/No
@@ -105,6 +109,7 @@ namespace AchievementFixer
                     m_Setting.GetOptionWarningLocaleID(nameof(AFSettings.ResetAllAchievements)),
                     "Warning Warning: RESET/CLEAR all achievements to a NOT complete status. Continue?"
                 },
+
             };
         }
 
