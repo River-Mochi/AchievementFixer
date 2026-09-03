@@ -92,6 +92,7 @@ namespace AchievementFixer
             ["zh-HANS"] = "成就已由 Achievement Fixer 启用。",
             ["zh-HANT"] = "成就已由 Achievement Fixer 啟用。",
             ["th-TH"] = "เปิดใช้งานความสำเร็จโดย Achievement Fixer แล้ว",
+            ["tr-TR"] = "Başarımlar Achievement Fixer tarafından etkinleştirildi.",
             ["uk-UA"] = "Досягнення ввімкнено модом Achievement Fixer."
         };
 

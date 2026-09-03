@@ -69,14 +69,16 @@ namespace AchievementFixer
                 localizationManager.AddSource("it-IT", new LocaleIT(settings));
                 localizationManager.AddSource("ja-JP", new LocaleJA(settings));
                 localizationManager.AddSource("ko-KR", new LocaleKO(settings));
-                localizationManager.AddSource("vi-VN", new LocaleVI(settings));
                 localizationManager.AddSource("pl-PL", new LocalePL(settings));
                 localizationManager.AddSource("pt-BR", new LocalePT_BR(settings));
                 localizationManager.AddSource("pt-PT", new LocalePT_PT(settings));
                 localizationManager.AddSource("zh-HANS", new LocaleZH_CN(settings));
                 localizationManager.AddSource("zh-HANT", new LocaleZH_HANT(settings));
                 localizationManager.AddSource("th-TH", new LocaleTH(settings));
+                localizationManager.AddSource("tr-TR", new LocaleTR(settings));
                 localizationManager.AddSource("uk-UA", new LocaleUK(settings));
+                localizationManager.AddSource("vi-VN", new LocaleVI(settings));
+
 
                 // Override the game's built-in "achievements disabled" banner.
                 foreach (string localeId in LocaleBannerText.LocaleIds)
