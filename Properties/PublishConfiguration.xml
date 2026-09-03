@@ -14,8 +14,9 @@ Keeps achievements active even when you have mods.
 * Just keep it installed - no set up needed.
 * Re-enables achievements after any city is loaded or switched.
 * Replaces the in-game warning ["Achievements are disabled because of mods"].
-* No donations requested, just click Like button (top right) so more people know about the mod.
 * All source code shown (Github cat icon on the right). No mystery downloads or hidden code with no contact info.
+* No donations requested, just click Like button (top right) so more people know about the mod.
+
 
 ### Notes
 * Safe to remove any time; does not touch saves.
@@ -23,7 +24,7 @@ Keeps achievements active even when you have mods.
 * Game does not retroactively grant past progress. This prevents **future** misses by keeping the achievement flag `true`.
 * Mod does not use Harmony patch; safer and less likely to break with game updates.
 
-### 16 languages
+### 16 languages for full mod settings and banner text
 * English, Français, Deutsch, Español, Italiano, Polski, Türkçe
 * Português Brazilian, Português Portugal, Tiếng Việt, Українська, ไทย
 * 日本語, 한국어, 简体中文, 繁體中文
