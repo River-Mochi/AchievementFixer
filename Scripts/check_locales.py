@@ -6,8 +6,8 @@
 # all copies or substantial portions of this code.
 # ================= </copyright> ======================
 
-# File: Scripts/check_locales.py
-# Version: 0.4.1
+# File: Shared Lib Scripts/check_locales.py
+# Version: 0.4.2
 # Checks C# Locale*.cs dictionaries against LocaleEN.cs.
 # Supports either Locale/ or Localization/ folders.
 
@@ -47,9 +47,9 @@ DICT_START = re.compile(
     re.IGNORECASE | re.VERBOSE,
 )
 
-# City: Skylines II Options text uses <text> for green highlighted text.
-# Match only complete markers on one displayed line. Comparison operators and
-# breadcrumb separators such as "value > 0" or "Options > Interface" are
+# CS2 Options text uses <text> for green highlighted text.
+# Match only complete markers on one displayed line. 
+#  "value > 0" or "Options > Interface" are
 # handled separately by marker_issues().
 ANGLE_MARKER = re.compile(r"<([^<>\n]+)>")
 
